@@ -440,9 +440,9 @@ Consentono di costruire condizioni complesse a partire da condizioni più sempli
 * XOR (Binario)
 Possono essere definiti in maniera univoca con la **tavola della verità**:
 * **Operatori binari**
-![](./index/image_2020-09-30_14-07-27.png)
+![](../index/image_2020-09-30_14-07-27.png)
 * **Operatore unario NOT**
-![](./index/image_2020-09-30_14-07-40.png)
+![](../index/image_2020-09-30_14-07-40.png)
 Nel linguaggio C, la sintassi degli operatori logici è:
 ```c
 condition && condition //AND
@@ -1641,7 +1641,7 @@ Le istruzioni `printf` e `scanf` utilizzano questi flussi standard.
 La funzione `printf` è quindi equivalente alla funzione `fprintf(stdout, ...);`. Similmente, `scanf` equivale a `fscanf(stdin, ...)`.
 
 ### Struttura della tabella dei file aperti
-![](./index/Immagine%202020-11-04%20140430.png)
+![](../index/Immagine%202020-11-04%20140430.png)
 - - - -
 ## Parametri a riga di comando
 Il compilatore `gcc` si lancia con il comando `gcc source.c -o executablename`.
@@ -2045,7 +2045,7 @@ Per gestire la memoria virtuale, il sistema operativo dispone di diversi meccani
 * **Segmentazione**
 
 ### Modello di memoria
-![](./index/DC539A37-E3BF-4692-8077-BD9675A48912.png)
+![](../index/DC539A37-E3BF-4692-8077-BD9675A48912.png)
 * Il modello di memoria di un calcolatore è lineare
 * La memoria è una sequenza di celle numerate da 0 ad un valore massimo M
 * Il numero che identifica ogni cella è detto _indirizzo_
@@ -2063,13 +2063,13 @@ Generalmente, le dimensioni della memoria sono espresse in:
 * Gli indirizzi **contenuti in un programma eseguibile** sono indirizzi _virtuali_ e fanno riferimento alla _memoria virtuale_.
 * La memoria **effettivamente presente nel calcolatore** è la _memoria fisica_ ed i suoi indirizzi sono detti indirizzi _fisici_. La memoria fisica **può essere insufficiente** a contenere la memoria virtuale di tutti i processi.
 * La **rilocazione dinamica** è uno dei meccanismi di trasformazione tra indirizzi virtuali e fisici.
-![](./index/3DEDE6A4-984B-4E07-ADA3-17B9873410BD.png)
+![](../index/3DEDE6A4-984B-4E07-ADA3-17B9873410BD.png)
 La memoria virtuale e quella fisica non coincidono per i seguenti motivi:
 1. Nella memoria fisica risiedono _contemporaneamente_ sistema operativo e processi
 2. Conviene mantenere nella memoria fisica u_na sola copia_ di parti di programmi che sono _uguali in diversi processi_ (_memoria condivisa_)
 
 Per evitare la _frammentazione_ della memoria (ossia la presenza di spazi vuoti inutilizzabili), è utile allocare i programmi **suddividendoli in pezzi**.
-![](./index/7E1B3927-04B9-4A20-A5AE-7BF05AD29582.png)
+![](../index/7E1B3927-04B9-4A20-A5AE-7BF05AD29582.png)
 
 ### Rilocazione
  Il programma non ha accesso alla memoria fisica ma solo alla memoria virtuale, che appare al programma della dimensione totale della memoria installata nel sistema (o anche maggiore). Il programma può riempire la memoria virtuale a partire dall’indirizzo 0. Attraverso la _rilocazione_, dopo aver calcolato con la compilazione quanta memoria sarà usata, il kernel trova una sezione di memoria fisica libera di quella quantità e segna l’indirizzo iniziale di questa porzione nel _registro base_. Ogni volta che il programma prova ad accedere all’indirizzo 0, il kernel lo _reindirizzerà_ al vero indirizzo attraverso la somma di un offset.
@@ -2080,16 +2080,16 @@ Questo approccio causa un problema di frammentazione, risolvibile con la paginaz
 La memoria virtuale del programma viene **suddivisa in porzioni** (_pagine virtuali_) di **lunghezza fissa** (potenze di 2).
 La memoria fisica viene divisa in pagine fisiche della _stessa dimensione_.
 Le pagine virtuali di un programma vengono caricate in altrettante pagine fisiche, non necessariamente contigue.
-![](./index/44E465C2-EF50-4D5E-90EC-B6F6F1E6EDF0.png)
+![](../index/44E465C2-EF50-4D5E-90EC-B6F6F1E6EDF0.png)
 
 ### Struttura degli indirizzi virtuali e fisici
 Un indirizzo virtuale è costituito da un **numero di pagina virtuale** (_NVP_) e da uno _spiazzamento_ (**offset**) all’interno della pagina.
-![](./index/2BA3AEC4-BAA7-4AEC-A94D-63737998878D.png)
+![](../index/2BA3AEC4-BAA7-4AEC-A94D-63737998878D.png)
 Un indirizzo fisico ha la **stessa struttura** di un indirizzo virtuale.
-![](./index/8B500941-F106-42CE-86AB-8D63CF802148.png)
+![](../index/8B500941-F106-42CE-86AB-8D63CF802148.png)
 Passando da un indirizzo virtuale ad uno fisico, l’unica parte che viene _tradotta_ è il **numero di pagina virtuale**, poiché pagine virtuali e fisiche hanno la _stessa dimensione_. Il meccanismo più semplice per la traduzione delle pagine virtuali è la **tabella delle pagine**, che associa ad ogni pagina virtuale la corrispondente pagina fisica. Questa tabella viene memorizzata nella **MMU** (_Memory Management Unit_), una memoria associativa molto veloce e di dimensioni ridotte. Le memorie associative permettono di _cercare un oggetto in più righe della tabella_, per velocizzare il processo di traduzione.
 Poiché la tabella delle pagine sarebbe diversa per ogni processo, per non doverla ricostruire ogni volta che si cambia programma, la tabella contiene anche _una colonna con l’ID del processo in esecuzione_.
-![](./index/44E44B24-8DEC-4E02-8D33-4606231E3D9B.png)
+![](../index/44E44B24-8DEC-4E02-8D33-4606231E3D9B.png)
 
 Esempio:
 * Spazio di indirizzamento virtuale
@@ -2102,11 +2102,11 @@ Esempio:
 	* 4000000 di parole (o celle) ⇒ `2^22` indirizzi
 * Numero di pagine dello spazio di indirizzamento fisico
 	* `2^22 / 2^12 = 2^10` pagine
-![](./index/BEF14891-1541-43D3-BAA8-80B5E3BA6213.png)
+![](../index/BEF14891-1541-43D3-BAA8-80B5E3BA6213.png)
 
 ### Tabella delle pagine
 La tabella delle pagine è il meccanismo più semplice per la traduzione da virtuale e fisico.
-![](./index/3C412A4F-F1D3-4F71-942F-B28CEBA51EC5.png)
+![](../index/3C412A4F-F1D3-4F71-942F-B28CEBA51EC5.png)
 
 ### Memory Management Unit
 Per accelerare la traduzione da NPV a NPF si ricorre alla **MMU**, una _memoria associativa_ dalle dimensioni ridotte che contiene solo le informazioni sulle pagine più utilizzate.
@@ -2125,7 +2125,7 @@ Il sistema operativo si occupa di **gestire i file** sulla memoria di massa:
 * Accedere al file in lettura e scrittura
 La gestione dei file è _indipendente_ dalle caratteristiche fisiche della memoria di massa (HDD, SSD, NVMe).
 I file vengono inclusi all’interno di _directory_ (o _cataloghi_). Esse hanno una organizzazione tipicamente ad albero, anche se alcuni sistemi operativi permettono una struttura a grafo.
-![](./index/9FAA7E1C-73B0-4638-866B-2492CDBA39ED.png)
+![](../index/9FAA7E1C-73B0-4638-866B-2492CDBA39ED.png)
 
 ### Organizzazione dei file
 A ciascun utente è normalmente associata una directory specifica, detta _home directory_.
@@ -2163,7 +2163,7 @@ Consente l’inserimento di diversi comandi:
 ## Catena di sviluppo in C
 Il C è un linguaggio **compilato**.
 Si possono individuare cinque passi per passare dalla definizione di un algoritmo ad un programma in esecuzione che lo implementa:
-![](./index/453EE735-82A8-4C13-A505-3612423FDFD8.png)
+![](../index/453EE735-82A8-4C13-A505-3612423FDFD8.png)
 
 1. **Scrittura**
 	* Il programma, costituito da una sequenza di caratteri, viene **composto e modificato** usando un qualsiasi editor di testo
@@ -2198,7 +2198,7 @@ Il linguaggio macchina è un linguaggio di **basso livello** che viene progettat
 * Permette di sfruttare al meglio le risorse fisiche della macchina
 
 ### Un modello semplificato di calcolatore
-![](./index/Schermata%202020-11-25%20alle%2014.55.46.png)
+![](../index/Schermata%202020-11-25%20alle%2014.55.46.png)
 
 ### Quali istruzioni mi servono?
 #### Istruzioni I/O
@@ -2342,14 +2342,14 @@ In linguaggio macchina:
 
 ## Gestione della memoria con sottoprogrammi
 ### Gestione a pila o stack
-![](./index/Foto%2030%20nov%202020,%20093527.jpg)
+![](../index/Foto%2030%20nov%202020,%20093527.jpg)
 Un **record di attivazione** è una parte di memoria che serve al corretto funzionamento di una funzione e della sua terminazione.
 Il **record di attivazione** (_RA_) contiene:
 * Parametri attuali
 * Variabili locali
 * Indirizzo di ritorno (_RetAdd_)
 * (Valore precedente dello) stack pointer (_SP_)
-![](./index/4D9CA6BA-2D82-486F-BCB8-3BF689CD9F64.png)
+![](../index/4D9CA6BA-2D82-486F-BCB8-3BF689CD9F64.png)
 
 #### Funzionamento della chiamata
 * **Codice del chiamante**
@@ -2377,21 +2377,21 @@ Quello visto finora è un _linguaggio assemblativo_ (_assembly_), un linguaggio 
 
 ## Costruiamo il nostro linguaggio macchina
 ### Codice operativo delle istruzioni
-![](./index/Foto%2030%20nov%202020,%20100143.jpg)
+![](../index/Foto%2030%20nov%202020,%20100143.jpg)
 
 ### Dimensione operandi ed istruzioni
 Per semplicità, ipotizziamo che la memoria indirizzabile nel nostro sistema sia `2^10` celle (o parole). Sempre per semplicità, ipotizziamo che anche le costanti numeriche nei programmi siano comprese tra 0 e 1023. Tutti gli operandi sono quindi rappresentabili con 10 bit. Il codice operativo richiede 5 bit. Le istruzioni richiedono 15 bit, ma noi ne useremo 16 (1 bit di _padding_).
-![](./index/BB995665-587C-4D73-8F8C-3FF4393E93B7.png)
+![](../index/BB995665-587C-4D73-8F8C-3FF4393E93B7.png)
 - - - -
 ## Introduzione all’architettura del calcolatore e catena di programmazione in C
 ### La macchina di Von Neumann
-![](./index/IMG_9F6FA1B3CC58-1.jpeg)
+![](../index/IMG_9F6FA1B3CC58-1.jpeg)
 
 ### La memoria centrale
-![](./index/86B38B11-99D6-4E26-9874-1A009A569086.png)
+![](../index/86B38B11-99D6-4E26-9874-1A009A569086.png)
 
 ### L’unità di elaborazione (CPU)
-![](./index/5ECC0CE6-6F6E-48D1-9924-411B3AA902E0.png)
+![](../index/5ECC0CE6-6F6E-48D1-9924-411B3AA902E0.png)
 * **Clock**: gestisce la frequenza di operazione del processore
 * **Registro di stato**: registra delle flag che indicano certi eventi
 	* Bit di carry
@@ -2410,28 +2410,28 @@ Esistono Bus per diversi scopi:
 * Bus dati
 * Bus indirizzi
 * Bus controlli
-![](./index/60EFD431-941C-4082-88B9-FE5A113778BE.png)
+![](../index/60EFD431-941C-4082-88B9-FE5A113778BE.png)
 
 ### Interfacce periferiche
 Contengono le seguenti componenti:
 * Peripheral Data Register (PDR)
 * Peripheral Command Register (PCR)
 * Peripheral State Register (PSR)
-![](./index/CF0E1CB9-FD19-4B98-80A7-74E78CAF76E8.png)
+![](../index/CF0E1CB9-FD19-4B98-80A7-74E78CAF76E8.png)
 
 Esempio:
 Supponiamo di dover eseguire un’istruzione che carica il contenuto della cella di memoria all’indirizzo 123 nel registro R1
 `0100000111101101 LOAD 123, R1`
-![](./index/048E48E5-5126-4ECC-BF37-413C821B52A5.png)
+![](../index/048E48E5-5126-4ECC-BF37-413C821B52A5.png)
 * **Fase di fetch istruzione**: la CPU carica dalla memoria centrale la prossima istruzione da eseguire
-![](./index/2D76A97B-C360-4197-BAF3-BEF3A63C2750.png)
+![](../index/2D76A97B-C360-4197-BAF3-BEF3A63C2750.png)
 * **Fase di interpretazione istruzione**: comprendere l’istruzione presente nel registro
-![](./index/39949166-7852-4DB9-89C2-B9CAFCDD3ED7.png)
+![](../index/39949166-7852-4DB9-89C2-B9CAFCDD3ED7.png)
 * **Fase di esecuzione istruzione**: eseguire l’istruzione _decodificata_ precedentemente
-![](./index/38F90CFE-7C6F-4CC9-BA2D-847724D7EF02.png)
+![](../index/38F90CFE-7C6F-4CC9-BA2D-847724D7EF02.png)
 
 ### Lettura e scrittura di un dato in memoria centrale
 **Lettura**:
-![](./index/37B528B2-5176-4915-90FC-44655F32FD58.png)
+![](../index/37B528B2-5176-4915-90FC-44655F32FD58.png)
 **Scrittura**:
-![](./index/E5B63D01-57D8-48BF-8A5B-EB9DD28F1264.png)
+![](../index/E5B63D01-57D8-48BF-8A5B-EB9DD28F1264.png)

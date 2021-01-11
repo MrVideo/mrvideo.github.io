@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Introduzione al C (pubblico)</title>
+        <title>Introduzione al C</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="bear-note-unique-identifier" content="2D984674-61E7-49FA-BE41-5312E1BFF61A-779-00000004354DEB64">
         <meta name="created" content="2021-01-02T14:43:18+0100"/>
-        <meta name="modified" content="2021-01-11T09:18:43+0100"/>
+        <meta name="modified" content="2021-01-11T09:23:11+0100"/>
         <meta name="tags" content=""/>
         <meta name="last device" content="MacBook Pro di Mario"/>
     </head>
     <body>
         <div class="note-wrapper">
-            <h1 id="Introduzione al C (pubblico)">Introduzione al C (pubblico)</h1>
+            <h1 id="Introduzione al C">Introduzione al C</h1>
 <hr>
 <h1 id="Descrizione">Descrizione</h1>
 <p>Appunti del corso di <b>Fondamenti di Informatica</b> per l’anno accademico <b>2020/2021</b>.</p>
@@ -465,10 +465,10 @@ In C non c’è un tipo di dato specifico per rappresentare i concetti di vero e
 <p>Possono essere definiti in maniera univoca con la <b>tavola della verità</b>:</p>
 <ul><li><b>Operatori binari</b>
 </li></ul>
-<p><img src='Introduzione%20al%20C%20(pubblico)/image_2020-09-30_14-07-27.png'></p>
+<p><img src='index/image_2020-09-30_14-07-27.png'></p>
 <ul><li><b>Operatore unario NOT</b>
 </li></ul>
-<p><img src='Introduzione%20al%20C%20(pubblico)/image_2020-09-30_14-07-40.png'></p>
+<p><img src='index/image_2020-09-30_14-07-40.png'></p>
 <p>Nel linguaggio C, la sintassi degli operatori logici è:</p>
 <pre><code class='code-multiline' lang='c'>condition <span class="sf_code_operator">&&</span> condition <span class="sf_code_comment">//AND</span>
 condition <span class="sf_code_operator">||</span> condition <span class="sf_code_comment">//OR</span>
@@ -1628,7 +1628,7 @@ Per ogni file aperto, si tiene traccia di:
 <p>La funzione <code class='code-inline'>printf</code> è quindi equivalente alla funzione <code class='code-inline'>fprintf(stdout, ...);</code>. Similmente, <code class='code-inline'>scanf</code> equivale a <code class='code-inline'>fscanf(stdin, ...)</code>.</p>
 <br>
 <h3 id="Struttura della tabella dei file aperti">Struttura della tabella dei file aperti</h3>
-<p><img src='Introduzione%20al%20C%20(pubblico)/Immagine%202020-11-04%20140430.png'></p>
+<p><img src='index/Immagine%202020-11-04%20140430.png'></p>
 <hr>
 <h2 id="Parametri a riga di comando">Parametri a riga di comando</h2>
 <p>Il compilatore <code class='code-inline'>gcc</code> si lancia con il comando <code class='code-inline'>gcc source.c -o executablename</code>.</p>
@@ -2039,7 +2039,7 @@ lista <span class="sf_code_function">rimuovi</span><span class="sf_code_punctuat
 </li></ul>
 <br>
 <h3 id="Modello di memoria">Modello di memoria</h3>
-<p><img src='Introduzione%20al%20C%20(pubblico)/DC539A37-E3BF-4692-8077-BD9675A48912.png'></p>
+<p><img src='index/DC539A37-E3BF-4692-8077-BD9675A48912.png'></p>
 <ul><li>Il modello di memoria di un calcolatore è lineare
 </li><li>La memoria è una sequenza di celle numerate da 0 ad un valore massimo M
 </li><li>Il numero che identifica ogni cella è detto <i>indirizzo</i>
@@ -2060,14 +2060,14 @@ lista <span class="sf_code_function">rimuovi</span><span class="sf_code_punctuat
 </li><li>La memoria <b>effettivamente presente nel calcolatore</b> è la <i>memoria fisica</i> ed i suoi indirizzi sono detti indirizzi <i>fisici</i>. La memoria fisica <b>può essere insufficiente</b> a contenere la memoria virtuale di tutti i processi.
 </li><li>La <b>rilocazione dinamica</b> è uno dei meccanismi di trasformazione tra indirizzi virtuali e fisici.
 </li></ul>
-<p><img src='Introduzione%20al%20C%20(pubblico)/3DEDE6A4-984B-4E07-ADA3-17B9873410BD.png'></p>
+<p><img src='index/3DEDE6A4-984B-4E07-ADA3-17B9873410BD.png'></p>
 <p>La memoria virtuale e quella fisica non coincidono per i seguenti motivi:</p>
 <ol start="1"><li>Nella memoria fisica risiedono <i>contemporaneamente</i> sistema operativo e processi
 </li><li>Conviene mantenere nella memoria fisica u<i>na sola copia</i> di parti di programmi che sono <i>uguali in diversi processi</i> (<i>memoria condivisa</i>)
 </li></ol>
 <br>
 <p>Per evitare la <i>frammentazione</i> della memoria (ossia la presenza di spazi vuoti inutilizzabili), è utile allocare i programmi <b>suddividendoli in pezzi</b>.</p>
-<p><img src='Introduzione%20al%20C%20(pubblico)/7E1B3927-04B9-4A20-A5AE-7BF05AD29582.png'></p>
+<p><img src='index/7E1B3927-04B9-4A20-A5AE-7BF05AD29582.png'></p>
 <br>
 <h3 id="Rilocazione">Rilocazione</h3>
 <p> Il programma non ha accesso alla memoria fisica ma solo alla memoria virtuale, che appare al programma della dimensione totale della memoria installata nel sistema (o anche maggiore). Il programma può riempire la memoria virtuale a partire dall’indirizzo 0. Attraverso la <i>rilocazione</i>, dopo aver calcolato con la compilazione quanta memoria sarà usata, il kernel trova una sezione di memoria fisica libera di quella quantità e segna l’indirizzo iniziale di questa porzione nel <i>registro base</i>. Ogni volta che il programma prova ad accedere all’indirizzo 0, il kernel lo <i>reindirizzerà</i> al vero indirizzo attraverso la somma di un offset.</p>
@@ -2078,16 +2078,16 @@ lista <span class="sf_code_function">rimuovi</span><span class="sf_code_punctuat
 <p>La memoria virtuale del programma viene <b>suddivisa in porzioni</b> (<i>pagine virtuali</i>) di <b>lunghezza fissa</b> (potenze di 2).</p>
 <p>La memoria fisica viene divisa in pagine fisiche della <i>stessa dimensione</i>.</p>
 <p>Le pagine virtuali di un programma vengono caricate in altrettante pagine fisiche, non necessariamente contigue.</p>
-<p><img src='Introduzione%20al%20C%20(pubblico)/44E465C2-EF50-4D5E-90EC-B6F6F1E6EDF0.png'></p>
+<p><img src='index/44E465C2-EF50-4D5E-90EC-B6F6F1E6EDF0.png'></p>
 <br>
 <h3 id="Struttura degli indirizzi virtuali e fisici">Struttura degli indirizzi virtuali e fisici</h3>
 <p>Un indirizzo virtuale è costituito da un <b>numero di pagina virtuale</b> (<i>NVP</i>) e da uno <i>spiazzamento</i> (<b>offset</b>) all’interno della pagina.</p>
-<p><img src='Introduzione%20al%20C%20(pubblico)/2BA3AEC4-BAA7-4AEC-A94D-63737998878D.png'></p>
+<p><img src='index/2BA3AEC4-BAA7-4AEC-A94D-63737998878D.png'></p>
 <p>Un indirizzo fisico ha la <b>stessa struttura</b> di un indirizzo virtuale.</p>
-<p><img src='Introduzione%20al%20C%20(pubblico)/8B500941-F106-42CE-86AB-8D63CF802148.png'></p>
+<p><img src='index/8B500941-F106-42CE-86AB-8D63CF802148.png'></p>
 <p>Passando da un indirizzo virtuale ad uno fisico, l’unica parte che viene <i>tradotta</i> è il <b>numero di pagina virtuale</b>, poiché pagine virtuali e fisiche hanno la <i>stessa dimensione</i>. Il meccanismo più semplice per la traduzione delle pagine virtuali è la <b>tabella delle pagine</b>, che associa ad ogni pagina virtuale la corrispondente pagina fisica. Questa tabella viene memorizzata nella <b>MMU</b> (<i>Memory Management Unit</i>), una memoria associativa molto veloce e di dimensioni ridotte. Le memorie associative permettono di <i>cercare un oggetto in più righe della tabella</i>, per velocizzare il processo di traduzione.</p>
 <p>Poiché la tabella delle pagine sarebbe diversa per ogni processo, per non doverla ricostruire ogni volta che si cambia programma, la tabella contiene anche <i>una colonna con l’ID del processo in esecuzione</i>.</p>
-<p><img src='Introduzione%20al%20C%20(pubblico)/44E44B24-8DEC-4E02-8D33-4606231E3D9B.png'></p>
+<p><img src='index/44E44B24-8DEC-4E02-8D33-4606231E3D9B.png'></p>
 <br>
 <p>Esempio:</p>
 <ul><li>Spazio di indirizzamento virtuale
@@ -2102,11 +2102,11 @@ lista <span class="sf_code_function">rimuovi</span><span class="sf_code_punctuat
 <ul><li>	<code class='code-inline'>2^22 / 2^12 = 2^10</code> pagine
 </li></ul>
 </li></ul>
-<p><img src='Introduzione%20al%20C%20(pubblico)/BEF14891-1541-43D3-BAA8-80B5E3BA6213.png'></p>
+<p><img src='index/BEF14891-1541-43D3-BAA8-80B5E3BA6213.png'></p>
 <br>
 <h3 id="Tabella delle pagine">Tabella delle pagine</h3>
 <p>La tabella delle pagine è il meccanismo più semplice per la traduzione da virtuale e fisico.</p>
-<p><img src='Introduzione%20al%20C%20(pubblico)/3C412A4F-F1D3-4F71-942F-B28CEBA51EC5.png'></p>
+<p><img src='index/3C412A4F-F1D3-4F71-942F-B28CEBA51EC5.png'></p>
 <br>
 <h3 id="Memory Management Unit">Memory Management Unit</h3>
 <p>Per accelerare la traduzione da NPV a NPF si ricorre alla <b>MMU</b>, una <i>memoria associativa</i> dalle dimensioni ridotte che contiene solo le informazioni sulle pagine più utilizzate.</p>
@@ -2126,7 +2126,7 @@ lista <span class="sf_code_function">rimuovi</span><span class="sf_code_punctuat
 </li></ul>
 <p>La gestione dei file è <i>indipendente</i> dalle caratteristiche fisiche della memoria di massa (HDD, SSD, NVMe).</p>
 <p>I file vengono inclusi all’interno di <i>directory</i> (o <i>cataloghi</i>). Esse hanno una organizzazione tipicamente ad albero, anche se alcuni sistemi operativi permettono una struttura a grafo.</p>
-<p><img src='Introduzione%20al%20C%20(pubblico)/9FAA7E1C-73B0-4638-866B-2492CDBA39ED.png'></p>
+<p><img src='index/9FAA7E1C-73B0-4638-866B-2492CDBA39ED.png'></p>
 <br>
 <h3 id="Organizzazione dei file">Organizzazione dei file</h3>
 <p>A ciascun utente è normalmente associata una directory specifica, detta <i>home directory</i>.</p>
@@ -2170,7 +2170,7 @@ lista <span class="sf_code_function">rimuovi</span><span class="sf_code_punctuat
 <h2 id="Catena di sviluppo in C">Catena di sviluppo in C</h2>
 <p>Il C è un linguaggio <b>compilato</b>.</p>
 <p>Si possono individuare cinque passi per passare dalla definizione di un algoritmo ad un programma in esecuzione che lo implementa:</p>
-<p><img src='Introduzione%20al%20C%20(pubblico)/453EE735-82A8-4C13-A505-3612423FDFD8.png'></p>
+<p><img src='index/453EE735-82A8-4C13-A505-3612423FDFD8.png'></p>
 <br>
 <ol start="1"><li><b>Scrittura</b>
 </li></ol>
@@ -2217,7 +2217,7 @@ lista <span class="sf_code_function">rimuovi</span><span class="sf_code_punctuat
 </li></ul>
 <br>
 <h3 id="Un modello semplificato di calcolatore">Un modello semplificato di calcolatore</h3>
-<p><img src='Introduzione%20al%20C%20(pubblico)/Schermata%202020-11-25%20alle%2014.55.46.png'></p>
+<p><img src='index/Schermata%202020-11-25%20alle%2014.55.46.png'></p>
 <br>
 <h3 id="Quali istruzioni mi servono?">Quali istruzioni mi servono?</h3>
 <h4 id="Istruzioni IO">Istruzioni IO</h4>
@@ -2357,7 +2357,7 @@ s <span class="sf_code_operator">=</span> <span class="sf_code_number">0</span><
 <p><br></p>
 <h3 id="Gestione della memoria con sottoprogrammi">Gestione della memoria con sottoprogrammi</h3>
 <h4 id="Gestione a pila o stack">Gestione a pila o stack</h4>
-<p><img src='Introduzione%20al%20C%20(pubblico)/Foto%2030%20nov%202020,%20093527.jpg'></p>
+<p><img src='index/Foto%2030%20nov%202020,%20093527.jpg'></p>
 <p>Un <b>record di attivazione</b> è una parte di memoria che serve al corretto funzionamento di una funzione e della sua terminazione.</p>
 <p>Il <b>record di attivazione</b> (<i>RA</i>) contiene:</p>
 <ul><li>Parametri attuali
@@ -2365,7 +2365,7 @@ s <span class="sf_code_operator">=</span> <span class="sf_code_number">0</span><
 </li><li>Indirizzo di ritorno (<i>RetAdd</i>)
 </li><li>(Valore precedente dello) stack pointer (<i>SP</i>)
 </li></ul>
-<p><img src='Introduzione%20al%20C%20(pubblico)/4D9CA6BA-2D82-486F-BCB8-3BF689CD9F64.png'></p>
+<p><img src='index/4D9CA6BA-2D82-486F-BCB8-3BF689CD9F64.png'></p>
 <br>
 <h4 id="Funzionamento della chiamata">Funzionamento della chiamata</h4>
 <ul><li><b>Codice del chiamante</b>
@@ -2396,21 +2396,21 @@ s <span class="sf_code_operator">=</span> <span class="sf_code_number">0</span><
 <br>
 <h3 id="Costruiamo il nostro linguaggio macchina">Costruiamo il nostro linguaggio macchina</h3>
 <h4 id="Codice operativo delle istruzioni">Codice operativo delle istruzioni</h4>
-<p><img src='Introduzione%20al%20C%20(pubblico)/Foto%2030%20nov%202020,%20100143.jpg'></p>
+<p><img src='index/Foto%2030%20nov%202020,%20100143.jpg'></p>
 <br>
 <h4 id="Dimensione operandi ed istruzioni">Dimensione operandi ed istruzioni</h4>
 <p>Per semplicità, ipotizziamo che la memoria indirizzabile nel nostro sistema sia <code class='code-inline'>2^10</code> celle (o parole). Sempre per semplicità, ipotizziamo che anche le costanti numeriche nei programmi siano comprese tra 0 e 1023. Tutti gli operandi sono quindi rappresentabili con 10 bit. Il codice operativo richiede 5 bit. Le istruzioni richiedono 15 bit, ma noi ne useremo 16 (1 bit di <i>padding</i>).</p>
-<p><img src='Introduzione%20al%20C%20(pubblico)/BB995665-587C-4D73-8F8C-3FF4393E93B7.png'></p>
+<p><img src='index/BB995665-587C-4D73-8F8C-3FF4393E93B7.png'></p>
 <hr>
 <h2 id="Introduzione all’architettura del calcolatore e catena di programmazione in C">Introduzione all’architettura del calcolatore e catena di programmazione in C</h2>
 <h3 id="La macchina di Von Neumann">La macchina di Von Neumann</h3>
-<p><img src='Introduzione%20al%20C%20(pubblico)/IMG_9F6FA1B3CC58-1.jpeg'></p>
+<p><img src='index/IMG_9F6FA1B3CC58-1.jpeg'></p>
 <br>
 <h3 id="La memoria centrale">La memoria centrale</h3>
-<p><img src='Introduzione%20al%20C%20(pubblico)/86B38B11-99D6-4E26-9874-1A009A569086.png'></p>
+<p><img src='index/86B38B11-99D6-4E26-9874-1A009A569086.png'></p>
 <br>
 <h3 id="L’unità di elaborazione (CPU)">L’unità di elaborazione (CPU)</h3>
-<p><img src='Introduzione%20al%20C%20(pubblico)/5ECC0CE6-6F6E-48D1-9924-411B3AA902E0.png'></p>
+<p><img src='index/5ECC0CE6-6F6E-48D1-9924-411B3AA902E0.png'></p>
 <ul><li><b>Clock</b>: gestisce la frequenza di operazione del processore
 </li><li><b>Registro di stato</b>: registra delle flag che indicano certi eventi
 <ul><li>	Bit di carry
@@ -2431,7 +2431,7 @@ s <span class="sf_code_operator">=</span> <span class="sf_code_number">0</span><
 </li><li>Bus indirizzi
 </li><li>Bus controlli
 </li></ul>
-<p><img src='Introduzione%20al%20C%20(pubblico)/60EFD431-941C-4082-88B9-FE5A113778BE.png'></p>
+<p><img src='index/60EFD431-941C-4082-88B9-FE5A113778BE.png'></p>
 <br>
 <h3 id="Interfacce periferiche">Interfacce periferiche</h3>
 <p>Contengono le seguenti componenti:</p>
@@ -2439,27 +2439,27 @@ s <span class="sf_code_operator">=</span> <span class="sf_code_number">0</span><
 </li><li>Peripheral Command Register (PCR)
 </li><li>Peripheral State Register (PSR)
 </li></ul>
-<p><img src='Introduzione%20al%20C%20(pubblico)/CF0E1CB9-FD19-4B98-80A7-74E78CAF76E8.png'></p>
+<p><img src='index/CF0E1CB9-FD19-4B98-80A7-74E78CAF76E8.png'></p>
 <br>
 <p>Esempio:</p>
 <p>Supponiamo di dover eseguire un’istruzione che carica il contenuto della cella di memoria all’indirizzo 123 nel registro R1</p>
 <p><code class='code-inline'>0100000111101101 LOAD 123, R1</code></p>
-<p><img src='Introduzione%20al%20C%20(pubblico)/048E48E5-5126-4ECC-BF37-413C821B52A5.png'></p>
+<p><img src='index/048E48E5-5126-4ECC-BF37-413C821B52A5.png'></p>
 <ul><li><b>Fase di fetch istruzione</b>: la CPU carica dalla memoria centrale la prossima istruzione da eseguire
 </li></ul>
-<p><img src='Introduzione%20al%20C%20(pubblico)/2D76A97B-C360-4197-BAF3-BEF3A63C2750.png'></p>
+<p><img src='index/2D76A97B-C360-4197-BAF3-BEF3A63C2750.png'></p>
 <ul><li><b>Fase di interpretazione istruzione</b>: comprendere l’istruzione presente nel registro
 </li></ul>
-<p><img src='Introduzione%20al%20C%20(pubblico)/39949166-7852-4DB9-89C2-B9CAFCDD3ED7.png'></p>
+<p><img src='index/39949166-7852-4DB9-89C2-B9CAFCDD3ED7.png'></p>
 <ul><li><b>Fase di esecuzione istruzione</b>: eseguire l’istruzione <i>decodificata</i> precedentemente
 </li></ul>
-<p><img src='Introduzione%20al%20C%20(pubblico)/38F90CFE-7C6F-4CC9-BA2D-847724D7EF02.png'></p>
+<p><img src='index/38F90CFE-7C6F-4CC9-BA2D-847724D7EF02.png'></p>
 <br>
 <h3 id="Lettura e scrittura di un dato in memoria centrale">Lettura e scrittura di un dato in memoria centrale</h3>
 <p><b>Lettura</b>:</p>
-<p><img src='Introduzione%20al%20C%20(pubblico)/37B528B2-5176-4915-90FC-44655F32FD58.png'></p>
+<p><img src='index/37B528B2-5176-4915-90FC-44655F32FD58.png'></p>
 <p><b>Scrittura</b>:</p>
-<p><img src='Introduzione%20al%20C%20(pubblico)/E5B63D01-57D8-48BF-8A5B-EB9DD28F1264.png'></p>
+<p><img src='index/E5B63D01-57D8-48BF-8A5B-EB9DD28F1264.png'></p>
         </div>
         <script type="text/javascript">
             (function() {

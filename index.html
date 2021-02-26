@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="bear-note-unique-identifier" content="B089F06B-A475-488E-8B70-1BB489DBF389-3048-000000619FDCA0CB">
         <meta name="created" content="2021-02-23T13:19:12+0100"/>
-        <meta name="modified" content="2021-02-23T16:56:49+0100"/>
-        <meta name="tags" content="università, università/internet"/>
+        <meta name="modified" content="2021-02-26T10:13:01+0100"/>
+        <meta name="tags" content="università/internet, università"/>
         <meta name="last device" content="MacBook Pro di Mario"/>
     </head>
     <body>
@@ -31,6 +31,28 @@
 </li></ul></li><li>	<a href="#Cosa significa oggi sviluppare un'applicazione"">/Cosa significa oggi sviluppare un'applicazione</a>
 </li></ul></li><li><a href="#Elementi di Internet"">/Elementi di Internet</a>
 <ul><li>	<a href="#Cos’è Internet?"">/Cos’è Internet?</a>
+</li></ul></li><li><a href="#Commutazione"">/Commutazione</a>
+<ul><li>	<a href="#Esempio di commutazione di pacchetto"">/Esempio di commutazione di pacchetto</a>
+<ul><li>		<a href="#Pacchetto"">/Pacchetto</a>
+</li><li>		<a href="#Modello di nodo (packet switch-router)"">/Modello di nodo (packet switch-router)</a>
+</li><li>		<a href="#Contesa per le risorse"">/Contesa per le risorse</a>
+</li><li>		<a href="#Comunicazione in Internet ed efficienza"">/Comunicazione in Internet ed efficienza</a>
+</li><li>		<a href="#Esempio di trasmissione"">/Esempio di trasmissione</a>
+</li><li>		<a href="#Frammentazione e ritardo end-to-end"">/Frammentazione e ritardo end-to-end</a>
+</li><li>		<a href="#Datagram e circuito virtuale"">/Datagram e circuito virtuale</a>
+</li></ul></li></ul></li><li><a href="#Parametri di prestazione"">/Parametri di prestazione</a>
+<ul><li>	<a href="#Rete end-to-end"">/Rete end-to-end</a>
+</li><li>	<a href="#Velocità e tempo di trasmissione"">/Velocità e tempo di trasmissione</a>
+</li><li>	<a href="#Ritardo di accodamento"">/Ritardo di accodamento</a>
+</li><li>	<a href="#Throughput"">/Throughput</a> 
+</li><li>	<a href="#Perdita"">/Perdita</a>
+</li></ul></li><li><a href="#Livello fisico"">/Livello fisico</a>
+<ul><li>	<a href="#Segnali"">/Segnali</a>
+<ul><li>		<a href="#Analisi di Fourier"">/Analisi di Fourier</a>
+</li><li>		<a href="#Esempio di spettro di un segnale"">/Esempio di spettro di un segnale</a>
+</li><li>		<a href="#Caratterizzazione spettrale dei segnali analogici"">/Caratterizzazione spettrale dei segnali analogici</a>
+</li><li>		<a href="#Dalla generazione alla trasmissione digitale"">/Dalla generazione alla trasmissione digitale</a>
+</li></ul>
 </li></ul>
 </li></ul>
 <hr>
@@ -251,7 +273,172 @@
 <ol start="1"><li>Modello <b>client/server</b>
 </li><li>Modello <b>peer-to-peer</b>
 </li></ol>
-<ul><li>		La rete che trasporta i dati <b>non fa distinzione tra i modelli</b></li></ul>
+<ul><li>		La rete che trasporta i dati <b>non fa distinzione tra i modelli</b>
+</li></ul>
+<br>
+<h2 id="Commutazione">Commutazione</h2>
+<p>Principio fondamentale: come viene organizzata e smistata l’informazione in una rete?</p>
+<ol start="1"><li>Commutazione <b>di circuito</b>: le risorse trasmissive sono dedicate alla comunicazione; esiste un circuito soltanto con sorgente e destinazione; si definisce <i>connection-oriented</i>
+</li></ol>
+<p><img src='index/Schermata%202021-02-25%20alle%2008.38.31.png'></p>
+<ol start="2"><li>Commutazione <b>di pacchetto</b>: dati inviati in rete con <i>messaggi</i> (pacchetti, UI, PDU); vengono condivisi con varie coppie sorgente-destinazione; non vengono riservate risorse per coppie specifiche e quindi si definisce generalmente <i>connectionless</i>
+</li></ol>
+<p>La scelta del tipo di commutazione dipende dal <b>servizio da offrire</b> e quindi dal <b>tipo di informazione</b> da scambiare.</p>
+<p>Tempo fa, la commutazione di circuito veniva usata per le comunicazioni telefoniche. Ad ogni telefonata si dedicava un circuito completo che collegava direttamente sorgente (chiamante) e destinazione (chiamato).</p>
+<p>Le risorse di rete sono suddivise in <i>fette</i>, e ciascuna fetta viene allocata ad un <i>circuito</i>, ossia ad un flusso di informazione continuo. Le risorse rimangono <b>inattive se non utilizzate</b> e non possono in ogni caso essere condivise.</p>
+<p>La suddivisione delle risorse nelle comunicazioni di circuito si fanno a livello fisico generalmente, con metodi quali:</p>
+<ul><li>divisione di frequenza
+</li><li>divisione di tempo
+</li><li>divisione di lunghezza d’onda
+</li></ul>
+<p>All’interno dei nodi, nella commutazione di circuito, viene conservata la matrice input-output, ossia come vengono collegati i circuiti in entrata con quelli in uscita. All’inizio della comunicazione viene fatta quest’associazione e non è necessario memorizzare l’informazione lungo il circuito una volta instaurato.</p>
+<p>Il tempo di instaurazione della connessione si aggiunge al ritardo totale di trasferimento, dove il ritardo di trasferimento è l’intervallo di tempo tra l’apertura della connessione e l’arrivo dell’ultimo bit a destinazione. L’elaborazione, la propagazione e la trasmissione del messaggio in uscita avvengono solo prima dell’instaurazione del collegamento.</p>
+<p>La <b>commutazione di pacchetto</b> invece <i>spezza l’informazione stessa in fette</i>, non i canali di trasmissione. Per fare ciò, è necessario aggiungere un <i>header</i> o <i>overhead</i> contenenti informazioni di servizio al <i>payload</i>, il contenuto stesso dell’oggetto.</p>
+<p>I vantaggi che si hanno suddividendo il contenuto in pacchetti sono:</p>
+<ul><li>Tutti i pacchetti condividono le risorse di rete
+</li><li>Ciascun pacchetto utilizza completamente il canale per un determinato intervallo di tempo, non determinato a priori
+</li><li>Le risorse vengono usate a seconda delle necessità
+</li></ul>
+<br>
+<h3 id="Esempio di commutazione di pacchetto">Esempio di commutazione di pacchetto</h3>
+<h4 id="Pacchetto">Pacchetto</h4>
+<ul><li>Header contenente l’indirizzo di destinazione
+</li><li>Payload
+</li></ul>
+<p>Attraverso la <i>tabella di instradamento</i>, che associa ciascun indirizzo di destinazione ad un prossimo nodo, il router ridirige il pacchetto attraverso una delle sue porte verso la destinazione, selezionando effettivamente il percorso corretto.</p>
+<h4 id="Modello di nodo (packet switch-router)">Modello di nodo (packet switch-router)</h4>
+<ul><li>Capacità dei collegamenti arbitraria
+</li><li>Possono esserci conflitti temporali per la trasmissione
+</li><li>È necessario memorizzare temporaneamente il pacchetto
+<ul><li>	All’ingresso, per analizzare la destinazione
+</li><li>	All’uscita, per gestire le contese (generalmente segue la regola <i>First In First Out</i>
+</li></ul>
+</li></ul>
+<h4 id="Contesa per le risorse">Contesa per le risorse</h4>
+<ul><li><i>Store and forward</i>: il commutatore riceve l’intero pacchetto prima di poter cominciare a trasmettere sul collegamento in uscita
+</li><li><i>Multiplazione statistica</i>: accomodamento dei pacchetti ed attesa per l’utilizzo del collegamento
+</li></ul>
+<h4 id="Comunicazione in Internet ed efficienza">Comunicazione in Internet ed efficienza</h4>
+<p>Per la comunicazione attraverso Internet si usa la <b>commutazione di pacchetto</b>. La maggiore efficienza però è anche causa di problemi, quali:</p>
+<ul><li><b>Perdita di pacchetti</b>: dovuta alla dimensione finita dei buffer. Sono necessari dei <i>protocolli</i> per il trasferimento affidabili e per il controllo della gestione
+</li><li><b>Ritardo non determinabile a priori</b>: si può stimare tramite modelli probabilistici e statistici ma non deterministici
+</li></ul>
+<h4 id="Esempio di trasmissione">Esempio di trasmissione</h4>
+<p>Non c’è tempo di instaurazione della connessione nella commutazione di pacchetto. Il ritardo è dovuto ad ogni <i>hop</i> a:</p>
+<ul><li>Propagazione
+</li><li>Trasmissione o ritrasmissione (comportamento <i>Store & Forward</i>)
+</li><li>Elaborazione
+</li><li>Accodamento
+</li></ul>
+<p>Propagazione e trasmissione sono componenti <b>deterministiche</b>, mentre l’elaborazione e l’attesa sono contributi <b>casuali</b>, che non possono essere calcolati con certezza a priori.</p>
+<h4 id="Frammentazione e ritardo end-to-end">Frammentazione e ritardo end-to-end</h4>
+<p>Grazie alla commutazione di pacchetto, posso parallelizzare la trasmissione di pacchetti e inviare due pacchetti, elaborandoli contemporaneamente. Questo processo è chiamato <b>frammentazione</b>.</p>
+<p>Frammentando un pacchetto in più parti, nonostante debba aggiungere un <i>overhead</i> per ogni frammento del pacchetto, posso parallelizzare la trasmissione dei frammenti ed avere un <b>ritardo complessivo minore</b>.</p>
+<p>Il numero di frammenti in cui va spezzato un pacchetto va scelto con ragionevolezza, poiché frammentare troppo può portare a ritardi maggiori.</p>
+<h4 id="Datagram e circuito virtuale">Datagram e circuito virtuale</h4>
+<p>Nella commutazione <b>Datagram</b>, la scelta della porta d’uscita viene fatta sulla base del solo indirizzo IP di destinazione. I pacchetti dello stesso flusso sono inoltrati indipendentemente. Si usa per questo metodo la tabella di instradamento dei router.</p>
+<p>Nel caso del <b>circuito virtuale</b>, i nodi identificano i pacchetti di un flusso informativo sulla base di un <b>identificativo di circuito virtuale</b> (<i>VCI</i> o <i>Label</i>). Il circuito virtuale viene instaurato in una fase di setup prima della fase di dati, che rende questo metodo <i>connection-oriented</i>. Dopo la fase di setup, i pacchetti seguono tutti lo stesso percorso di rete e sono instradati sulla base dell’identificativo di circuito virtuale.</p>
+<hr>
+<h2 id="Parametri di prestazione">Parametri di prestazione</h2>
+<p>Sono tre:</p>
+<ul><li>Ritardo
+</li><li>Perdita
+</li><li>Throughput
+</li></ul>
+<br>
+<h3 id="Rete end-to-end">Rete end-to-end</h3>
+<p><img src='index/Schermata%202021-02-25%20alle%2009.48.23.png'></p>
+<p>Contributi di ritardo:</p>
+<ul><li>Trasmissione
+</li><li>Propagazione
+</li><li>Ricezione
+</li></ul>
+<p>Nella realtà questi tre momenti avvengono con continuità.</p>
+<br>
+<h3 id="Velocità e tempo di trasmissione">Velocità e tempo di trasmissione</h3>
+<p>La velocità di trasmissione è la velocità (<i>rate</i>) <b>C</b> con la quale l’informazione digitale viene trasmessa su una linea (<i>canale</i>). È misurata in bit/s (o bps) o suoi multipli.</p>
+<p>Il tempo <b>T</b> necessario per trasmettere <i>L</i> bit dipende dalla velocità di trasmissione. Si ha <code class='code-inline'>T = L / C</code>.</p>
+<p>Il ritardo di propagazione è il tempo tau affinché un impulso generato dal trasmettitore TX raggiunga il ricevitore RX. Dipende dalla distanza <i>d</i> in metri e dalla velocità di propagazione della luce nel mezzo fisico <i>v</i> in metri al secondo. Si ha <code class='code-inline'>tau = d / v</code>.</p>
+<p>Per le onde radio, la velocità <i>v</i> è pari a 300000 km<i>s, mentre per la propagazione guidata /v</i> è pari a 200000 km/s.</p>
+<p>Il tempo di attraversamento del canale è quindi <code class='code-inline'>T(tot) = T + tau</code>.</p>
+<br>
+<h3 id="Ritardo di accodamento">Ritardo di accodamento</h3>
+<p><img src='index/Schermata%202021-02-25%20alle%2010.06.36.png'></p>
+<br>
+<h3 id="Throughput">Throughput</h3>
+<p>È la quantità di informazione trasportata (con successo) da una rete o porzione di rete nell’unità di tempo. Si abbrevia con <b>THR</b> e si misura in bit/s.</p>
+<p>Su un collegamento di capacità <i>C</i>, si definisce una quantità simile al THR, detta <b>Traffico</b>, che si calcola come <code class='code-inline'>A = THR / C</code> e si misura in <i>Erlang</i>. Assume valori tra 0 e 1 compresi ed è, di fatto, una misura di efficienza.</p>
+<br>
+<h3 id="Perdita">Perdita</h3>
+<p>È un indice della quantità di informazione persa nell’attraversamento della rete. Può essere riferita ai pacchetti o ai bit (si parla di <i>tasso di errore sul bit</i>, o <i>Bit Error Rate</i>).</p>
+<p>La perdita è determinata da:</p>
+<ul><li>Ricezione di UI corrotte
+</li><li>Saturazione dei buffer lungo il percorso end-to-end
+</li></ul>
+<p>È espressa attraverso una probabilità <i>pi greco</i>: <code class='code-inline'>pi greco = numero bit o UI persi / numero bit o UI trasmessi</code></p>
+<hr>
+<h2 id="Livello fisico">Livello fisico</h2>
+<h3 id="Segnali">Segnali</h3>
+<p>I segnali possono essere divisi in due categorie:</p>
+<ul><li>Segnali <b>fisici</b>
+<ul><li>	Sorgenti analogiche o continue
+</li><li>	Associati a grandezze fisiche e tipicamente continue
+</li></ul></li><li>Segnali <b>logici</b>
+<ul><li>	Sorgenti digitali/numeriche o discrete
+</li><li>	Sequenze <i>nativamente</i> numeriche oppure segnali fisici digitalizzati
+</li></ul>
+</li></ul>
+<p>L’informazione trasportata da Internet è sempre in forma numerica, anche se l’informazione originale è prodotta da una sorgente analogica.</p>
+<p><img src='index/Schermata%202021-02-26%20alle%2008.51.59.png'></p>
+<p>Un segnale si può rappresentare con una <b>funzione del tempo</b>.</p>
+<ul><li><b>Segnali a tempo continuo</b>: <code class='code-inline'>s(t), t &gt;= 0</code>, dove s(t) rappresenta la variazione continua di un segnale nel tempo
+</li><li><b>Segnali a tempo discreto</b>: rappresenta una sequenza di impulsi ideali che si succedono a intervalli regolari
+</li><li><b>Segnale periodico</b>: si ripete nel tempo dopo ciascun periodo <i>T</i>. Nella realtà, i segnali di interesse non sono mai perfettamente periodici, ma variazioni di essi sono spesso usate per la loro semplicità di analisi.
+</li></ul>
+<h4 id="Analisi di Fourier">Analisi di Fourier</h4>
+<p><img src='index/E86BD6CF-7116-4C3E-8147-4EBBEB2C555B.png'></p>
+<p>L’analisi di Fourier serve a trasformare matematicamente un segnale dal dominio del tempo al dominio della frequenza.</p>
+<p>L’analisi di Fourier consente di studiare qualsiasi segnale scomponendolo in <b>sinusoidi</b>.</p>
+<p>I segnali periodici di periodo <i>T</i> possono essere scomposti in un numero <i>discreto</i> di sinusoidi (<b>serie di Fourier</b>) di frequenza multipla della <b>frequenza fondamentale</b> (o <i>armonica fondamentale</i>) <code class='code-inline'>f0 = 1 / T</code>:</p>
+<p><img src='index/DC5B9E9A-0542-40EF-91A3-E1EF0DA6A656.png'></p>
+<p>Le sinusoidi costituenti sono dette <b>armoniche</b> o <b>componenti spettrali</b>. Ciascuna di esse ha una sua ampiezza <code class='code-inline'>Sn = sqrt(a^2 + b^2)</code> ed in generale è presenta anche una componente <b>continua</b> <code class='code-inline'>a0</code>, che è un valore costante.</p>
+<br>
+<h4 id="Esempio di spettro di un segnale">Esempio di spettro di un segnale</h4>
+<p><img src='index/Schermata%202021-02-26%20alle%2009.10.44.png'></p>
+<p>Una sinusoide di periodo <i>T</i> e frequenza <code class='code-inline'>f0 = 1 / T</code> nel dominio del tempo può essere rappresentata nel dominio delle frequenze dalla sola componente alla frequenza <i>f0</i>.</p>
+<p><img src='index/8602549D-88F2-49B7-A7BD-782B2F3B2405.png'></p>
+<p>In questo caso, il segnale è più complesso rispetto ad una sinusoide.</p>
+<p><img src='index/Schermata%202021-02-26%20alle%2009.17.53.png'></p>
+<p>In questo caso invece, troviamo anche una componente continua</p>
+<p><img src='index/5D1A5CC6-6EC8-41AA-A0A8-E7638BBB4A37.png'></p>
+<p>Onda a dente di sega</p>
+<br>
+<h4 id="Caratterizzazione spettrale dei segnali analogici">Caratterizzazione spettrale dei segnali analogici</h4>
+<p>La trasformata di Fourier generalizza la serie di Fourier al caso di segnali <b>non periodici</b>.</p>
+<p>La trasformata scompone i segnali non periodici in un <b>insieme continuo di armoniche</b>.</p>
+<p>Ogni componente è in generale moltiplicata per un <b>coefficiente complesso</b>, che determina <b>un’ampiezza ed una fase</b> della sinusoide.</p>
+<p>La funzione <i>X(f)</i> che descrive le ampiezze e le fasi delle sinusoidi componenti è lo <b>spettro</b> del segnale <i>x(t)</i>.</p>
+<p><b>Banda di un segnale</b> (<i>B</i>): intervallo di frequenze che caratterizzano un segnale.</p>
+<p>Esistono due tipi di segnali:</p>
+<ul><li>A <b>banda stretta</b>: variano lentamente nel tempo
+</li><li>A <b>banda larga</b>: variano velocemente nel tempo
+</li></ul>
+<p><b>Esempi di bande</b>:</p>
+<ul><li><b>Segnale telefonico</b>: 300 - 4000 Hz
+</li><li><b>Voce</b>: 300 - 8000 Hz
+</li><li><b>Musica</b>: 100 - 20.000 Hz
+</li><li><b>TV analogica PAL</b>: 0 - 5 MHz
+</li><li><b>Cinema</b>: 0 - 500 MHz
+</li></ul>
+<br>
+<h4 id="Dalla generazione alla trasmissione digitale">Dalla generazione alla trasmissione digitale</h4>
+<p>Per poter trasmettere un segnale analogico, è necessario trasformarlo in un segnale digitale. Si fa attraverso tre fasi.</p>
+<ol start="1"><li><b>Campionamento</b>: trasformazione di un segnale tempo continuo ad un segnale tempo discreto. Il <b>Teorema di Nyquist</b> (o <i>teorema del campionamento</i>) dice che un segnale tempo variante è completamente determinato dai suoi campioni presi a intervalli di durata <i>Tc</i> tale che <code class='code-inline'>Tc &lt; 1 / 2fMax</code>, dove <i>fMax</i> è la frequenza massima nello spettro del segnale. La frequenza di Nyquist è la frequenza minima da usare per il campionamento: <code class='code-inline'>fc &gt; fN = 2fMax</code>. Se non si rispetta  il teorema di Nyquist, si rischia di non poter ricostruire il segnale originale fedelmente (<b>aliasing</b>). Se invece la frequenza di campionamento è esattamente il doppio della frequenza massima del segnale, campionando negli istanti di attraversamento degli zeri si possono confondere sinusoide e componente continua. La ricostruzione del segnale al ricevitore avviene con un <b>filtro</b> che <i>taglia</i> le frequenze oltre <i>B</i>.</li></ol>
+<img src='index/6B2EB126-A243-474C-BEFA-D9AC3EF7AA6A.png'>
+<ol start="2"><li><b>Quantizzazione</b>: è l’operazione con cui una grandezza che assume valori in un intervallo continuo è trasformata in un valore all’interno di un <b>set discreto di valori</b>. Nella trasformazione si commette un <b>errore di quantizzazione</b>, dovuto all’approssimazione. Più livelli ci sono, minore sarà l’errore di quantizzazione. Aumentare livelli di quantizzazione però aumenta il numero di bit da utilizzare.
+</li></ol>
+<p><img src='index/Schermata%202021-02-26%20alle%2009.59.36.png'></p>
+<ol start="3"><li><b>Codifica</b>: ciascun campione quantizzato è codificato, ossia trasformato in bit, in funzione del numero di livelli <i>l</i> secondo questa espressione: <code class='code-inline'>l = 2^m</code></li></ol>
 
         </div>
         <script type="text/javascript">

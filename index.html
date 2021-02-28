@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="bear-note-unique-identifier" content="B089F06B-A475-488E-8B70-1BB489DBF389-3048-000000619FDCA0CB">
         <meta name="created" content="2021-02-23T13:19:12+0100"/>
-        <meta name="modified" content="2021-02-26T10:13:01+0100"/>
+        <meta name="modified" content="2021-02-28T20:39:33+0100"/>
         <meta name="tags" content="università/internet, università"/>
         <meta name="last device" content="MacBook Pro di Mario"/>
     </head>
@@ -275,7 +275,80 @@
 </li></ol>
 <ul><li>		La rete che trasporta i dati <b>non fa distinzione tra i modelli</b>
 </li></ul>
+<hr>
+<h2 id="Modelli funzionali e architetture a livelli">Modelli funzionali e architetture a livelli</h2>
+<h3 id="Servizio di comunicazione">Servizio di comunicazione</h3>
+<p>Si considerano due nodi (A e B), in due zone geografiche differenti, che vogliono <i>comunicare</i>. Il <b>servizio di comunicazione</b> è ciò che i due nodi utilizzano per trasportare l’informazione da A a B, ossia è il <i>fornitore del servizio di trasporto dell’informazione</i>.</p>
+<p>Esempi:</p>
+<ul><li>Il servizio postale
+</li><li>Servizi di online gaming
+</li></ul>
+<p>Il servizio di trasferimento può trasportare diversi tipi di informazioni (flussi audio, video, messaggi applicativi, pacchetti, bit).</p>
+<h4 id="Primitive di servizio">Primitive di servizio</h4>
+<p>Il servizio di comunicazione può essere descritto mediante delle <b>chiamate di servizio</b>, chiamate <i>primitive di servizio</i>. In generale, servono a descrivere il servizio, a richiederlo ed a ricevere le informazioni sul servizio dal fornitore. Sono caratterizzate da <i>parametri</i> quali:</p>
+<ul><li>Informazione da trasferire
+</li><li>Indicazione del destinatario
+</li><li>Caratteristiche del servizio richiesto
+</li></ul>
+<h4 id="Caratteristiche del servizio di comunicazione">Caratteristiche del servizio di comunicazione</h4>
+<p><b>Modalità a connessione</b>:</p>
+<ol start="1"><li>Instaurazione della connessione
+</li><li>Trasferimento dell’informazione
+</li><li>Rilascio della connessione
+</li></ol>
+<p><b>Modalità senza connessione</b>: una sola fase: trasferimento dell’informazione</p>
+<h4 id="Protocollo di comunicazione">Protocollo di comunicazione</h4>
+<p>Insieme di regole che gestiscono il <i>colloquio</i> tra entità. Riguarda:</p>
+<ul><li>Il formato dei messaggi
+</li><li>Le informazioni di servizio
+</li><li>Gli algoritmi di trasferimento
+</li></ul>
+<p>Quando due entità colloquiano tra loro, sono dette di <i>pari livello</i>.</p>
+<h4 id="Packet Data Units (PDU)">Packet Data Units (PDU)</h4>
+<p>Unità di trasferimento delle informazioni, tipicamente una sequenza di bit. Possono contenere sia dati dell’informazione da trasferire, sia informazioni di servizio. La PDU ha un formato specifico. È formata da due parti:</p>
+<ol start="1"><li><b>Header</b>: contiene le informazioni di servizio
+</li><li><b>Dati</b>: informazione da trasferire
+</li></ol>
 <br>
+<h3 id="Livelli">Livelli</h3>
+<p>Se le entità sono in grado di colloquiare tra loro, possono offrire loro stesse un servizio di comunicazione ad un <i>livello superiore</i>. Le entità di livello superiore possono <i>sfruttare</i> il servizio di comunicazione costruito sui nodi del livello inferiore per scambiarsi dati. Il livello più basso si definisce <i>livello fisico</i>.</p>
+<h4 id="Funzioni dei livelli">Funzioni dei livelli</h4>
+<p>Il servizio di comunicazione è più ricco grazie all’implementazione di <i>funzioni</i> sui vari livelli.</p>
+<h4 id="Architettura a livelli">Architettura a livelli</h4>
+<p>I servizi più complessi possono essere articolati a livelli, da un livello che garantisce solo il trasporto dei bit ad un livello dove sono definiti complessi servizi caratterizzati da molti parametri e funzionalità. Nel caso di internet, i livelli sono <b>cinque</b>:</p>
+<ul><li><b>Livello 5</b>: busta di livello 5: vengono inseriti l’header e le informazioni che vogliamo inviare 
+</li><li><b>Livello 4</b>: prendiamo la busta di livello 5 e la inseriamo nella busta di livello 4: i dati del nuovo pacchetto sono header e contenuto del pacchetto
+</li><li><b>Livello 3</b>: stesso processo
+</li><li><b>Livello 2</b>: stesso processo
+</li><li><b>Livello 1</b>: trasferimento fisico delle informazioni da un nodo all’altro
+</li></ul>
+<p>Nel nodo opposto, le regole del protocollo vengono interpretate. Effettivamente si <i>aprono</i> le buste mano a mano che si sale nella <i>pila di protocolli</i>.</p>
+<h4 id="Perché un’architettura a livelli?">Perché un’architettura a livelli?</h4>
+<p>Serve a consentire di svolgere una serie di funzioni separandole a livelli diversi. La separazione è utile perché la complessità nell’implementazione delle diverse funzioni può essere <i>relegata</i> a livelli diversi. Separare i livelli consente una modularità di implementazione che possono essere affidati a parti hardware diversi o a sviluppatori software diversi.</p>
+<br>
+<h3 id="Modello a livelli di internet (TCP/IP)">Modello a livelli di internet (TCP/IP)</h3>
+<ul><li>Livello più alto: <b>livello applicativo</b> (<i>Application</i>). Le PDU di questo livello vengono chiamati <b>messaggi</b> (<i>Messages</i>). È il livello usato dalle applicazioni e che contiene i protocolli applicativi.
+</li><li><b>Livello di trasporto</b> (<i>Transport</i>): trasporta i <b>segmenti</b> (<i>Segments</i>). Ha il compito di consegnare le informazioni tra nodi
+</li><li><b>Livello rete</b> (<i>Network</i>): trasporta i <b>pacchetti</b> (<i>Packets</i>). Questo livello è importante per la gestione della consegna delle informazioni attraverso le vie della rete
+</li><li><b>Livello di linea</b> (<i>Data Link</i>): trasporta le <b>trame</b> (<i>Frames</i>)
+</li><li>Livello più basso: <b>Livello fisico</b> (<i>Physical</i>): trasporta i Bit a livello fisico nella rete.
+</li></ul>
+<p><b>TCP/IP</b>: indica due protocolli:</p>
+<ul><li><i>Transport Control Protocol</i> (Livello 4)
+</li><li><i>Internet Protocol</i> (Livello 3)
+</li></ul>
+<br>
+<h3 id="Funzioni">Funzioni</h3>
+<p>Sono molteplici le funzioni che possono essere svolte da un livello, ma alcuni esempi base sono:</p>
+<ul><li><b>Multiplazione</b> e <b>de-multiplazione</b>: consente ad un livello di ricevere unità informative da più livelli superiori (come avere più utenti dello stesso servizio di comunicazione). La de-multiplazione è il processo opposto che avviene al nodo destinatario. Per funzionare, si basa su etichette oppure indirizzi che distinguono le utenze del servizio. L’etichetta usata è identificata dalla <b>porta logica</b>: ogni applicazione è distinta da un numero di porta specifico, che è aggiunto all’<b>indirizzo di rete</b> di ogni nodo.
+</li><li><b>Controllo d’errore</b>: verifica che le informazioni ricevute siano corrette e nella giusta sequenza di ricezione. Vengono inserite nel pacchetto informazioni aggiuntive per il controllo d’errore. Il destinatario controlla i dati del controllo d’errore per vedere se i dati sono corretti. Nel caso non ci siano errori, il destinatario invia un pacchetto chiamato <b>ACK</b>, che indica al mittente che lo scambio è avvenuto senza errori. Se l’ACK non viene inviato, dopo un <i>timeout</i> il client invia nuovamente lo stesso pacchetto. Viene usato ai livelli 2 e 4 della rete internet.
+</li><li><b>Instradamento</b> (<i>routing</i>): implementa il meccanismo che consente all’<i>entità instradante</i> di definire che strada far seguire all’informazione per raggiungere la sua destinazione.  L’entità instradante può ricevere informazioni dal livello superiore, in modo da ricevere l’<b>indirizzo</b>, oltre che alle informazioni da spedire. Quando questo pacchetto viene passato al livello 2, nell’header viene inserito anche l’indirizzo a cui il pacchetto deve essere inviato. L’indirizzo consente alle entità intermedie di proseguire nel percorso verso la destinazione. Il pacchetto può arrivare da una porta d’ingresso, viene portato all’entità instradante, che ne analizzerà l’header che contiene l’indirizzo. Grazie al processo chiamato <b>table lookup</b>, l’entità controlla l’indirizzo del pacchetto con una lista di indirizzi per decidere dove mandare il pacchetto perché arrivi alla giusta destinazione. Se il pacchetto arriva da una porta d’ingresso, <b>non sale mai oltre l’entità instradante</b> se non all’arrivo a destinazione. Esistono molti modi per compiere l’instradamento. Nel caso dei <b>router</b>, viene usata una funzione di livello 3. Nel caso dei <b>network switch</b>, l’instradamento avviene al livello 2 con tabelle differenti. Esiste anche la possibilità di fare instradamento al livello 5 grazie ai <b>proxy</b>.
+</li></ul>
+<h4 id="Chi scrive le tabelle di instradamento?">Chi scrive le tabelle di instradamento?</h4>
+<p>Le tabelle di instradamento possono essere <b>scritti a mano</b> (<i>Human Defined Networking</i>). Questo meccanismo manuale configura <i>rotte statiche</i> di Internet.</p>
+<p>Oggi, il meccanismo più comunemente utilizzato è formato dai <b>protocolli di instradamento</b>, meccanismi che consentono ai nodi di comunicare tra loro e di scrivere <i>automaticamente</i> le tabelle. I router possono imparare autonomamente le righe della tabella da scrivere mediante meccanismi distribuiti.</p>
+<p>Da alcuni anni sta emergendo un nuovo meccanismo di gestione di rete chiamato <b>Software Defined Networking</b> (<i>SDN</i>). In questo caso, è un software che, al posto dell’umano, scrive le righe delle tabelle di instradamento. In alcuni contesti, rappresenta un modo sofisticato di modificare il modo in cui funzionano le reti.</p>
+<hr>
 <h2 id="Commutazione">Commutazione</h2>
 <p>Principio fondamentale: come viene organizzata e smistata l’informazione in una rete?</p>
 <ol start="1"><li>Commutazione <b>di circuito</b>: le risorse trasmissive sono dedicate alla comunicazione; esiste un circuito soltanto con sorgente e destinazione; si definisce <i>connection-oriented</i>

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="bear-note-unique-identifier" content="B089F06B-A475-488E-8B70-1BB489DBF389-3048-000000619FDCA0CB">
         <meta name="created" content="2021-02-23T13:19:12+0100"/>
-        <meta name="modified" content="2021-02-28T20:39:33+0100"/>
+        <meta name="modified" content="2021-03-06T12:29:56+0100"/>
         <meta name="tags" content="università/internet, università"/>
         <meta name="last device" content="MacBook Pro di Mario"/>
     </head>
@@ -511,8 +511,312 @@
 <ol start="2"><li><b>Quantizzazione</b>: è l’operazione con cui una grandezza che assume valori in un intervallo continuo è trasformata in un valore all’interno di un <b>set discreto di valori</b>. Nella trasformazione si commette un <b>errore di quantizzazione</b>, dovuto all’approssimazione. Più livelli ci sono, minore sarà l’errore di quantizzazione. Aumentare livelli di quantizzazione però aumenta il numero di bit da utilizzare.
 </li></ol>
 <p><img src='index/Schermata%202021-02-26%20alle%2009.59.36.png'></p>
-<ol start="3"><li><b>Codifica</b>: ciascun campione quantizzato è codificato, ossia trasformato in bit, in funzione del numero di livelli <i>l</i> secondo questa espressione: <code class='code-inline'>l = 2^m</code></li></ol>
-
+<ol start="3"><li><b>Codifica</b>: ciascun campione quantizzato è codificato, ossia trasformato in bit, in funzione del numero di livelli <i>l</i> secondo questa espressione: <code class='code-inline'>l = 2^m</code>
+</li></ol>
+<h4 id="Flussi binari equivalenti">Flussi binari equivalenti</h4>
+<p>Il bitrate ottimale per trasmettere un segnale dipende dalla sua banda. La formula generale per calcolare il bitrate ottimale è <code class='code-inline'>Rb = 2B*b</code>, dove <i>B</i> è la banda e <i>b</i> sono i bit usati per la quantizzazione.</p>
+<br>
+<h3 id="Modulazione">Modulazione</h3>
+<p>La sequenza digitale viene usata per modificare, ossia <i>modulare</i>, uno dei parametri (ampiezza, frequenza, fase…) di un segnale fisico inviato nel mezzo trasmissivo.</p>
+<p><img src='index/3EC25E8C-BE1E-4B7E-AB4B-42F1D2CC30E8.png'></p>
+<p>La modulazione può avvenire in <i>banda base</i> o in <i>banda passante</i>:</p>
+<ul><li><b>Banda base</b>: i segnali hanno uno spettro contiguo rispetto all’origine. Un esempio è la <b>PAM</b> (<i>Pulse Amplitude Modulation</i>), in cui il bit corrisponde ad un impulso di ampiezza positiva (1) o negativa (0).
+</li><li><b>Banda passante</b> o <b>traslata</b>:  i segnali da modulare hanno uno spettro traslato su intervalli di frequenze non contigue all’origine. Si usa un’onda elettromagnetica detta <b>portante</b> (<i>carrier</i>) ad una determinata frequenza <i>fp</i> per traslare lo spettro del segnale intorno alla frequenza della portante.
+</li></ul>
+<h4 id="Modulazione d’ampiezza analogica">Modulazione d’ampiezza analogica</h4>
+<p>Moltiplico l’onda del segnale da modulare con la sinusoide base per ottenere il segnale modulato da inviare</p>
+<p><img src='index/557828D2-CB4E-4FE3-B2FC-F5DD74E2ECEC.png'></p>
+<p>Si ottiene uno spettro di segnale effettivamente <i>traslato</i>:</p>
+<p><img src='index/B3035F98-8CA9-4EA3-82B5-6F6468E18C20.png'></p>
+<h4 id="Modulazione numerica (o digitale) in banda traslata">Modulazione numerica (o digitale) in banda traslata</h4>
+<p>In base ai valori che assumono i bit da trasmettere si modula uno dei parametri della sinusoide portante:</p>
+<ul><li>Modulazione d’ampiezza (<b>ASK</b>, <i>Amplitude Shift Keying</i>)
+</li><li>Modulazione di frequenza (<b>FSK</b>, <i>Frequency Shift Keying</i>)
+</li><li>Modulazione di fase (<b>PSK</b>, <i>Phase Shift Keying</i>)
+</li><li>Modulazione <b>QAM</b> (<i>Quadrature-Amplitude Modulation</i>): cambiamento misto di ampiezza e fase
+</li></ul>
+<p>Per aumentare la capacità di canale è possibile incrementare l’ordine della modulazione: <b>Modulazione Multilivello</b>.</p>
+<p>Servono:</p>
+<ul><li>Un bitrate in ingresso diviso in gruppi di <code class='code-inline'>log2(N)</code>
+</li><li>N livelli diversi
+</li><li>Ad ogni simbolo/impulso corrispondono <code class='code-inline'>n = log2(N)</code> 
+</li></ul>
+<h4 id="Esempi">Esempi</h4>
+<p><b>PAM con 4 livelli di ampiezza</b>:</p>
+<p><img src='index/D3040CEF-A942-4914-9A02-401B87F1A15E.png'></p>
+<p>Si definisce in questo contesto una velocità <i>diversa</i> dal bitrate, chiamata <b>baud rate</b>, che misura il numero di simboli al secondo. Vale la relazione <code class='code-inline'>Rb = Rs * log2(N)</code>.</p>
+<p><b>Modulazione multilivello di fase</b>:</p>
+<p><img src='index/Schermata%202021-03-02%20alle%2015.29.59.png'></p>
+<p>Dove <i>I</i> rappresenta la portante <i>in fase</i> (cosinusoide), mentre <i>Q</i> rappresenta la portante <i>in quadratura</i> (sinusoide). I valori differenti di seno e coseno sono coloro che distinguono i <i>baud</i> da trasmettere.</p>
+<p>Modulazione multilivello di ampiezza e fase (<b>QAM</b>):</p>
+<p><img src='index/482ECF15-FE70-4D3A-8CE7-D31763EFF8C1.png'></p>
+<p>16 livelli (<i>16QAM</i>) di fase e ampiezza (chiamati anche <i>simboli</i>), con quattro bit per livello. Si parla anche di <i>costellazione</i>.</p>
+<p>Usando la trasmissione multilivello, posso incrementare la capacità trasmissiva di <i>n</i> volte. Tuttavia, la velocità massima non può essere aumentata arbitrariamente aumentando i livelli, per due ragioni:</p>
+<ol start="1"><li>Se mantengo inalterata la distanza tra i vari simboli, devo <b>aumentare l’energia dell’impulso</b>, necessaria per trasmettere i simboli <i>più esterni</i> della costellazione.
+</li><li>Se mantengo inalterata l’energia massima, la trasmissione è <b>più sensibile al rumore introdotto dal canale</b>, che può far equivocare il livello in ricezione (errore di ricezione)
+</li></ol>
+<br>
+<h3 id="Canale trasmissivo">Canale trasmissivo</h3>
+<p>Un impulso che attraversa un canale trasmissivo è soggetto ad alterazioni di vario tipo:</p>
+<ul><li><b>Attenuazione</b>: la potenza del segnale si riduce in funzione della distanza percorsa e della frequenza del segnale.
+</li><li><b>Dispersione</b>: introduzione di un ritardo differente per ciascuna componente spettrale del segnale.
+</li></ul>
+<p>Tali distorsioni possono essere sintetizzate tramite una funzione <i>H(f)</i> nel dominio delle frequenze, detta <b>risposta in frequenza</b> del canale trasmissivo. Inoltre il canale trasmissivo può introdurre <b>rumore</b> (segnale di disturbo) che influisce generalmente su tutte le componenti dello spettro elettromagnetico (cioè su tutte le armoniche che costituiscono l’impulso). Il rumore è generalmente descritto con modelli probabilistici, poiché è casuale e non deterministico. Il rumore bianco è chiamato così perché si presume sia presente in <i>tutte le frequenze</i>.</p>
+<p><img src='index/88B87178-FB07-40C6-AE3B-BD5A59FB0850.png'></p>
+<p>Ogni mezzo trasmissivo è caratterizzato da un intervallo di frequenze in cui l’alterazione del segnale è minima. Quella banda è detta <b>banda passante del canale</b>. È opportuno che il segnale introdotto nel canale sia alla frequenza che il canale non distorce. La banda passante del canale dev’essere non solo ben centrata sullo spettro del segnale, ma deve anche essere più larga dello spettro del segnale, per evitare che vengano tagliate parti di esso.</p>
+<p>Una proprietà che nasce dalla trasformata di Fourier fa sì che lo spettro del segnale immesso nel canale trasmissivo <i>S(f)</i> sia ricevuto con uno spettro <code class='code-inline'>S'(f) = S(f) * H(f)</code>, dove <i>H(f)</i> è la funzione di trasferimento del canale.</p>
+<p><img src='index/86768743-C6DB-4773-BA68-1E0D8A91C311.png'></p>
+<h4 id="Canale passa-basso e passa-banda">Canale passa-basso e passa-banda</h4>
+<p>Se il mezzo presenta una banda passante intorno alla frequenza 0, viene detto canale <b>passa-basso</b> o in <b>banda base</b>. Ha un’attenuazione costante sulla sua banda e fa passare soltanto le frequenze più basse dello spettro.</p>
+<p>Un canale <b>passa-banda</b> (o in <b>banda passante</b>) invece fa passare solo una certa banda di frequenze e taglia ciò che sta intorno. Anche questo ha un’attenuazione costante sulla sua banda.</p>
+<p>Deve sempre essere usata un’onda portante (<i>modulazione in banda passante</i>) per trasmettere il segnale.</p>
+<p>Al giorno d’oggi, quasi tutti i canali trasmissivi sono passa-banda.</p>
+<br>
+<h4 id="Esempio della banda di un canale">Esempio della banda di un canale</h4>
+<p><b>Esempio 1</b>: canale passa basso di larghezza <i>W</i>. Segnale periodico nel tempo a media nulla.</p>
+<ul><li><code class='code-inline'>T = 500 μs</code>
+</li><li><code class='code-inline'>F = 1 / T = 2 kHz</code>
+</li></ul>
+<p><img src='index/31D869BE-1456-4E81-8D71-B95A7DB897A2.png'></p>
+<p>Di questo segnale <i>sopravvivono</i> soltanto le armoniche dispari dopo l’analisi di Fourier.</p>
+<ul><li>Se la frequenza di taglio è 4 kHz:
+</li></ul>
+<p><img src='index/Schermata%202021-03-06%20alle%2011.17.43.png'></p>
+<p>Rimane soltanto la prima armonica</p>
+<ul><li>Se la frequenza di taglio è 8 kHz:
+</li></ul>
+<p><img src='index/Schermata%202021-03-06%20alle%2011.18.59.png'></p>
+<p>Sono ora comprese due armoniche del segnale modulato, che vengono sommate. Così ci si avvicina all’onda quadra originale maggiormente.</p>
+<ul><li>Se la frequenza di taglio è 16 kHz:
+</li></ul>
+<p><img src='index/Schermata%202021-03-06%20alle%2011.20.24.png'></p>
+<p>Le armoniche aumentano sempre di più, approssimando sempre meglio l’onda quadra</p>
+<ul><li>Se la frequenza di taglio è 32 kHz:
+</li></ul>
+<p><img src='index/Schermata%202021-03-06%20alle%2011.21.45.png'></p>
+<p>Si distinguono molto bene i picchi dell’originale onda quadra.</p>
+<p>Nessuna approssimazione sarà perfetta, poiché servirebbe una banda passante infinita per comprendere tutte le armoniche approssimanti dell’onda quadra. Ma si può tranquillamente approssimare raggiungendo un sufficiente livello di dettaglio.</p>
+<br>
+<p><b>Esempio 2</b>: canale passa-basso di larghezza <i>W</i>. Segnale periodico nel tempo a media <i>non nulla</i>.</p>
+<ul><li><code class='code-inline'>T = 400 ns</code>
+</li><li><code class='code-inline'>F = 1 / T = 2.5 MHz</code>
+</li></ul>
+<p><img src='index/45CC7FC6-56BB-4D81-9CBE-B53E8B13673F.png'></p>
+<ul><li>5 MHz
+</li></ul>
+<p><img src='index/Schermata%202021-03-06%20alle%2011.28.18.png'></p>
+<ul><li>80 MHz
+</li></ul>
+<p><img src='index/Schermata%202021-03-06%20alle%2011.28.55.png'></p>
+<br>
+<h4 id="Canali e mezzi trasmissivi">Canali e mezzi trasmissivi</h4>
+<ul><li>Mezzi trasmissivi <b>guidati</b>
+<ul><li>	Mezzi elettrici: si modula un segnale che è associato ad una variazione di tensione o corrente
+</li><li>	Fibre ottiche: si modula un segnale sotto forma di impulsi luminosi
+</li></ul></li><li>Mezzi trasmissivi <b>non guidati</b>
+<ul><li>	Onde radio: il segnale è associato ad un’onda elettromagnetica che si propaga nello spazio che ha la proprietà di riprodotte a distanza una corrente elettrica in un dispositivo ricevente (antenna)
+</li></ul>
+</li></ul>
+<p>Ciascun mezzo ha le proprie peculiarità riguardo a:</p>
+<ul><li>Banda passante
+</li><li>Attenuazione
+</li><li>Sensibilità al rumore
+</li></ul>
+<p><b>Bande tipiche di mezzi trasmissivi</b></p>
+<p><img src='index/Schermata%202021-03-06%20alle%2011.43.07.png'></p>
+<h4 id="Velocità di trasmissione e banda passante del canale">Velocità di trasmissione e banda passante del canale</h4>
+<p>Canale con banda passante pari a <i>B</i> [Hz]</p>
+<p>Baud rate: <code class='code-inline'>Rs = ηs * B</code> simboli al secondo, dove <i>ηs</i> è l’<b>efficienza spettrale</b> <code class='code-inline'>[(simboli/s) / Hz]</code>.</p>
+<p>Si può dimostrare che usando impulsi ideali, <code class='code-inline'>ηs = 2</code>, quindi <code class='code-inline'>Rs ~= 2B simboli/s</code>, mentre usando forme di impulsi reali che resistono al rumore del canale: <code class='code-inline'>ηs = 1</code>, quindi <code class='code-inline'>Rs ~= B</code>.</p>
+<ul><li><b>Trasmissione binaria</b>: Bit rate massimo: <code class='code-inline'>Rb = Rs ~= B bit/s</code>.
+</li><li><b>Trasmissione multilivello</b> con <i>n</i> bit per simbolo: Bit rate massimo: <code class='code-inline'>Rb = nRs ~= nB bit/s</code>.
+</li></ul>
+<h4 id="Attenuazione">Attenuazione</h4>
+<p>Se il segnale in ingresso ha una potenza <i>Pin</i> e il segnale di uscita ha una potenza <i>Pout</i>, si definisce <b>attenuazione</b> del collegamento il rapporto <code class='code-inline'>A = Pout / Pin</code>. Viene generalmente indicato in decibel [dB]: <code class='code-inline'>A = 10log10(Pout/pin)</code>.</p>
+<p>Il contrario dell’attenuazione è il <b>guadagno</b>.</p>
+<h4 id="Rumore">Rumore</h4>
+<p>In un canale di comunicazione, tra trasmettitore e ricevitore, è sempre inserito un rumore casuale, a componenti non predicibili, con frequenze anche del nostro segnale. Questo può determinare errori di ricezione con una probabilità di errore <i>P</i> (qualità del sistema). La probabilità di errore quantifica quanti bit in una data sequenza vengono modificati a causa del rumore o di altri segnali o apparati che creano interferenza.</p>
+<p>Il rumore si traduce in una probabilità di ricevere qualcosa di diverso dal dato trasmesso in questo modo:</p>
+<p><img src='index/Schermata%202021-03-06%20alle%2012.09.12.png'></p>
+<p>Asse x: ampiezza del segnale ricevuto</p>
+<p>Asse y: <i>probabilità di ricezione</i> di una data ampiezza</p>
+<p>Questo tipo di grafico prende il nome di <i>Probability Density Function</i> (<b>PDF</b>).</p>
+<p>Nel mondo ideale, senza avere rumore, posso ricevere soltanto due valori. Ma per effetto del rumore, la probabilità che ciò avvenga è <i>distribuita</i> su un set di intervalli.</p>
+<p>Più alto è il picco nel grafico PDF, migliore è il canale.</p>
+<p>Nel ricevitore si imposta una <b>soglia di decisione</b>, che serve al ricevitore ad avere un intervallo in cui il segnale verrà decodificato in un modo e un altro in cui verrà decodificato in un altro. </p>
+<p>Con la modulazione multilivello:</p>
+<p>Il ricevitore è provvisto di un <b>decisore</b>, che elabora il campione del segnale ricevuto. Si misura l’<b>energia</b> del simbolo ricevuto e la si confronta con dei possibili risultati attesi. La misura sarà un numero casuale per effetto del rumore del canale.</p>
+<p><img src='index/815D20DD-5F0F-441D-BC24-3D437EAF9DAF.png'></p>
+<h4 id="Errori in ricezione">Errori in ricezione</h4>
+<p><img src='index/Schermata%202021-03-06%20alle%2012.20.05.png'></p>
+<p>Nel mondo ideale, la PDF di un dato simbolo ricade interamente nella sua soglia di decisione. Ma nel mondo reale, le PDF dei simboli possono <b>accavallarsi</b>. In questo caso, il decisore tradurrà un simbolo errato e si avrà un <b>errore in ricezione</b>.</p>
+<h4 id="Codici correttori">Codici correttori </h4>
+<p>Si può abbassare la probabilità d’errore in un blocco adottando codici correttori d’errore (<b>FEC</b>, <i>Forward Error Correction</i>). Questi consistono nell’aggiungere dei bit di ridondanza (<i>parità</i>) in modo che gli errori che occorrono, se limitati in numero, possono essere corretti. Sono progettati in modo da correggere fino a <i>c</i> errori (potere correttore del codice).</p>
+<p>Esempio: codice a ripetizione (n, 1); consiste nel ripetere tre volte il bit da trasmettere <span class='arrow'><svg width="11px" height="10px" viewBox="0 0 11 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >    <g id="right-arrow" >        <path d="M1.77635684e-14,5 L9,5" id="rod" stroke="#000000" stroke-width="2" ></path>        <path d="M11,5 L6,0.5 L6,9.5 L11,5 Z" id="point" fill="#000000"></path>    </g></svg></span> (n - 1) cifre di parità. Con n dispari è in grado di correggere <code class='code-inline'>c = (n - 1) / 2</code> errori.</p>
+<h4 id="Ritrasmissione">Ritrasmissione</h4>
+<p>Se un codice non riesce a correggere un errore può spesso riuscire a rilevarlo (il controllo di parità dà risultato negativo). Nella trasmissione a commutazione di pacchetto è possibile rilevare gli errori in ricezione e richiedere la <b>ritrasmissione</b> del pacchetto errato (<b>ARQ</b>, <i>Automatic Repeat reQuest</i>).</p>
+<hr>
+<h2 id="Applicazioni di rete">Applicazioni di rete</h2>
+<h3 id="Esempi di applicazioni di rete:">Esempi di applicazioni di rete:</h3>
+<ul><li>World Wide Web
+</li><li>Video streaming
+</li><li>File sharing
+</li><li>Social network
+</li><li>Telefonia
+</li><li>Videoconferenza
+</li><li>Remote login
+</li><li>Giochi
+</li></ul>
+<br>
+<h3 id="Cosa significa creare un’applicazione di rete?">Cosa significa creare un’applicazione di rete?</h3>
+<p>Significa scrivere un software che possa:</p>
+<ul><li>essere eseguito su diversi terminali
+</li><li>comunicare con altri software remoti tramite la rete
+</li></ul>
+<p>Alcuni esempi: </p>
+<p>Il <b>browser web</b>:</p>
+<ul><li>è un software in esecuzione su un dispositivo
+</li><li>comunica con altri software tramite la rete
+</li></ul>
+<p>Le applicazioni sono solo <b>nei terminali</b> e possono essere facilmente sviluppate e diffuse. Inventare una nuova applicazione <b>non richiede di cambiare il software della rete</b>. I nodi non contengono software applicativo.</p>
+<br>
+<h3 id="Architetture">Architetture</h3>
+<h4 id="Client-server">Client-server</h4>
+<ul><li>I dispositivi coinvolti nella comunicazione implementano o solo il processo <i>client</i> o solo il processo <i>server</i>
+</li><li>I dispositivi <i>client</i> e <i>server</i> hanno caratteristiche diverse
+<ul><li>	Il <i>server</i> dev’essere sempre attivo
+</li><li>	Il <i>server</i> deve avere un IP fisso
+</li><li>	I <i>server</i> emettono risposte a fronte di richieste ricevute
+</li><li>	I <i>client</i> effettuano richieste e comunicano con il server
+</li><li>	Possono essere connessi in modo <i>discontinuo</i>
+</li><li>	Possono cambiare indirizzo IP
+</li><li>	Possono inviare <i>più richieste</i> allo stesso server
+</li></ul>
+</li></ul>
+<h4 id="Peer-to-peer">Peer-to-peer</h4>
+<ul><li>I dispositivi coinvolti implementano sia la porzione <i>client</i> sia quella <i>server</i>
+</li><li>Non ci sono server sempre connessi
+</li><li>I terminali comunicano direttamente
+</li><li>I peer sono collegati in modo intermittente e possono cambiare indirizzo IP
+</li><li>Alcuni esempi possono essere BitTorrent e Skype
+</li></ul>
+<br>
+<h3 id="Elementi fondamentali per un applicazione di rete">Elementi fondamentali per un applicazione di rete</h3>
+<ul><li><b>Host</b>: dispositivo d’utente
+</li><li><b>Processo</b>: programma software in esecuzione su un host
+</li><li><b>Comunicazione inter-processo</b> (<i>IPC</i>): tecnologie software il cui scopo è consentire a diversi processi di comunicare scambiandosi informazioni e dati
+<ul><li>	Processi locali: risiedono sullo stesso host
+</li><li>	Processi remoti: risiedono sul host diversi
+<ul><li>		Perché funzionino c’è bisogno di <b>indirizzamento</b> dei processi (bisogna conoscere l’indirizzo del processo e dell’host su cui il processo è in esecuzione) e di <b>protocolli</b> di scambio di dati, che decide i tipi, la sintassi, la semantica e la tempistica dei messaggi
+</li></ul>
+</li></ul>
+</li></ul>
+<br>
+<h3 id="Indirizzamento">Indirizzamento</h3>
+<p>Lo scambio dei messaggi tra processi applicativi:</p>
+<ul><li>è supportato dai servizi offerti dai livelli inferiori
+</li><li>avviene attraverso i <b>SAP</b> (<i>Service Access Point</i>)
+</li></ul>
+<p>Ogni processo è associato ad un <b>SAP</b> del livello inferiore (trasporto), al quale è associata a sua volta l’<b>informazione di indirizzamento del processo nell’host</b> (<i>socket</i>).</p>
+<p>Esempio: cosa identifica il browser Chrome in esecuzione sul nostro smartphone?</p>
+<ul><li>Indirizzo dell’<i>host</i>: indirizzo IP univoco di 32 bit
+</li><li>Indirizzo del <b>SAP</b>: associato al processo in esecuzione sull’host: numero di porta
+</li></ul>
+<p><b>Indirizzo di un processo in esecuzione su un host</b>: Indirizzo IP + numero di porta = <b>Socket</b></p>
+<p>Le socket sono <i>porte di comunicazione</i>:</p>
+<ul><li>Il processo trasmittente mette il messaggio <i>fuori dalla porta</i>
+</li><li>La rete raccoglie il messaggio e lo trasporta fino alla porta del destinatario
+</li></ul>
+<br>
+<h3 id="Quale protocollo di trasporto usare?">Quale protocollo di trasporto usare?</h3>
+<p><b>Requisiti</b>:</p>
+<ul><li><b>Affidabilità</b>: alcune applicazioni possono tollerare perdite parziali, altre richiedono totale affidabilità
+</li><li><b>Ritardo</b>: alcune applicazioni richiedono basso ritardo
+</li><li><b>Banda</b>: alcune applicazioni richiedono un minimo di velocità di trasferimento, altre si adattano alla velocità disponibile (<i>applicazioni elastiche</i>)
+</li></ul>
+<h4 id="TCP e UDP">TCP e UDP</h4>
+<p>TCP: <i>Transmission Control Protocol</i></p>
+<ul><li><b>Connection oriented</b>: instaurazione della connessione prima dello scambio di dati
+</li><li><b>Trasporto affidabile</b>: nessuna perdita
+</li><li><b>Controllo di flusso</b>: il trasmettitore regola la velocità in base al ricevitore
+</li><li><b>Controllo di congestione</b>: per impedire di sovraccaricare la rete
+</li><li><b>Controllo di errore</b>: per garantire l’integrità dell’informazione
+</li></ul>
+<p>UDP: <i>User Datagram Protocol</i></p>
+<ul><li><b>Connectionless</b>: nessuna connessione prima dello scambio di dati
+</li><li><b>Trasporto non affidabile</b>: possibili perdite
+</li><li><b>Nessun controllo di flusso</b>
+</li><li><b>Nessun controllo di congestione</b>
+</li><li><b>Controllo di errore</b>: opzionale in questo caso
+</li></ul>
+<br>
+<p>Alcuni esempi di servizi che usano questi protocolli di trasporto:</p>
+<p><img src='index/unknown.png'></p>
+<br>
+<h3 id="Primitive delle socket">Primitive delle socket</h3>
+<p>Per richiedere e fornire un servizio, il processo applicativo scambia informazioni con allivellò di trasporto tramite delle <b>primitive di servizio</b> attraverso le socket. Possono essere inviate da client, server o entrambi.</p>
+<h4 id="Caso TCP">Caso TCP</h4>
+<p>Operazioni iniziali:</p>
+<ul><li>Server: <i>passive open</i>
+</li><li>Client: <i>active open</i>
+</li></ul>
+<p>Primitive di interazione delle applicazioni con le socket:</p>
+<p><img src='index/unknown%202.png'></p>
+<h5 id="Ordine primitive di servizio">Ordine primitive di servizio</h5>
+<ol start="1"><li><b>Socket()</b> (server-side)
+</li><li><b>Bind()</b> (server-side)
+</li><li><b>Listen()</b> (server-side)
+</li><li><b>Accept()</b> (server-side)
+</li><li><b>Socket()</b> (client-side)
+</li><li><b>Connect()</b> (client-side) - <b>Accept()</b> (server-side)
+</li><li><b>Send()</b> (client-side) - <b>Receive()</b> (server-side)
+</li><li><b>Receive()</b> (client-side) - <b>Send()</b> (server-side)
+</li><li><b>Close()</b> (entrambi)
+</li></ol>
+<h4 id="Caso UDP">Caso UDP</h4>
+<p>Non ci sono operazioni preliminari e generalmente le operazioni sono simili. Le differenze principali sono in <b>Send()</b> e <b>Receive()</b>, poiché non essendo instaurata una connessione preliminare è necessario specificare a chi mandare e da chi ricevere informazioni.</p>
+<hr>
+<h2 id="Il servizio di Web Browsing">Il servizio di Web Browsing</h2>
+<p>Le pagine web sono fatte di <i>oggetti</i>. Gli oggetti possono essere file HTML, immagini, applet Java, file audio e video, collegamenti ad altre pagine web…</p>
+<p>Generalmente le pagine sono costituite da un file HTML o php base che <b>chiama</b> gli altri oggetti. Ogni oggetto è indirizzato da una <i>Uniform Resource Locator</i> (<b>URL</b>), per esempio: <code class='code-inline'>http://www.polimi.it:80/index.html</code>.</p>
+<br>
+<h3 id="Protocollo HTTP">Protocollo HTTP</h3>
+<p>L’architettura per l’HTTP si basa sul client<i>server. Il client è il browser che effettua richieste di pagine web, le riceve e le mostra all’utente; il server invia gli oggetti richiesti tramite /risposte</i> HTTP. L’HTTP è un protocollo <b>stateless</b>, ossia il server non mantiene uno stato della connessione, un registro dell’interazione client/server.</p>
+<p>L’HTTP si appoggia su TCP a livello di trasporto:</p>
+<ol start="1"><li>Il client HTTP inizia una connessione TCP attraverso il server (porta 80)
+</li><li>Il server HTTP accetta connessioni TCP da client HTTP
+</li><li>Client e server HTTP si scambiano informazioni
+</li><li>La connessione TCP tra client e server HTTP viene chiusa
+</li></ol>
+<p>Le modalità di connessione sono <b>persistente</b> e <b>non persistente</b>:</p>
+<ul><li><b>Non persistente</b> (HTTP v1.0 default mode)
+<ul><li>	Una connessione TCP per una sola sessione richiesta-risposta; inviato l’oggetto, il server chiude la connessione TCP
+</li><li>	La procedura viene ripetuta per tutti i file collegati al documento base
+</li><li>	Le connessioni TCP per più oggetti possono esser aperte in parallelo per minimizzare il ritardo
+</li></ul></li><li><b>Persistente</b>
+<ul><li>	La connessione TCP rimane aperta e può essere usata per trasferire più oggetti della stessa pagina web o più pagine web
+<ul><li>		<i>without pipelining</i>: richieste HTTP inviate in serie, si aspetta la risposta prima di fare una nuova richiesta (HTTP v1.1 default mode)
+</li><li>		<i>with pipelining</i>: le richieste HTTP vengono accodate ed inviate insieme (HTTP v1.1 pipeline mode)
+</li></ul>
+</li></ul>
+</li></ul>
+<br>
+<h3 id="Round Trip Time (RTT)">Round Trip Time (RTT)</h3>
+<p>Tempo necessario per trasferire un messaggio dal client al server e ritorno e per ricevere il relativo ACK.</p>
+<p>Tempo di trasferimento in HTTP:</p>
+<ul><li>un RTT per iniziare la connessione TCP
+</li><li>un RTT per inviare i primi byte della richiesta HTTP e ricevere i primi byte di risposta
+</li><li>tempo di trasmissione dell’oggetto
+</li></ul>
+<p>Il tempo è soltanto una stima, non è un calcolo preciso.</p>
+<p>Supponendo che la pagina web contenga 10 oggetti oltre al file HTML base, il tempo di download dell’intera pagina è:</p>
+<ul><li>Non persistente: <code class='code-inline'>Σ(2RTT + Ti)</code>
+</li><li>Persistente: <code class='code-inline'>RTT + Σ(RTT + Ti)</code>
+</li></ul>
+<br>
+<h3 id="HTTP 1.1 e 2">HTTP 1.1 e 2</h3>
+<p>L’HTTP 1.1 permette il pipelining, ma a condizione che gli oggetti richiesti vengano generati nello stesso ordine delle richieste. Questo impone Head Of Line (<b>HOL</b>) blocking se c’è un oggetto particolarmente grande.</p>
+<p>HTTP 2 permette invece che un oggetto grande venga trasmesso <i>inframezzandolo</i> con oggetti brevi, grazie alla gestione a stream: si può formare rapidamente un’anteprima della pagina anche se con qualche dettaglio in meno.</p>
         </div>
         <script type="text/javascript">
             (function() {

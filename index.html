@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="bear-note-unique-identifier" content="B089F06B-A475-488E-8B70-1BB489DBF389-3048-000000619FDCA0CB">
         <meta name="created" content="2021-02-23T13:19:12+0100"/>
-        <meta name="modified" content="2021-03-06T12:29:56+0100"/>
+        <meta name="modified" content="2021-03-07T16:48:05+0100"/>
         <meta name="tags" content="università/internet, università"/>
         <meta name="last device" content="MacBook Pro di Mario"/>
     </head>
@@ -31,7 +31,19 @@
 </li></ul></li><li>	<a href="#Cosa significa oggi sviluppare un'applicazione"">/Cosa significa oggi sviluppare un'applicazione</a>
 </li></ul></li><li><a href="#Elementi di Internet"">/Elementi di Internet</a>
 <ul><li>	<a href="#Cos’è Internet?"">/Cos’è Internet?</a>
-</li></ul></li><li><a href="#Commutazione"">/Commutazione</a>
+</li></ul></li><li><a href="#Modelli funzionali e architetture a livelli"">/Modelli funzionali e architetture a livelli</a>
+<ul><li>	<a href="#Servizio di comunicazione"">/Servizio di comunicazione</a>
+<ul><li>		<a href="#Primitive di servizio"">/Primitive di servizio</a>
+</li><li>		<a href="#Caratteristiche del servizio di comunicazione"">/Caratteristiche del servizio di comunicazione</a>
+</li><li>		<a href="#Protocollo di comunicazione"">/Protocollo di comunicazione</a>
+</li><li>		<a href="#Packet Data Units (PDU)"">/Packet Data Units (PDU)</a>
+</li></ul></li><li>	<a href="#Livelli"">/Livelli</a>
+<ul><li>		<a href="#Architettura a livelli"">/Architettura a livelli</a>
+</li><li>		<a href="#Perché un’architettura a livelli?"">/Perché un’architettura a livelli?</a>
+</li></ul></li><li>	<a href="#Modello a livelli di internet (TCP-IP)"">/Modello a livelli di internet (TCP-IP)</a>
+</li><li>	<a href="#Funzioni"">/Funzioni</a>
+<ul><li>		<a href="#Chi scrive le tabelle di instradamento?"">/Chi scrive le tabelle di instradamento?</a>
+</li></ul></li></ul></li><li><a href="#Commutazione"">/Commutazione</a>
 <ul><li>	<a href="#Esempio di commutazione di pacchetto"">/Esempio di commutazione di pacchetto</a>
 <ul><li>		<a href="#Pacchetto"">/Pacchetto</a>
 </li><li>		<a href="#Modello di nodo (packet switch-router)"">/Modello di nodo (packet switch-router)</a>
@@ -43,6 +55,7 @@
 </li></ul></li></ul></li><li><a href="#Parametri di prestazione"">/Parametri di prestazione</a>
 <ul><li>	<a href="#Rete end-to-end"">/Rete end-to-end</a>
 </li><li>	<a href="#Velocità e tempo di trasmissione"">/Velocità e tempo di trasmissione</a>
+</li><li>	<a href="#Modello di un nodo"">/Modello di un nodo</a>
 </li><li>	<a href="#Ritardo di accodamento"">/Ritardo di accodamento</a>
 </li><li>	<a href="#Throughput"">/Throughput</a> 
 </li><li>	<a href="#Perdita"">/Perdita</a>
@@ -51,7 +64,44 @@
 <ul><li>		<a href="#Analisi di Fourier"">/Analisi di Fourier</a>
 </li><li>		<a href="#Esempio di spettro di un segnale"">/Esempio di spettro di un segnale</a>
 </li><li>		<a href="#Caratterizzazione spettrale dei segnali analogici"">/Caratterizzazione spettrale dei segnali analogici</a>
-</li><li>		<a href="#Dalla generazione alla trasmissione digitale"">/Dalla generazione alla trasmissione digitale</a>
+</li><li>		<a href="#Banda di un segnale"">/Banda di un segnale</a>
+</li></ul></li><li>	<a href="#Trasformazione AD (analog to digital)"">/Trasformazione AD (analog to digital)</a>
+<ul><li>		<a href="#Campionamento"">/Campionamento</a>
+</li><li>		<a href="#Quantizzazione"">/Quantizzazione</a>
+</li><li>		<a href="#Codifica"">/Codifica</a>
+</li><li>		<a href="#Flussi binari equivalenti"">/Flussi binari equivalenti</a>
+</li><li>		<a href="#Modulazione"">/Modulazione</a>
+</li><li>		<a href="#Modulazione d’ampiezza analogica"">/Modulazione d’ampiezza analogica</a>
+</li><li>		<a href="#Modulazione numerica (o digitale) in banda traslata"">/Modulazione numerica (o digitale) in banda traslata</a>
+</li></ul></li><li>	<a href="#Canale trasmissivo"">/Canale trasmissivo</a>
+<ul><li>		<a href="#Canale passa-basso e passa-banda"">/Canale passa-basso e passa-banda</a>
+</li><li>		<a href="#Esempio della banda di un canale"">/Esempio della banda di un canale</a>
+</li><li>		<a href="#Canali e mezzi trasmissivi"">/Canali e mezzi trasmissivi</a>
+</li><li>		<a href="#Velocità di trasmissione e banda passante del canale"">/Velocità di trasmissione e banda passante del canale</a>
+</li><li>		<a href="#Attenuazione"">/Attenuazione</a>
+</li><li>		<a href="#Rumore"">/Rumore</a>
+</li><li>		<a href="#Errori in ricezione"">/Errori in ricezione</a>
+</li><li>		<a href="#Codici correttori"">/Codici correttori</a>
+</li><li>		<a href="#Ritrasmissione"">/Ritrasmissione</a>
+</li></ul></li></ul></li><li><a href="#Applicazioni di rete"">/Applicazioni di rete</a>
+<ul><li>	<a href="#Esempi di applicazioni di rete"">/Esempi di applicazioni di rete</a>
+</li><li>	<a href="#Cosa significa creare un’applicazione di rete?"">/Cosa significa creare un’applicazione di rete?</a>
+</li><li>	<a href="#Architetture"">/Architetture</a>
+<ul><li>		<a href="#Client-server"">/Client-server</a>
+</li><li>		<a href="#Peer-to-peer"">/Peer-to-peer</a>
+</li></ul></li><li>	<a href="#Elementi fondamentali per un applicazione di rete"">/Elementi fondamentali per un applicazione di rete</a>
+</li><li>	<a href="#Indirizzamento"">/Indirizzamento</a>
+<ul><li>		<a href="#Quale protocollo di trasporto usare?"">/Quale protocollo di trasporto usare?</a>
+</li><li>		<a href="#TCP e UDP"">/TCP e UDP</a>
+</li></ul></li><li>	<a href="#Primitive delle socket"">/Primitive delle socket</a>
+<ul><li>		<a href="#Caso TCP"">/Caso TCP</a>
+</li><li>		<a href="#Caso UDP"">/Caso UDP</a>
+</li></ul></li></ul></li><li><a href="#Il servizio di Web Browsing"">/Il servizio di Web Browsing</a>
+<ul><li>	<a href="#Protocollo HTTP"">/Protocollo HTTP</a>
+<ul><li>		<a href="#Modalità di connessione"">/Modalità di connessione</a>
+</li></ul></li><li>	<a href="#Round Trip Time (RTT)"">/Round Trip Time (RTT)</a>
+<ul><li>		<a href="#Tempistiche di comunicazione persistente e non persistente"">/Tempistiche di comunicazione persistente e non persistente</a>
+</li><li>		<a href="#HTTP 1.1 e 2"">/HTTP 1.1 e 2</a>
 </li></ul>
 </li></ul>
 </li></ul>
@@ -137,45 +187,45 @@
 <br>
 <h4 id="La nascita di Internet">La nascita di Internet</h4>
 <p>La nascita di Internet si fa risalire agli anni ’60 per vari eventi:</p>
-<ol start="1"><li><b>1961</b>: Kleinrock, dimostra l’efficacia della <i>commutazione di pacchetto</i> grazie alla <i>teoria delle code</i>
+<ul><li><b>1961</b>: Kleinrock, dimostra l’efficacia della <i>commutazione di pacchetto</i> grazie alla <i>teoria delle code</i>
 </li><li><b>1967</b>: Lawrence Roberts progetta ARPAnet (<i>Advanced Research Projects Agency</i>), prima rete di computer interconnessi per i militari americani
 </li><li><b>1969</b>: primo nodo di IMP (<i>Interface Message Processor</i>) di ARPAnet all’UCLA
-</li></ol>
+</li></ul>
 <br>
 <p>Negli anni ’70 si sviluppa ancora di più il concetto di Internet:</p>
-<ol start="1"><li><b>1970</b>: ALOHAnet, rete radio a pacchetti dell’università delle Hawaii
+<ul><li><b>1970</b>: ALOHAnet, rete radio a pacchetti dell’università delle Hawaii
 </li><li><b>1972</b>: Nasce <b>NCP</b> (<i>Network Control Protocol</i>), il primo vero <i>protocollo</i> di internet. Nasce anche il primo programma di posta elettronica e ARPAnet si espande a 15 nodi
 </li><li><b>1974</b>: Cerf e Kahn definiscono i principi dell’<i>internetworking</i>
 </li><li><b>1976</b>: Nasce <b>Ethernet</b> nei laboratori di Xerox
 </li><li><b>1979</b>: ARPAnet si espande a 200 nodi
-</li></ol>
+</li></ul>
 <br>
 <p>Anni ’80:</p>
-<ol start="1"><li><b>1982</b>: definizione protocollo <b>SMTP</b>
+<ul><li><b>1982</b>: definizione protocollo <b>SMTP</b>
 </li><li><b>1983</b>: rilascio dello stack di protocolli <b>TCP/IP</b> (sostituisce NCP). Viene anche definito il DNS.
 </li><li><b>1985</b>: definizione protocollo <b>FTP</b>
 </li><li><b>1988</b>: controllo della congestione TCP
-</li></ol>
+</li></ul>
 <p>Nascono nuove reti nazionali come Csnet, BITnet, NSFnet…</p>
 <p>Ci sono ora più di 100000 host collegati.</p>
 <br>
 <p>Anni ’90:</p>
-<ol start="1"><li><b>1990</b>: ARPAnet viene dismessa
+<ul><li><b>1990</b>: ARPAnet viene dismessa
 </li><li><b>1991</b>: NSF lascia decadere le restrizioni sull’uso commerciale di NSFnet
 </li><li><b>Primi anni ’90</b>: Tim Berners-Lee inventa il <b>World Wide Web</b> al CERN di Ginevra
 </li><li><b>1994</b>: Browser internet: Mosaic e Netscape
 </li><li><b>Fine anni ’90</b>: commercializzazione del web
-</li></ol>
+</li></ul>
 <br>
 <h3 id="Cosa significa oggi sviluppare un'applicazione">Cosa significa oggi sviluppare un'applicazione</h3>
 <p>Oggi, scrivere un’applicazione di rete comporta una serie di passi complessi:</p>
-<ol start="1"><li>Scrivere le componenti server
+<ul><li>Scrivere le componenti server
 </li><li>Inserirle in macchine virtuali
 </li><li>Istanziarle su un servizio cloud
 </li><li>Scrivere le componenti client per le diverse piattaforme
 </li><li>Inserirle nei relativi store online
 </li><li>Aspettare che gli utenti scarichino le applicazioni
-</li></ol>
+</li></ul>
 <p><b>Controllare la relazione con la rete è fondamentale</b>. È ormai fondamentale saper gestire sia la parte di sviluppo software che di sviluppo rete per gestire correttamente un nuovo software.</p>
 <hr>
 <h2 id="Elementi di Internet">Elementi di Internet</h2>
@@ -185,7 +235,7 @@
 <ul><li>	Milioni di <i>computer</i> connessi alla rete chiamati <b>host</b> (<b>terminali</b>)
 <ul><li>		Tutti gli host sono sistemi in grado di inviare e ricevere informazioni per le loro applicazioni finali. Hanno caratteristiche molto diverse
 </li></ul></li><li>	Nodi di rete chiamati <b>router</b> (<b>nodi</b>). Altri nodi di rete sono <i>switch</i>, <i>access point</i>, <i>modem</i>…
-<ul><li>		I principali sono i router, che operano su unità informatica di dimensioni finite dette <b>pacchetti</b>. Esistono altri nodi di rete che a livello locale svolgono altre funzioni di collegamento
+<ul><li>		I principali sono i router, che operano su unità informatiche di dimensioni finite dette <b>pacchetti</b>. Esistono altri nodi di rete che a livello locale svolgono altre funzioni di collegamento
 </li></ul></li><li>	Canali di comunicazione di diversi tipi (fibra, cavo, radio, satellite…) chiamati <b>link</b> (<b>collegamenti</b>)
 <ul><li>		I collegamenti possono essere di natura fisica molto diversa. Differiscono anche per tecnologia di trasmissione dell’informazione. La velocità di trasmissione è misurata in <b>bit/s</b> e suoi multipli
 </li></ul></li><li>	Interconnesse gerarchicamente
@@ -242,7 +292,7 @@
 </li><li><b>Tier 2</b>: ISP di estensione nazionale o regionale
 </li><li><b>Tier 3</b>: ISP locali che hanno come clienti gli utenti finali
 </li></ol>
-<ul><li>		I collegamenti tra ISP dello stesso tipo vengono chiamati <i>Peering Link</i>. Servono a scambiare traffico tra ISP
+<ul><li>		I collegamenti tra ISP dello stesso tipo vengono chiamati <i>Peering Link</i>. Servono a scambiare traffico tra ISP.
 </li><li>	Architettura di interconnessione
 </li></ul>
 <p><img src='index/Schermata%202021-02-23%20alle%2016.33.37.png'></p>
@@ -292,7 +342,7 @@
 </li></ul>
 <h4 id="Caratteristiche del servizio di comunicazione">Caratteristiche del servizio di comunicazione</h4>
 <p><b>Modalità a connessione</b>:</p>
-<ol start="1"><li>Instaurazione della connessione
+<ol start="1"><li>Ins𝛕razione della connessione
 </li><li>Trasferimento dell’informazione
 </li><li>Rilascio della connessione
 </li></ol>
@@ -312,7 +362,6 @@
 <br>
 <h3 id="Livelli">Livelli</h3>
 <p>Se le entità sono in grado di colloquiare tra loro, possono offrire loro stesse un servizio di comunicazione ad un <i>livello superiore</i>. Le entità di livello superiore possono <i>sfruttare</i> il servizio di comunicazione costruito sui nodi del livello inferiore per scambiarsi dati. Il livello più basso si definisce <i>livello fisico</i>.</p>
-<h4 id="Funzioni dei livelli">Funzioni dei livelli</h4>
 <p>Il servizio di comunicazione è più ricco grazie all’implementazione di <i>funzioni</i> sui vari livelli.</p>
 <h4 id="Architettura a livelli">Architettura a livelli</h4>
 <p>I servizi più complessi possono essere articolati a livelli, da un livello che garantisce solo il trasporto dei bit ad un livello dove sono definiti complessi servizi caratterizzati da molti parametri e funzionalità. Nel caso di internet, i livelli sono <b>cinque</b>:</p>
@@ -326,7 +375,7 @@
 <h4 id="Perché un’architettura a livelli?">Perché un’architettura a livelli?</h4>
 <p>Serve a consentire di svolgere una serie di funzioni separandole a livelli diversi. La separazione è utile perché la complessità nell’implementazione delle diverse funzioni può essere <i>relegata</i> a livelli diversi. Separare i livelli consente una modularità di implementazione che possono essere affidati a parti hardware diversi o a sviluppatori software diversi.</p>
 <br>
-<h3 id="Modello a livelli di internet (TCP/IP)">Modello a livelli di internet (TCP/IP)</h3>
+<h3 id="Modello a livelli di internet (TCP-IP)">Modello a livelli di internet (TCP-IP)</h3>
 <ul><li>Livello più alto: <b>livello applicativo</b> (<i>Application</i>). Le PDU di questo livello vengono chiamati <b>messaggi</b> (<i>Messages</i>). È il livello usato dalle applicazioni e che contiene i protocolli applicativi.
 </li><li><b>Livello di trasporto</b> (<i>Transport</i>): trasporta i <b>segmenti</b> (<i>Segments</i>). Ha il compito di consegnare le informazioni tra nodi
 </li><li><b>Livello rete</b> (<i>Network</i>): trasporta i <b>pacchetti</b> (<i>Packets</i>). Questo livello è importante per la gestione della consegna delle informazioni attraverso le vie della rete
@@ -345,32 +394,32 @@
 </li><li><b>Instradamento</b> (<i>routing</i>): implementa il meccanismo che consente all’<i>entità instradante</i> di definire che strada far seguire all’informazione per raggiungere la sua destinazione.  L’entità instradante può ricevere informazioni dal livello superiore, in modo da ricevere l’<b>indirizzo</b>, oltre che alle informazioni da spedire. Quando questo pacchetto viene passato al livello 2, nell’header viene inserito anche l’indirizzo a cui il pacchetto deve essere inviato. L’indirizzo consente alle entità intermedie di proseguire nel percorso verso la destinazione. Il pacchetto può arrivare da una porta d’ingresso, viene portato all’entità instradante, che ne analizzerà l’header che contiene l’indirizzo. Grazie al processo chiamato <b>table lookup</b>, l’entità controlla l’indirizzo del pacchetto con una lista di indirizzi per decidere dove mandare il pacchetto perché arrivi alla giusta destinazione. Se il pacchetto arriva da una porta d’ingresso, <b>non sale mai oltre l’entità instradante</b> se non all’arrivo a destinazione. Esistono molti modi per compiere l’instradamento. Nel caso dei <b>router</b>, viene usata una funzione di livello 3. Nel caso dei <b>network switch</b>, l’instradamento avviene al livello 2 con tabelle differenti. Esiste anche la possibilità di fare instradamento al livello 5 grazie ai <b>proxy</b>.
 </li></ul>
 <h4 id="Chi scrive le tabelle di instradamento?">Chi scrive le tabelle di instradamento?</h4>
-<p>Le tabelle di instradamento possono essere <b>scritti a mano</b> (<i>Human Defined Networking</i>). Questo meccanismo manuale configura <i>rotte statiche</i> di Internet.</p>
+<p>Le tabelle di instradamento possono essere <b>scritte a mano</b> (<i>Human Defined Networking</i>). Questo meccanismo manuale configura <i>rotte statiche</i> di Internet.</p>
 <p>Oggi, il meccanismo più comunemente utilizzato è formato dai <b>protocolli di instradamento</b>, meccanismi che consentono ai nodi di comunicare tra loro e di scrivere <i>automaticamente</i> le tabelle. I router possono imparare autonomamente le righe della tabella da scrivere mediante meccanismi distribuiti.</p>
 <p>Da alcuni anni sta emergendo un nuovo meccanismo di gestione di rete chiamato <b>Software Defined Networking</b> (<i>SDN</i>). In questo caso, è un software che, al posto dell’umano, scrive le righe delle tabelle di instradamento. In alcuni contesti, rappresenta un modo sofisticato di modificare il modo in cui funzionano le reti.</p>
 <hr>
 <h2 id="Commutazione">Commutazione</h2>
-<p>Principio fondamentale: come viene organizzata e smistata l’informazione in una rete?</p>
+<p>Principio fondamentale: <i>come viene organizzata e smistata l’informazione in una rete?</i></p>
 <ol start="1"><li>Commutazione <b>di circuito</b>: le risorse trasmissive sono dedicate alla comunicazione; esiste un circuito soltanto con sorgente e destinazione; si definisce <i>connection-oriented</i>
 </li></ol>
 <p><img src='index/Schermata%202021-02-25%20alle%2008.38.31.png'></p>
-<ol start="2"><li>Commutazione <b>di pacchetto</b>: dati inviati in rete con <i>messaggi</i> (pacchetti, UI, PDU); vengono condivisi con varie coppie sorgente-destinazione; non vengono riservate risorse per coppie specifiche e quindi si definisce generalmente <i>connectionless</i>
+<ol start="2"><li>Commutazione <b>di pacchetto</b>: dati inviati in rete con <i>messaggi</i> (pacchetti, UI, PDU); vengono condivisi con varie coppie sorgente-destinazione; <b>non vengono riservate risorse per coppie specifiche</b> e quindi si definisce generalmente <i>connectionless</i>.
 </li></ol>
 <p>La scelta del tipo di commutazione dipende dal <b>servizio da offrire</b> e quindi dal <b>tipo di informazione</b> da scambiare.</p>
 <p>Tempo fa, la commutazione di circuito veniva usata per le comunicazioni telefoniche. Ad ogni telefonata si dedicava un circuito completo che collegava direttamente sorgente (chiamante) e destinazione (chiamato).</p>
 <p>Le risorse di rete sono suddivise in <i>fette</i>, e ciascuna fetta viene allocata ad un <i>circuito</i>, ossia ad un flusso di informazione continuo. Le risorse rimangono <b>inattive se non utilizzate</b> e non possono in ogni caso essere condivise.</p>
-<p>La suddivisione delle risorse nelle comunicazioni di circuito si fanno a livello fisico generalmente, con metodi quali:</p>
+<p>La suddivisione delle risorse nelle comunicazioni di circuito si fanno <i>a livello fisico</i> generalmente, con metodi quali:</p>
 <ul><li>divisione di frequenza
 </li><li>divisione di tempo
 </li><li>divisione di lunghezza d’onda
 </li></ul>
-<p>All’interno dei nodi, nella commutazione di circuito, viene conservata la matrice input-output, ossia come vengono collegati i circuiti in entrata con quelli in uscita. All’inizio della comunicazione viene fatta quest’associazione e non è necessario memorizzare l’informazione lungo il circuito una volta instaurato.</p>
-<p>Il tempo di instaurazione della connessione si aggiunge al ritardo totale di trasferimento, dove il ritardo di trasferimento è l’intervallo di tempo tra l’apertura della connessione e l’arrivo dell’ultimo bit a destinazione. L’elaborazione, la propagazione e la trasmissione del messaggio in uscita avvengono solo prima dell’instaurazione del collegamento.</p>
+<p>All’interno dei nodi, nella commutazione di circuito, viene conservata la <b>matrice input-output</b>, ossia come vengono collegati i circuiti in entrata con quelli in uscita. All’inizio della comunicazione viene fatta quest’associazione e <b>non è necessario memorizzare l’informazione lungo il circuito una volta ins𝛕rato</b>.</p>
+<p>Il <b>tempo di ins𝛕razione</b> della connessione si aggiunge al <b>ritardo totale</b> di trasferimento, dove il ritardo di trasferimento è l’intervallo di tempo tra l’apertura della connessione e l’arrivo dell’ultimo bit a destinazione. L’elaborazione, la propagazione e la trasmissione del messaggio in uscita avvengono solo <b>dopo l’ins𝛕razione del collegamento</b>.</p>
 <p>La <b>commutazione di pacchetto</b> invece <i>spezza l’informazione stessa in fette</i>, non i canali di trasmissione. Per fare ciò, è necessario aggiungere un <i>header</i> o <i>overhead</i> contenenti informazioni di servizio al <i>payload</i>, il contenuto stesso dell’oggetto.</p>
 <p>I vantaggi che si hanno suddividendo il contenuto in pacchetti sono:</p>
-<ul><li>Tutti i pacchetti condividono le risorse di rete
-</li><li>Ciascun pacchetto utilizza completamente il canale per un determinato intervallo di tempo, non determinato a priori
-</li><li>Le risorse vengono usate a seconda delle necessità
+<ul><li>Tutti i pacchetti <b>condividono le risorse di rete</b>
+</li><li>Ciascun pacchetto <b>utilizza completamente il canale per un determinato intervallo di tempo</b>, non determinato a priori
+</li><li>Le risorse vengono usate a <b>seconda delle necessità</b>
 </li></ul>
 <br>
 <h3 id="Esempio di commutazione di pacchetto">Esempio di commutazione di pacchetto</h3>
@@ -382,22 +431,22 @@
 <h4 id="Modello di nodo (packet switch-router)">Modello di nodo (packet switch-router)</h4>
 <ul><li>Capacità dei collegamenti arbitraria
 </li><li>Possono esserci conflitti temporali per la trasmissione
-</li><li>È necessario memorizzare temporaneamente il pacchetto
-<ul><li>	All’ingresso, per analizzare la destinazione
-</li><li>	All’uscita, per gestire le contese (generalmente segue la regola <i>First In First Out</i>
+</li><li>È necessario <b>memorizzare temporaneamente</b> il pacchetto:
+<ul><li>	All’ingresso, per <b>analizzare la destinazione</b>.
+</li><li>	All’uscita, per <b>gestire le contese</b> (generalmente segue la regola <i>First In First Out</i>).
 </li></ul>
 </li></ul>
 <h4 id="Contesa per le risorse">Contesa per le risorse</h4>
-<ul><li><i>Store and forward</i>: il commutatore riceve l’intero pacchetto prima di poter cominciare a trasmettere sul collegamento in uscita
-</li><li><i>Multiplazione statistica</i>: accomodamento dei pacchetti ed attesa per l’utilizzo del collegamento
+<ul><li><i>Store and forward</i>: il commutatore riceve l’intero pacchetto prima di poter cominciare a trasmettere sul collegamento in uscita.
+</li><li><i>Multiplazione statistica</i>: accomodamento dei pacchetti ed attesa per l’utilizzo del collegamento.
 </li></ul>
 <h4 id="Comunicazione in Internet ed efficienza">Comunicazione in Internet ed efficienza</h4>
 <p>Per la comunicazione attraverso Internet si usa la <b>commutazione di pacchetto</b>. La maggiore efficienza però è anche causa di problemi, quali:</p>
-<ul><li><b>Perdita di pacchetti</b>: dovuta alla dimensione finita dei buffer. Sono necessari dei <i>protocolli</i> per il trasferimento affidabili e per il controllo della gestione
-</li><li><b>Ritardo non determinabile a priori</b>: si può stimare tramite modelli probabilistici e statistici ma non deterministici
+<ul><li><b>Perdita di pacchetti</b>: dovuta alla dimensione finita dei buffer. Sono necessari dei <i>protocolli</i> per il trasferimento affidabili e per il controllo della gestione.
+</li><li><b>Ritardo non determinabile a priori</b>: si può stimare tramite modelli probabilistici e statistici ma non deterministici.
 </li></ul>
 <h4 id="Esempio di trasmissione">Esempio di trasmissione</h4>
-<p>Non c’è tempo di instaurazione della connessione nella commutazione di pacchetto. Il ritardo è dovuto ad ogni <i>hop</i> a:</p>
+<p>Non c’è tempo di ins𝛕razione della connessione nella commutazione di pacchetto. Il ritardo è dovuto ad ogni <i>hop</i> a:</p>
 <ul><li>Propagazione
 </li><li>Trasmissione o ritrasmissione (comportamento <i>Store & Forward</i>)
 </li><li>Elaborazione
@@ -407,19 +456,19 @@
 <h4 id="Frammentazione e ritardo end-to-end">Frammentazione e ritardo end-to-end</h4>
 <p>Grazie alla commutazione di pacchetto, posso parallelizzare la trasmissione di pacchetti e inviare due pacchetti, elaborandoli contemporaneamente. Questo processo è chiamato <b>frammentazione</b>.</p>
 <p>Frammentando un pacchetto in più parti, nonostante debba aggiungere un <i>overhead</i> per ogni frammento del pacchetto, posso parallelizzare la trasmissione dei frammenti ed avere un <b>ritardo complessivo minore</b>.</p>
-<p>Il numero di frammenti in cui va spezzato un pacchetto va scelto con ragionevolezza, poiché frammentare troppo può portare a ritardi maggiori.</p>
+<p>Il numero di frammenti in cui va spezzato un pacchetto va <b>scelto con ragionevolezza</b>, poiché <b>frammentare troppo può portare a ritardi maggiori</b>.</p>
 <h4 id="Datagram e circuito virtuale">Datagram e circuito virtuale</h4>
-<p>Nella commutazione <b>Datagram</b>, la scelta della porta d’uscita viene fatta sulla base del solo indirizzo IP di destinazione. I pacchetti dello stesso flusso sono inoltrati indipendentemente. Si usa per questo metodo la tabella di instradamento dei router.</p>
-<p>Nel caso del <b>circuito virtuale</b>, i nodi identificano i pacchetti di un flusso informativo sulla base di un <b>identificativo di circuito virtuale</b> (<i>VCI</i> o <i>Label</i>). Il circuito virtuale viene instaurato in una fase di setup prima della fase di dati, che rende questo metodo <i>connection-oriented</i>. Dopo la fase di setup, i pacchetti seguono tutti lo stesso percorso di rete e sono instradati sulla base dell’identificativo di circuito virtuale.</p>
-<hr>
-<h2 id="Parametri di prestazione">Parametri di prestazione</h2>
+<p>Nella commutazione <b>datagram</b>, la scelta della porta d’uscita viene fatta sulla base del solo indirizzo IP di destinazione. I pacchetti dello stesso flusso sono inoltrati indipendentemente. Si usa per questo metodo la <b>tabella di instradamento</b> dei router.</p>
+<p>Nel caso del <b>circuito virtuale</b>, i nodi identificano i pacchetti di un flusso informativo sulla base di un <b>identificativo di circuito virtuale</b> (<i>VCI</i> o <i>Label</i>). Il circuito virtuale viene ins𝛕rato in una fase di setup prima della fase di dati, che rende questo metodo <i>connection-oriented</i>. Dopo la fase di setup, i pacchetti <b>seguono tutti lo stesso percorso di rete</b> e sono instradati sulla base dell’identificativo di circuito virtuale.</p>
+<br>
+<h3 id="Parametri di prestazione">Parametri di prestazione</h3>
 <p>Sono tre:</p>
-<ul><li>Ritardo
-</li><li>Perdita
-</li><li>Throughput
+<ul><li><b>Ritardo</b>
+</li><li><b>Perdita</b>
+</li><li><b>Throughput</b>
 </li></ul>
 <br>
-<h3 id="Rete end-to-end">Rete end-to-end</h3>
+<h4 id="Rete end-to-end">Rete end-to-end</h4>
 <p><img src='index/Schermata%202021-02-25%20alle%2009.48.23.png'></p>
 <p>Contributi di ritardo:</p>
 <ul><li>Trasmissione
@@ -428,103 +477,151 @@
 </li></ul>
 <p>Nella realtà questi tre momenti avvengono con continuità.</p>
 <br>
-<h3 id="Velocità e tempo di trasmissione">Velocità e tempo di trasmissione</h3>
-<p>La velocità di trasmissione è la velocità (<i>rate</i>) <b>C</b> con la quale l’informazione digitale viene trasmessa su una linea (<i>canale</i>). È misurata in bit/s (o bps) o suoi multipli.</p>
-<p>Il tempo <b>T</b> necessario per trasmettere <i>L</i> bit dipende dalla velocità di trasmissione. Si ha <code class='code-inline'>T = L / C</code>.</p>
-<p>Il ritardo di propagazione è il tempo tau affinché un impulso generato dal trasmettitore TX raggiunga il ricevitore RX. Dipende dalla distanza <i>d</i> in metri e dalla velocità di propagazione della luce nel mezzo fisico <i>v</i> in metri al secondo. Si ha <code class='code-inline'>tau = d / v</code>.</p>
+<h4 id="Velocità e tempo di trasmissione">Velocità e tempo di trasmissione</h4>
+<p>La <b>velocità di trasmissione</b> è la velocità (<i>rate</i>) <i>C</i> con la quale l’informazione digitale viene trasmessa su una linea (<i>canale</i>). È misurata in <b>bit/s</b> (o <b>bps</b>) o suoi multipli.</p>
+<p>Il <b>tempo</b> <i>T</i> necessario per trasmettere <i>L</i> bit dipende dalla velocità di trasmissione. Si ha <code class='code-inline'>T = L / C</code>.</p>
+<p>Il <b>ritardo di propagazione</b> è il tempo 𝛕 affinché un <b>impulso generato dal trasmettitore</b> TX <b>raggiunga il ricevitore RX</b>. Dipende dalla distanza <i>d</i> in metri e dalla velocità di propagazione della luce nel mezzo fisico <i>v</i> in metri al secondo. Si ha <code class='code-inline'>𝛕 = d / v</code>.</p>
 <p>Per le onde radio, la velocità <i>v</i> è pari a 300000 km<i>s, mentre per la propagazione guidata /v</i> è pari a 200000 km/s.</p>
-<p>Il tempo di attraversamento del canale è quindi <code class='code-inline'>T(tot) = T + tau</code>.</p>
+<p>Il <b>tempo di attraversamento del canale</b> è quindi <code class='code-inline'>T(tot) = T + 𝛕𝛕</code>.</p>
 <br>
-<h3 id="Ritardo di accodamento">Ritardo di accodamento</h3>
+<h4 id="Modello di un nodo">Modello di un nodo</h4>
+<p><img src='index/EAC84BAA-8103-4EFC-A162-419435F929BA.png'></p>
+<p>Dato che i nodi in una rete a commutazione di pacchetto devono memorizzare ed elaborare i pacchetti per riuscire a ritrasmetterli verso la loro destinazione, nasce un <b>ritardo di elaborazione</b> da aggiungere al ritardo totale.</p>
+<p><img src='index/CC9E8688-C0AC-4F5B-93DE-DED69121FE04.png'></p>
+<br>
+<h4 id="Ritardo di accodamento">Ritardo di accodamento</h4>
 <p><img src='index/Schermata%202021-02-25%20alle%2010.06.36.png'></p>
+<p>Nel caso la linea d’uscita sia occupata nella trasmissione di un altro pacchetto, il ritardo aumenta, poiché nella commutazione di pacchetto, ogni pacchetto <b>utilizza completamente le risorse</b> durante la sua trasmissione per un dato tempo.</p>
 <br>
-<h3 id="Throughput">Throughput</h3>
-<p>È la quantità di informazione trasportata (con successo) da una rete o porzione di rete nell’unità di tempo. Si abbrevia con <b>THR</b> e si misura in bit/s.</p>
-<p>Su un collegamento di capacità <i>C</i>, si definisce una quantità simile al THR, detta <b>Traffico</b>, che si calcola come <code class='code-inline'>A = THR / C</code> e si misura in <i>Erlang</i>. Assume valori tra 0 e 1 compresi ed è, di fatto, una misura di efficienza.</p>
+<h4 id="Throughput">Throughput</h4>
+<p>È la <b>quantità di informazione trasportata</b> (con successo) da una rete o porzione di rete nell’unità di tempo. Si abbrevia con <b>THR</b> e si misura in <b>bit/s</b>.</p>
+<p>Su un collegamento di capacità <i>C</i>, si definisce una quantità simile al THR, detta <b>traffico</b>, che si calcola come <code class='code-inline'>A = THR / C</code> e si misura in <b>Erlang</b>. Assume valori tra 0 e 1 compresi ed è, di fatto, una <b>misura di efficienza</b>.</p>
 <br>
-<h3 id="Perdita">Perdita</h3>
-<p>È un indice della quantità di informazione persa nell’attraversamento della rete. Può essere riferita ai pacchetti o ai bit (si parla di <i>tasso di errore sul bit</i>, o <i>Bit Error Rate</i>).</p>
+<h4 id="Perdita">Perdita</h4>
+<p>È un indice della <b>quantità di informazione persa</b> nell’attraversamento della rete. Può essere riferita ai pacchetti o ai bit (si parla di <i>tasso di errore sul bit</i>, o <i>Bit Error Rate</i>).</p>
 <p>La perdita è determinata da:</p>
-<ul><li>Ricezione di UI corrotte
-</li><li>Saturazione dei buffer lungo il percorso end-to-end
+<ul><li><b>Ricezione di UI corrotte</b> (errori di trasmissione)
+</li><li><b>Saturazione dei buffer</b> lungo il percorso end-to-end
 </li></ul>
-<p>È espressa attraverso una probabilità <i>pi greco</i>: <code class='code-inline'>pi greco = numero bit o UI persi / numero bit o UI trasmessi</code></p>
+<p>È espressa attraverso una <b>probabilità</b> <i>𝛑</i>: <code class='code-inline'>𝛑 = numero bit o UI persi / numero bit o UI trasmessi</code></p>
 <hr>
 <h2 id="Livello fisico">Livello fisico</h2>
 <h3 id="Segnali">Segnali</h3>
 <p>I segnali possono essere divisi in due categorie:</p>
-<ul><li>Segnali <b>fisici</b>
-<ul><li>	Sorgenti analogiche o continue
-</li><li>	Associati a grandezze fisiche e tipicamente continue
-</li></ul></li><li>Segnali <b>logici</b>
-<ul><li>	Sorgenti digitali/numeriche o discrete
-</li><li>	Sequenze <i>nativamente</i> numeriche oppure segnali fisici digitalizzati
-</li></ul>
-</li></ul>
-<p>L’informazione trasportata da Internet è sempre in forma numerica, anche se l’informazione originale è prodotta da una sorgente analogica.</p>
+<ol start="1"><li>Segnali <b>fisici</b> (<b>Sorgenti analogiche</b> o continue): associati a grandezze fisiche e tipicamente continue.
+</li><li>Segnali <b>logici</b> (<b>Sorgenti digitali<i>numeriche</i></b><i> o discrete): sequenze /nativamente</i> numeriche oppure segnali fisici digitalizzati.
+</li></ol>
+<p>L’informazione trasportata da Internet è <b>sempre in forma numerica</b>, anche se l’informazione originale è prodotta da una sorgente analogica.</p>
 <p><img src='index/Schermata%202021-02-26%20alle%2008.51.59.png'></p>
+<br>
 <p>Un segnale si può rappresentare con una <b>funzione del tempo</b>.</p>
-<ul><li><b>Segnali a tempo continuo</b>: <code class='code-inline'>s(t), t &gt;= 0</code>, dove s(t) rappresenta la variazione continua di un segnale nel tempo
-</li><li><b>Segnali a tempo discreto</b>: rappresenta una sequenza di impulsi ideali che si succedono a intervalli regolari
-</li><li><b>Segnale periodico</b>: si ripete nel tempo dopo ciascun periodo <i>T</i>. Nella realtà, i segnali di interesse non sono mai perfettamente periodici, ma variazioni di essi sono spesso usate per la loro semplicità di analisi.
+<ul><li><b>Segnali a tempo continuo</b>: <code class='code-inline'>s(t), t &gt;= 0</code>, dove s(t) rappresenta la variazione nel tempo di una grandezza fisica misurabile (tensione, corrente, intensità di campo elettrico, intensità luminosa…)
+</li></ul>
+<p><img src='index/C16B7BA3-4EA0-4DC6-9FD4-74F72D3992C6.png'></p>
+<ul><li><b>Segnali a tempo discreto</b>: rappresenta una sequenza di impulsi ideali che si succedono a intervalli regolari <i>Tc</i>.
+</li></ul>
+<p><img src='index/83EFC241-274B-49B0-9094-9DEF8F84AD4D.png'></p>
+<p>La sequenza dei numeri <code class='code-inline'>{ak}</code>, detta <b>sequenza dei campioni</b>, può rappresentare un segnale digitale.</p>
+<p><img src='index/37A206F1-A9CF-482C-9F45-40C9B2F3824D.png'></p>
+<ul><li><b>Segnale periodico</b>: si ripete nel tempo dopo ciascun periodo <i>T</i>: <code class='code-inline'>s(t + T) = s(t), t&gt;=0</code>. Nella realtà, i segnali di interesse <b>non sono mai perfettamente periodici</b> (altrimenti non porterebbero informazione), ma variazioni di essi. L’analisi dei segnali periodici è più semplice di quella dei segnali non periodici, quindi essi sono un <b>modello analitico utile</b>.
 </li></ul>
 <h4 id="Analisi di Fourier">Analisi di Fourier</h4>
 <p><img src='index/E86BD6CF-7116-4C3E-8147-4EBBEB2C555B.png'></p>
-<p>L’analisi di Fourier serve a trasformare matematicamente un segnale dal dominio del tempo al dominio della frequenza.</p>
-<p>L’analisi di Fourier consente di studiare qualsiasi segnale scomponendolo in <b>sinusoidi</b>.</p>
+<p>L’analisi di Fourier serve a trasformare matematicamente un segnale dal dominio del <b>tempo</b> al dominio della <b>frequenza</b>.</p>
+<p>L’analisi di Fourier consente di studiare qualsiasi segnale <b>scomponendolo in sinusoidi</b>.</p>
 <p>I segnali periodici di periodo <i>T</i> possono essere scomposti in un numero <i>discreto</i> di sinusoidi (<b>serie di Fourier</b>) di frequenza multipla della <b>frequenza fondamentale</b> (o <i>armonica fondamentale</i>) <code class='code-inline'>f0 = 1 / T</code>:</p>
 <p><img src='index/DC5B9E9A-0542-40EF-91A3-E1EF0DA6A656.png'></p>
-<p>Le sinusoidi costituenti sono dette <b>armoniche</b> o <b>componenti spettrali</b>. Ciascuna di esse ha una sua ampiezza <code class='code-inline'>Sn = sqrt(a^2 + b^2)</code> ed in generale è presenta anche una componente <b>continua</b> <code class='code-inline'>a0</code>, che è un valore costante.</p>
+<p>Le sinusoidi costituenti sono dette <b>armoniche</b> o <b>componenti spettrali</b>. Ciascuna di esse ha una sua ampiezza <code class='code-inline'>Sn = sqrt(a^2 + b^2)</code> ed in generale è presente anche una componente <b>continua</b> <code class='code-inline'>a0</code>, che è un valore costante.</p>
+<p><img src='index/Schermata%202021-03-07%20alle%2015.10.43.png'></p>
 <br>
 <h4 id="Esempio di spettro di un segnale">Esempio di spettro di un segnale</h4>
+<ul><li>Segnale periodico a media nulla
+<ul><li>	<i>T</i> = 0,5 ms
+</li><li>	<i>f0</i> = 2 kHz
+</li></ul>
+</li></ul>
 <p><img src='index/Schermata%202021-02-26%20alle%2009.10.44.png'></p>
 <p>Una sinusoide di periodo <i>T</i> e frequenza <code class='code-inline'>f0 = 1 / T</code> nel dominio del tempo può essere rappresentata nel dominio delle frequenze dalla sola componente alla frequenza <i>f0</i>.</p>
+<br>
+<ul><li>Segnale periodico a media nulla (onda quadra)
+<ul><li>	<i>T</i> = 0,5 ms
+</li><li>	<i>f0</i> = 2 kHz
+</li></ul>
+</li></ul>
 <p><img src='index/8602549D-88F2-49B7-A7BD-782B2F3B2405.png'></p>
-<p>In questo caso, il segnale è più complesso rispetto ad una sinusoide.</p>
+<p>In questo caso, il segnale è più complesso rispetto ad una sinusoide e quindi viene approssimato con più sinusoidi, perciò il dominio delle frequenze è maggiormente popolato.</p>
+<br>
+<ul><li>Segnale periodico a media non nulla (onda quadra)
+<ul><li>	<i>T</i> = 400 ns
+</li><li>	<i>f0</i> = 2,5 MHz
+</li></ul>
+</li></ul>
 <p><img src='index/Schermata%202021-02-26%20alle%2009.17.53.png'></p>
-<p>In questo caso invece, troviamo anche una componente continua</p>
+<p>In questo caso invece, troviamo anche una componente continua, che non varia nel tempo.</p>
+<br>
+<ul><li>Onda a dente di sega (spettro con armoniche sia pari sia dispari)
+<ul><li>	<i>T</i> = 4,545 ms
+</li><li>	<i>f0</i> = 220 Hz
+</li></ul>
+</li></ul>
 <p><img src='index/5D1A5CC6-6EC8-41AA-A0A8-E7638BBB4A37.png'></p>
-<p>Onda a dente di sega</p>
 <br>
 <h4 id="Caratterizzazione spettrale dei segnali analogici">Caratterizzazione spettrale dei segnali analogici</h4>
-<p>La trasformata di Fourier generalizza la serie di Fourier al caso di segnali <b>non periodici</b>.</p>
-<p>La trasformata scompone i segnali non periodici in un <b>insieme continuo di armoniche</b>.</p>
-<p>Ogni componente è in generale moltiplicata per un <b>coefficiente complesso</b>, che determina <b>un’ampiezza ed una fase</b> della sinusoide.</p>
+<p>La <b>trasformata di Fourier</b> generalizza la serie di Fourier al caso di segnali <b>non periodici</b>. La trasformata scompone i segnali non periodici in un <b>insieme continuo di armoniche</b>. Ogni componente è in generale moltiplicata per un <b>coefficiente complesso</b>, che determina <b>un’ampiezza ed una fase</b> della sinusoide.</p>
 <p>La funzione <i>X(f)</i> che descrive le ampiezze e le fasi delle sinusoidi componenti è lo <b>spettro</b> del segnale <i>x(t)</i>.</p>
-<p><b>Banda di un segnale</b> (<i>B</i>): intervallo di frequenze che caratterizzano un segnale.</p>
+<h4 id="Banda di un segnale">Banda di un segnale</h4>
+<p>La <b>banda di un segnale</b> (<i>B</i>) è l’<b>insieme delle armoniche che costituiscono un segnale</b>.</p>
+<br>
 <p>Esistono due tipi di segnali:</p>
 <ul><li>A <b>banda stretta</b>: variano lentamente nel tempo
 </li><li>A <b>banda larga</b>: variano velocemente nel tempo
 </li></ul>
+<br>
 <p><b>Esempi di bande</b>:</p>
 <ul><li><b>Segnale telefonico</b>: 300 - 4000 Hz
 </li><li><b>Voce</b>: 300 - 8000 Hz
 </li><li><b>Musica</b>: 100 - 20.000 Hz
-</li><li><b>TV analogica PAL</b>: 0 - 5 MHz
+</li><li><b>TV analogica PAL</b>: 0 - 5 MHz (PAL: <i>Phase Alternating Line</i>)
 </li><li><b>Cinema</b>: 0 - 500 MHz
 </li></ul>
 <br>
-<h4 id="Dalla generazione alla trasmissione digitale">Dalla generazione alla trasmissione digitale</h4>
+<h3 id="Trasformazione AD (analog to digital)">Trasformazione AD (analog to digital)</h3>
 <p>Per poter trasmettere un segnale analogico, è necessario trasformarlo in un segnale digitale. Si fa attraverso tre fasi.</p>
-<ol start="1"><li><b>Campionamento</b>: trasformazione di un segnale tempo continuo ad un segnale tempo discreto. Il <b>Teorema di Nyquist</b> (o <i>teorema del campionamento</i>) dice che un segnale tempo variante è completamente determinato dai suoi campioni presi a intervalli di durata <i>Tc</i> tale che <code class='code-inline'>Tc &lt; 1 / 2fMax</code>, dove <i>fMax</i> è la frequenza massima nello spettro del segnale. La frequenza di Nyquist è la frequenza minima da usare per il campionamento: <code class='code-inline'>fc &gt; fN = 2fMax</code>. Se non si rispetta  il teorema di Nyquist, si rischia di non poter ricostruire il segnale originale fedelmente (<b>aliasing</b>). Se invece la frequenza di campionamento è esattamente il doppio della frequenza massima del segnale, campionando negli istanti di attraversamento degli zeri si possono confondere sinusoide e componente continua. La ricostruzione del segnale al ricevitore avviene con un <b>filtro</b> che <i>taglia</i> le frequenze oltre <i>B</i>.</li></ol>
-<img src='index/6B2EB126-A243-474C-BEFA-D9AC3EF7AA6A.png'>
-<ol start="2"><li><b>Quantizzazione</b>: è l’operazione con cui una grandezza che assume valori in un intervallo continuo è trasformata in un valore all’interno di un <b>set discreto di valori</b>. Nella trasformazione si commette un <b>errore di quantizzazione</b>, dovuto all’approssimazione. Più livelli ci sono, minore sarà l’errore di quantizzazione. Aumentare livelli di quantizzazione però aumenta il numero di bit da utilizzare.
-</li></ol>
+<h4 id="Campionamento">Campionamento</h4>
+<p><b>Trasformazione di un segnale tempo continuo ad un segnale tempo discreto</b>.</p>
+<p><img src='index/6B2EB126-A243-474C-BEFA-D9AC3EF7AA6A.png'></p>
+<p>Il <b>Teorema di Nyquist</b> (o <i>Teorema del campionamento</i>) dice che un segnale tempo-variante è <b>completamente determinato dai suoi campioni</b> presi a intervalli di durata <i>Tc</i> tale che <code class='code-inline'>Tc &lt; 1 / 2fMax</code>, dove <i>fMax</i> è la frequenza massima nello spettro del segnale.</p>
+<p>La <b>frequenza di Nyquist</b> è la <b>frequenza minima da usare</b> per il campionamento: <code class='code-inline'>fc &gt; fN = 2fMax</code>.</p>
+<p>Se non si rispetta il teorema di Nyquist, si rischia di <b>non poter ricostruire il segnale originale fedelmente</b> (<b>aliasing</b>). Se invece la frequenza di campionamento è <b>esattamente il doppio</b> della frequenza massima del segnale, campionando negli istanti di attraversamento degli zeri <b>si possono confondere sinusoide e componente continua</b>.</p>
+<p>La ricostruzione del segnale al ricevitore avviene con un <b>filtro</b> che <i>taglia</i> le frequenze oltre <i>B</i>.</p>
+<p><img src='index/18019960-EB78-4E3B-A52A-1CD3D96CD54E.png'></p>
+<p><b>Frequenze di campionamento tipiche</b>:</p>
+<p><img src='index/3A8C44BD-8A03-4B50-AFF2-737D4F34243D.png'></p>
+<h4 id="Quantizzazione">Quantizzazione</h4>
+<p>È l’operazione con cui una grandezza che assume valori in un intervallo continuo è <b>trasformata in un valore all’interno di un set discreto di valori</b>.</p>
+<p>Nella trasformazione si commette un <b>errore di quantizzazione</b>, dovuto all’approssimazione. Più livelli ci sono, minore sarà l’errore di quantizzazione. Aumentare livelli di quantizzazione però <b>aumenta il numero di bit da utilizzare</b>.</p>
 <p><img src='index/Schermata%202021-02-26%20alle%2009.59.36.png'></p>
-<ol start="3"><li><b>Codifica</b>: ciascun campione quantizzato è codificato, ossia trasformato in bit, in funzione del numero di livelli <i>l</i> secondo questa espressione: <code class='code-inline'>l = 2^m</code>
-</li></ol>
+<h4 id="Codifica">Codifica</h4>
+<p>Ciascun campione quantizzato è <b>codificato</b>, ossia <b>trasformato in bit</b>, in funzione del <b>numero di livelli</b> <i>l</i> secondo questa espressione: <code class='code-inline'>l = 2^m</code>.</p>
+<p><img src='index/7F08D513-3D55-40C0-8833-79EEA475A256.png'></p>
+<p>Livelli di quantizzazione di alcuni segnali:</p>
+<p><img src='index/CCF5B6B9-CEAC-4F24-9437-B4E997D5392A.png'></p>
+<br>
 <h4 id="Flussi binari equivalenti">Flussi binari equivalenti</h4>
-<p>Il bitrate ottimale per trasmettere un segnale dipende dalla sua banda. La formula generale per calcolare il bitrate ottimale è <code class='code-inline'>Rb = 2B*b</code>, dove <i>B</i> è la banda e <i>b</i> sono i bit usati per la quantizzazione.</p>
+<p>Il <b>bitrate ottimale</b> per trasmettere un segnale <b>dipende dalla sua banda</b>. La formula generale per calcolare il bitrate ottimale è <code class='code-inline'>Rb = 2B*b</code>, dove <i>B</i> è la banda e <i>b</i> sono i bit usati per la quantizzazione.</p>
+<p><img src='index/00BE53D7-EEB6-4E16-A2BF-130CACED3AAF.png'></p>
 <br>
 <h3 id="Modulazione">Modulazione</h3>
-<p>La sequenza digitale viene usata per modificare, ossia <i>modulare</i>, uno dei parametri (ampiezza, frequenza, fase…) di un segnale fisico inviato nel mezzo trasmissivo.</p>
+<p>La sequenza digitale viene usata per <b>modificare</b>, ossia <i>modulare</i>, <b>uno dei parametri</b> (ampiezza, frequenza, fase…) <b>di un segnale fisico</b> inviato nel mezzo trasmissivo.</p>
 <p><img src='index/3EC25E8C-BE1E-4B7E-AB4B-42F1D2CC30E8.png'></p>
 <p>La modulazione può avvenire in <i>banda base</i> o in <i>banda passante</i>:</p>
 <ul><li><b>Banda base</b>: i segnali hanno uno spettro contiguo rispetto all’origine. Un esempio è la <b>PAM</b> (<i>Pulse Amplitude Modulation</i>), in cui il bit corrisponde ad un impulso di ampiezza positiva (1) o negativa (0).
 </li><li><b>Banda passante</b> o <b>traslata</b>:  i segnali da modulare hanno uno spettro traslato su intervalli di frequenze non contigue all’origine. Si usa un’onda elettromagnetica detta <b>portante</b> (<i>carrier</i>) ad una determinata frequenza <i>fp</i> per traslare lo spettro del segnale intorno alla frequenza della portante.
 </li></ul>
 <h4 id="Modulazione d’ampiezza analogica">Modulazione d’ampiezza analogica</h4>
-<p>Moltiplico l’onda del segnale da modulare con la sinusoide base per ottenere il segnale modulato da inviare</p>
+<p>Esempio di modulazione d’ampiezza in <b>banda base</b>: <b>PAM</b> (<i>Pulse Amplitude Modulation</i>):</p>
+<p><img src='index/4889533C-2ED0-499A-9E07-1C04A68F28E9.png'></p>
+<p>Esempio di modulazione in <b>banda traslata</b>: moltiplico l’onda del segnale da modulare con la sinusoide base per ottenere il segnale modulato da inviare:</p>
 <p><img src='index/557828D2-CB4E-4FE3-B2FC-F5DD74E2ECEC.png'></p>
 <p>Si ottiene uno spettro di segnale effettivamente <i>traslato</i>:</p>
 <p><img src='index/B3035F98-8CA9-4EA3-82B5-6F6468E18C20.png'></p>
@@ -535,23 +632,29 @@
 </li><li>Modulazione di fase (<b>PSK</b>, <i>Phase Shift Keying</i>)
 </li><li>Modulazione <b>QAM</b> (<i>Quadrature-Amplitude Modulation</i>): cambiamento misto di ampiezza e fase
 </li></ul>
-<p>Per aumentare la capacità di canale è possibile incrementare l’ordine della modulazione: <b>Modulazione Multilivello</b>.</p>
+<p><img src='index/0A807934-5954-48FF-8AD9-E8CF408B3E87.png'></p>
+<p>Per aumentare la capacità di canale è possibile incrementare l’<b>ordine</b> della modulazione: <b>Modulazione Multilivello</b>.</p>
 <p>Servono:</p>
 <ul><li>Un bitrate in ingresso diviso in gruppi di <code class='code-inline'>log2(N)</code>
-</li><li>N livelli diversi
-</li><li>Ad ogni simbolo/impulso corrispondono <code class='code-inline'>n = log2(N)</code> 
+</li><li>N livelli di ampiezza diversi
+</li><li>Ad ogni simbolo/impulso corrispondono <code class='code-inline'>n = log2(N)</code> bit
 </li></ul>
-<h4 id="Esempi">Esempi</h4>
-<p><b>PAM con 4 livelli di ampiezza</b>:</p>
+<br>
+<p><b>Esempi</b>:</p>
+<ul><li><b>PAM con 4 livelli di ampiezza</b>:
+</li></ul>
 <p><img src='index/D3040CEF-A942-4914-9A02-401B87F1A15E.png'></p>
 <p>Si definisce in questo contesto una velocità <i>diversa</i> dal bitrate, chiamata <b>baud rate</b>, che misura il numero di simboli al secondo. Vale la relazione <code class='code-inline'>Rb = Rs * log2(N)</code>.</p>
-<p><b>Modulazione multilivello di fase</b>:</p>
-<p><img src='index/Schermata%202021-03-02%20alle%2015.29.59.png'></p>
+<ul><li><b>Modulazione multilivello di fase</b>:
+</li></ul>
+<p><img src='index/A673742A-52E2-4DB2-945B-3149B586C64B.png'></p>
 <p>Dove <i>I</i> rappresenta la portante <i>in fase</i> (cosinusoide), mentre <i>Q</i> rappresenta la portante <i>in quadratura</i> (sinusoide). I valori differenti di seno e coseno sono coloro che distinguono i <i>baud</i> da trasmettere.</p>
-<p>Modulazione multilivello di ampiezza e fase (<b>QAM</b>):</p>
-<p><img src='index/482ECF15-FE70-4D3A-8CE7-D31763EFF8C1.png'></p>
+<ul><li><b>Modulazione multilivello di ampiezza e fase</b> (<b>QAM</b>):
+</li></ul>
+<p><img src='index/2D47DC6A-979A-472D-86ED-5C8837281A70.png'></p>
 <p>16 livelli (<i>16QAM</i>) di fase e ampiezza (chiamati anche <i>simboli</i>), con quattro bit per livello. Si parla anche di <i>costellazione</i>.</p>
-<p>Usando la trasmissione multilivello, posso incrementare la capacità trasmissiva di <i>n</i> volte. Tuttavia, la velocità massima non può essere aumentata arbitrariamente aumentando i livelli, per due ragioni:</p>
+<br>
+<p>Usando la trasmissione multilivello, posso <b>incrementare la capacità trasmissiva</b> di <i>n</i> volte. Tuttavia, <b>la velocità massima non può essere aumentata</b> arbitrariamente aumentando i livelli, per due ragioni:</p>
 <ol start="1"><li>Se mantengo inalterata la distanza tra i vari simboli, devo <b>aumentare l’energia dell’impulso</b>, necessaria per trasmettere i simboli <i>più esterni</i> della costellazione.
 </li><li>Se mantengo inalterata l’energia massima, la trasmissione è <b>più sensibile al rumore introdotto dal canale</b>, che può far equivocare il livello in ricezione (errore di ricezione)
 </li></ol>
@@ -568,8 +671,10 @@
 <p><img src='index/86768743-C6DB-4773-BA68-1E0D8A91C311.png'></p>
 <h4 id="Canale passa-basso e passa-banda">Canale passa-basso e passa-banda</h4>
 <p>Se il mezzo presenta una banda passante intorno alla frequenza 0, viene detto canale <b>passa-basso</b> o in <b>banda base</b>. Ha un’attenuazione costante sulla sua banda e fa passare soltanto le frequenze più basse dello spettro.</p>
+<p><img src='index/693E566C-6FE6-45F5-B160-53C2BFF52956.png'></p>
 <p>Un canale <b>passa-banda</b> (o in <b>banda passante</b>) invece fa passare solo una certa banda di frequenze e taglia ciò che sta intorno. Anche questo ha un’attenuazione costante sulla sua banda.</p>
 <p>Deve sempre essere usata un’onda portante (<i>modulazione in banda passante</i>) per trasmettere il segnale.</p>
+<p><img src='index/83B2759A-8232-4FED-A4B7-A7B89AA070C6.png'></p>
 <p>Al giorno d’oggi, quasi tutti i canali trasmissivi sono passa-banda.</p>
 <br>
 <h4 id="Esempio della banda di un canale">Esempio della banda di un canale</h4>
@@ -622,12 +727,13 @@
 </li><li>Attenuazione
 </li><li>Sensibilità al rumore
 </li></ul>
+<br>
 <p><b>Bande tipiche di mezzi trasmissivi</b></p>
-<p><img src='index/Schermata%202021-03-06%20alle%2011.43.07.png'></p>
+<p><img src='index/15ED7307-19EB-4700-B942-5A6EF00FAF2C.png'></p>
 <h4 id="Velocità di trasmissione e banda passante del canale">Velocità di trasmissione e banda passante del canale</h4>
-<p>Canale con banda passante pari a <i>B</i> [Hz]</p>
+<p>Canale con banda passante pari a <i>B</i> [Hz].</p>
 <p>Baud rate: <code class='code-inline'>Rs = ηs * B</code> simboli al secondo, dove <i>ηs</i> è l’<b>efficienza spettrale</b> <code class='code-inline'>[(simboli/s) / Hz]</code>.</p>
-<p>Si può dimostrare che usando impulsi ideali, <code class='code-inline'>ηs = 2</code>, quindi <code class='code-inline'>Rs ~= 2B simboli/s</code>, mentre usando forme di impulsi reali che resistono al rumore del canale: <code class='code-inline'>ηs = 1</code>, quindi <code class='code-inline'>Rs ~= B</code>.</p>
+<p>Si può dimostrare che usando impulsi <b>ideali</b>, <code class='code-inline'>ηs = 2</code>, quindi <code class='code-inline'>Rs ~= 2B simboli/s</code>, mentre usando forme di impulsi <b>reali</b> che resistono al rumore del canale: <code class='code-inline'>ηs = 1</code>, quindi <code class='code-inline'>Rs ~= B</code>.</p>
 <ul><li><b>Trasmissione binaria</b>: Bit rate massimo: <code class='code-inline'>Rb = Rs ~= B bit/s</code>.
 </li><li><b>Trasmissione multilivello</b> con <i>n</i> bit per simbolo: Bit rate massimo: <code class='code-inline'>Rb = nRs ~= nB bit/s</code>.
 </li></ul>
@@ -635,15 +741,17 @@
 <p>Se il segnale in ingresso ha una potenza <i>Pin</i> e il segnale di uscita ha una potenza <i>Pout</i>, si definisce <b>attenuazione</b> del collegamento il rapporto <code class='code-inline'>A = Pout / Pin</code>. Viene generalmente indicato in decibel [dB]: <code class='code-inline'>A = 10log10(Pout/pin)</code>.</p>
 <p>Il contrario dell’attenuazione è il <b>guadagno</b>.</p>
 <h4 id="Rumore">Rumore</h4>
-<p>In un canale di comunicazione, tra trasmettitore e ricevitore, è sempre inserito un rumore casuale, a componenti non predicibili, con frequenze anche del nostro segnale. Questo può determinare errori di ricezione con una probabilità di errore <i>P</i> (qualità del sistema). La probabilità di errore quantifica quanti bit in una data sequenza vengono modificati a causa del rumore o di altri segnali o apparati che creano interferenza.</p>
+<p>In un canale di comunicazione, tra trasmettitore e ricevitore, è sempre inserito un <b>rumore casuale</b>, a componenti <b>non predicibili</b>, con frequenze anche del nostro segnale. Questo può determinare <b>errori di ricezione</b> con una <b>probabilità di errore</b> <i>P</i> (qualità del sistema). La probabilità di errore <b>quantifica quanti bit in una data sequenza vengono modificati</b> a causa del rumore o di altri segnali o apparati che creano interferenza.</p>
 <p>Il rumore si traduce in una probabilità di ricevere qualcosa di diverso dal dato trasmesso in questo modo:</p>
-<p><img src='index/Schermata%202021-03-06%20alle%2012.09.12.png'></p>
-<p>Asse x: ampiezza del segnale ricevuto</p>
-<p>Asse y: <i>probabilità di ricezione</i> di una data ampiezza</p>
+<p><img src='index/Schermata%202021-03-07%20alle%2016.03.01.png'></p>
+<p><b>Asse x</b>: ampiezza del segnale ricevuto</p>
+<p><b>Asse y</b>: <i>probabilità di ricezione</i> di una data ampiezza</p>
 <p>Questo tipo di grafico prende il nome di <i>Probability Density Function</i> (<b>PDF</b>).</p>
+<br>
 <p>Nel mondo ideale, senza avere rumore, posso ricevere soltanto due valori. Ma per effetto del rumore, la probabilità che ciò avvenga è <i>distribuita</i> su un set di intervalli.</p>
 <p>Più alto è il picco nel grafico PDF, migliore è il canale.</p>
 <p>Nel ricevitore si imposta una <b>soglia di decisione</b>, che serve al ricevitore ad avere un intervallo in cui il segnale verrà decodificato in un modo e un altro in cui verrà decodificato in un altro. </p>
+<br>
 <p>Con la modulazione multilivello:</p>
 <p>Il ricevitore è provvisto di un <b>decisore</b>, che elabora il campione del segnale ricevuto. Si misura l’<b>energia</b> del simbolo ricevuto e la si confronta con dei possibili risultati attesi. La misura sarà un numero casuale per effetto del rumore del canale.</p>
 <p><img src='index/815D20DD-5F0F-441D-BC24-3D437EAF9DAF.png'></p>
@@ -657,57 +765,51 @@
 <p>Se un codice non riesce a correggere un errore può spesso riuscire a rilevarlo (il controllo di parità dà risultato negativo). Nella trasmissione a commutazione di pacchetto è possibile rilevare gli errori in ricezione e richiedere la <b>ritrasmissione</b> del pacchetto errato (<b>ARQ</b>, <i>Automatic Repeat reQuest</i>).</p>
 <hr>
 <h2 id="Applicazioni di rete">Applicazioni di rete</h2>
-<h3 id="Esempi di applicazioni di rete:">Esempi di applicazioni di rete:</h3>
-<ul><li>World Wide Web
-</li><li>Video streaming
-</li><li>File sharing
-</li><li>Social network
-</li><li>Telefonia
-</li><li>Videoconferenza
-</li><li>Remote login
-</li><li>Giochi
-</li></ul>
+<h3 id="Esempi di applicazioni di rete">Esempi di applicazioni di rete</h3>
+<p><img src='index/11C3E166-7953-4147-B9B5-3B6AEFD3376E.png'></p>
 <br>
 <h3 id="Cosa significa creare un’applicazione di rete?">Cosa significa creare un’applicazione di rete?</h3>
 <p>Significa scrivere un software che possa:</p>
 <ul><li>essere eseguito su diversi terminali
 </li><li>comunicare con altri software remoti tramite la rete
 </li></ul>
-<p>Alcuni esempi: </p>
-<p>Il <b>browser web</b>:</p>
+<p>Il <b>browser web</b>, per esempio:</p>
 <ul><li>è un software in esecuzione su un dispositivo
 </li><li>comunica con altri software tramite la rete
 </li></ul>
-<p>Le applicazioni sono solo <b>nei terminali</b> e possono essere facilmente sviluppate e diffuse. Inventare una nuova applicazione <b>non richiede di cambiare il software della rete</b>. I nodi non contengono software applicativo.</p>
+<p>Le applicazioni sono solo <b>nei terminali</b> e possono essere facilmente sviluppate e diffuse. Inventare una nuova applicazione <b>non richiede di cambiare il software della rete</b>. I nodi <b>non contengono software applicativo</b>.</p>
 <br>
 <h3 id="Architetture">Architetture</h3>
 <h4 id="Client-server">Client-server</h4>
 <ul><li>I dispositivi coinvolti nella comunicazione implementano o solo il processo <i>client</i> o solo il processo <i>server</i>
 </li><li>I dispositivi <i>client</i> e <i>server</i> hanno caratteristiche diverse
-<ul><li>	Il <i>server</i> dev’essere sempre attivo
-</li><li>	Il <i>server</i> deve avere un IP fisso
-</li><li>	I <i>server</i> emettono risposte a fronte di richieste ricevute
-</li><li>	I <i>client</i> effettuano richieste e comunicano con il server
-</li><li>	Possono essere connessi in modo <i>discontinuo</i>
-</li><li>	Possono cambiare indirizzo IP
-</li><li>	Possono inviare <i>più richieste</i> allo stesso server
+<ul><li>	Server:
+<ul><li>		Deve essere <b>sempre attivo</b> e raggiungibile
+</li><li>		Possono <b>ricevere richieste</b> da molti client
+</li><li>		Hanno indirizzo <b>IP fisso</b>
+</li></ul></li><li>	Client:
+<ul><li>		<b>Comunicano solo con il server</b>, non con altri client
+</li><li>		Possono essere connessi in modo <b>discontinuo</b>
+</li><li>		Possono <b>cambiare indirizzo IP</b>
+</li><li>		Possono inviare <b>più richieste allo stesso server</b>
+</li></ul>
 </li></ul>
 </li></ul>
 <h4 id="Peer-to-peer">Peer-to-peer</h4>
 <ul><li>I dispositivi coinvolti implementano sia la porzione <i>client</i> sia quella <i>server</i>
-</li><li>Non ci sono server sempre connessi
-</li><li>I terminali comunicano direttamente
-</li><li>I peer sono collegati in modo intermittente e possono cambiare indirizzo IP
-</li><li>Alcuni esempi possono essere BitTorrent e Skype
+</li><li><b>Non ci sono server sempre connessi</b>
+</li><li>I terminali comunicano <b>direttamente</b>
+</li><li>I peer sono collegati in modo <b>intermittente</b> e <b>possono cambiare indirizzo IP</b>
 </li></ul>
+<p>Alcuni esempi possono essere <b>BitTorrent</b> e <b>Skype</b>.</p>
 <br>
 <h3 id="Elementi fondamentali per un applicazione di rete">Elementi fondamentali per un applicazione di rete</h3>
-<ul><li><b>Host</b>: dispositivo d’utente
+<ul><li><b>Host</b>: dispositivo d’utente (laptop, smartphone, desktop…)
 </li><li><b>Processo</b>: programma software in esecuzione su un host
 </li><li><b>Comunicazione inter-processo</b> (<i>IPC</i>): tecnologie software il cui scopo è consentire a diversi processi di comunicare scambiandosi informazioni e dati
-<ul><li>	Processi locali: risiedono sullo stesso host
-</li><li>	Processi remoti: risiedono sul host diversi
-<ul><li>		Perché funzionino c’è bisogno di <b>indirizzamento</b> dei processi (bisogna conoscere l’indirizzo del processo e dell’host su cui il processo è in esecuzione) e di <b>protocolli</b> di scambio di dati, che decide i tipi, la sintassi, la semantica e la tempistica dei messaggi
+<ul><li>	Processi <b>locali</b>: risiedono sullo stesso host
+</li><li>	Processi <b>remoti</b>: risiedono sul host diversi
+<ul><li>		Perché funzionino c’è bisogno di <b>indirizzamento</b> dei processi (bisogna conoscere l’indirizzo del processo e dell’host su cui il processo è in esecuzione) e di <b>protocolli</b> di scambio di dati, che decide i tipi, la sintassi, la semantica e la tempistica dei messaggi.
 </li></ul>
 </li></ul>
 </li></ul>
@@ -718,36 +820,37 @@
 </li><li>avviene attraverso i <b>SAP</b> (<i>Service Access Point</i>)
 </li></ul>
 <p>Ogni processo è associato ad un <b>SAP</b> del livello inferiore (trasporto), al quale è associata a sua volta l’<b>informazione di indirizzamento del processo nell’host</b> (<i>socket</i>).</p>
-<p>Esempio: cosa identifica il browser Chrome in esecuzione sul nostro smartphone?</p>
+<p><img src='index/Schermata%202021-03-07%20alle%2016.12.40.png'></p>
+<p><b>Esempio</b>: cosa identifica il browser Chrome in esecuzione sul nostro smartphone?</p>
 <ul><li>Indirizzo dell’<i>host</i>: indirizzo IP univoco di 32 bit
-</li><li>Indirizzo del <b>SAP</b>: associato al processo in esecuzione sull’host: numero di porta
+</li><li>Indirizzo del <b>SAP</b>: associato al processo in esecuzione sull’host: <b>numero di porta</b>
 </li></ul>
 <p><b>Indirizzo di un processo in esecuzione su un host</b>: Indirizzo IP + numero di porta = <b>Socket</b></p>
-<p>Le socket sono <i>porte di comunicazione</i>:</p>
-<ul><li>Il processo trasmittente mette il messaggio <i>fuori dalla porta</i>
+<p>Le socket sono “<i>porte di comunicazione</i>“:</p>
+<ul><li>Il processo trasmittente mette il messaggio “<i>fuori dalla porta</i>“.
 </li><li>La rete raccoglie il messaggio e lo trasporta fino alla porta del destinatario
 </li></ul>
 <br>
-<h3 id="Quale protocollo di trasporto usare?">Quale protocollo di trasporto usare?</h3>
+<h4 id="Quale protocollo di trasporto usare?">Quale protocollo di trasporto usare?</h4>
 <p><b>Requisiti</b>:</p>
-<ul><li><b>Affidabilità</b>: alcune applicazioni possono tollerare perdite parziali, altre richiedono totale affidabilità
-</li><li><b>Ritardo</b>: alcune applicazioni richiedono basso ritardo
-</li><li><b>Banda</b>: alcune applicazioni richiedono un minimo di velocità di trasferimento, altre si adattano alla velocità disponibile (<i>applicazioni elastiche</i>)
+<ul><li><b>Affidabilità</b>: alcune applicazioni possono tollerare perdite parziali, altre richiedono totale affidabilità.
+</li><li><b>Ritardo</b>: alcune applicazioni richiedono un ritardo molto basso.
+</li><li><b>Banda</b>: alcune applicazioni richiedono un minimo di velocità di trasferimento, altre si adattano alla velocità disponibile (<i>applicazioni elastiche</i>).
 </li></ul>
 <h4 id="TCP e UDP">TCP e UDP</h4>
-<p>TCP: <i>Transmission Control Protocol</i></p>
-<ul><li><b>Connection oriented</b>: instaurazione della connessione prima dello scambio di dati
+<p><b>TCP</b>: <i>Transmission Control Protocol</i></p>
+<ul><li><b>Connection-oriented</b>: instaurazione della connessione prima dello scambio di dati
 </li><li><b>Trasporto affidabile</b>: nessuna perdita
 </li><li><b>Controllo di flusso</b>: il trasmettitore regola la velocità in base al ricevitore
 </li><li><b>Controllo di congestione</b>: per impedire di sovraccaricare la rete
 </li><li><b>Controllo di errore</b>: per garantire l’integrità dell’informazione
 </li></ul>
-<p>UDP: <i>User Datagram Protocol</i></p>
+<p><b>UDP</b>: <i>User Datagram Protocol</i></p>
 <ul><li><b>Connectionless</b>: nessuna connessione prima dello scambio di dati
 </li><li><b>Trasporto non affidabile</b>: possibili perdite
 </li><li><b>Nessun controllo di flusso</b>
 </li><li><b>Nessun controllo di congestione</b>
-</li><li><b>Controllo di errore</b>: opzionale in questo caso
+</li><li><b>Controllo di errore</b>: opzionale
 </li></ul>
 <br>
 <p>Alcuni esempi di servizi che usano questi protocolli di trasporto:</p>
@@ -762,41 +865,37 @@
 </li></ul>
 <p>Primitive di interazione delle applicazioni con le socket:</p>
 <p><img src='index/unknown%202.png'></p>
-<h5 id="Ordine primitive di servizio">Ordine primitive di servizio</h5>
-<ol start="1"><li><b>Socket()</b> (server-side)
-</li><li><b>Bind()</b> (server-side)
-</li><li><b>Listen()</b> (server-side)
-</li><li><b>Accept()</b> (server-side)
-</li><li><b>Socket()</b> (client-side)
-</li><li><b>Connect()</b> (client-side) - <b>Accept()</b> (server-side)
-</li><li><b>Send()</b> (client-side) - <b>Receive()</b> (server-side)
-</li><li><b>Receive()</b> (client-side) - <b>Send()</b> (server-side)
-</li><li><b>Close()</b> (entrambi)
-</li></ol>
+<br>
+<p><img src='index/0DD0DFD3-59A2-41E8-8677-52D05F60B1BC.png'></p>
 <h4 id="Caso UDP">Caso UDP</h4>
-<p>Non ci sono operazioni preliminari e generalmente le operazioni sono simili. Le differenze principali sono in <b>Send()</b> e <b>Receive()</b>, poiché non essendo instaurata una connessione preliminare è necessario specificare a chi mandare e da chi ricevere informazioni.</p>
+<p>Non ci sono primitive per l’instaurazione di una connessione e generalmente le operazioni sono simili. Le differenze principali sono in <b>Send()</b> e <b>Receive()</b>, poiché non essendo ins𝛕rata una connessione preliminare è necessario specificare a chi mandare e da chi ricevere informazioni.</p>
+<p><img src='index/B9D2B34D-FDA9-4D96-8DFB-9BC77DD1291A.png'></p>
+<br>
+<p><img src='index/B982F94F-1EDF-463F-8FEC-16E31EBC4082.png'></p>
 <hr>
 <h2 id="Il servizio di Web Browsing">Il servizio di Web Browsing</h2>
 <p>Le pagine web sono fatte di <i>oggetti</i>. Gli oggetti possono essere file HTML, immagini, applet Java, file audio e video, collegamenti ad altre pagine web…</p>
-<p>Generalmente le pagine sono costituite da un file HTML o php base che <b>chiama</b> gli altri oggetti. Ogni oggetto è indirizzato da una <i>Uniform Resource Locator</i> (<b>URL</b>), per esempio: <code class='code-inline'>http://www.polimi.it:80/index.html</code>.</p>
+<p>Generalmente le pagine sono costituite da un file HTML o php base che <b>chiama</b> gli altri oggetti. Ogni oggetto è <b>indirizzato</b> da una <i>Uniform Resource Locator</i> (<b>URL</b>), per esempio: <code class='code-inline'>http://www.polimi.it:80/index.html</code>.</p>
 <br>
 <h3 id="Protocollo HTTP">Protocollo HTTP</h3>
-<p>L’architettura per l’HTTP si basa sul client<i>server. Il client è il browser che effettua richieste di pagine web, le riceve e le mostra all’utente; il server invia gli oggetti richiesti tramite /risposte</i> HTTP. L’HTTP è un protocollo <b>stateless</b>, ossia il server non mantiene uno stato della connessione, un registro dell’interazione client/server.</p>
-<p>L’HTTP si appoggia su TCP a livello di trasporto:</p>
+<p>L’architettura per l’HTTP si basa sul client-server. Il client è il <b>browser</b> che effettua <b>richieste di pagine web</b>, le riceve e le mostra all’utente; il server <b>invia gli oggetti richiesti</b> tramite <b>risposte HTTP</b>.</p>
+<p>L’HTTP è un protocollo <b>stateless</b>, ossia il server non mantiene uno stato della connessione, un registro dell’interazione client-server.</p>
+<p>L’HTTP si appoggia su <b>TCP</b> a livello di trasporto:</p>
 <ol start="1"><li>Il client HTTP inizia una connessione TCP attraverso il server (porta 80)
 </li><li>Il server HTTP accetta connessioni TCP da client HTTP
 </li><li>Client e server HTTP si scambiano informazioni
 </li><li>La connessione TCP tra client e server HTTP viene chiusa
 </li></ol>
+<h4 id="Modalità di connessione">Modalità di connessione</h4>
 <p>Le modalità di connessione sono <b>persistente</b> e <b>non persistente</b>:</p>
 <ul><li><b>Non persistente</b> (HTTP v1.0 default mode)
-<ul><li>	Una connessione TCP per una sola sessione richiesta-risposta; inviato l’oggetto, il server chiude la connessione TCP
-</li><li>	La procedura viene ripetuta per tutti i file collegati al documento base
-</li><li>	Le connessioni TCP per più oggetti possono esser aperte in parallelo per minimizzare il ritardo
+<ul><li>	<b>Una connessione</b> TCP <b>per una sola sessione</b> richiesta-risposta; inviato l’oggetto, il server chiude la connessione TCP
+</li><li>	La procedura viene <b>ripetuta per tutti i file</b> collegati al documento base
+</li><li>	Le connessioni TCP per più oggetti <b>possono esser aperte in parallelo</b> per minimizzare il ritardo
 </li></ul></li><li><b>Persistente</b>
-<ul><li>	La connessione TCP rimane aperta e può essere usata per trasferire più oggetti della stessa pagina web o più pagine web
-<ul><li>		<i>without pipelining</i>: richieste HTTP inviate in serie, si aspetta la risposta prima di fare una nuova richiesta (HTTP v1.1 default mode)
-</li><li>		<i>with pipelining</i>: le richieste HTTP vengono accodate ed inviate insieme (HTTP v1.1 pipeline mode)
+<ul><li>	La connessione TCP <b>rimane aperta</b> e può essere usata per trasferire più oggetti della stessa pagina web o più pagine web.
+<ul><li>		<i>Without pipelining</i>: richieste HTTP inviate in serie, si aspetta la risposta prima di fare una nuova richiesta (HTTP v1.1 default mode)
+</li><li>		<i>With pipelining</i>: le richieste HTTP vengono accodate ed inviate insieme, senza attendere la risposta (HTTP v1.1 supported mode)
 </li></ul>
 </li></ul>
 </li></ul>
@@ -804,19 +903,33 @@
 <h3 id="Round Trip Time (RTT)">Round Trip Time (RTT)</h3>
 <p>Tempo necessario per trasferire un messaggio dal client al server e ritorno e per ricevere il relativo ACK.</p>
 <p>Tempo di trasferimento in HTTP:</p>
-<ul><li>un RTT per iniziare la connessione TCP
-</li><li>un RTT per inviare i primi byte della richiesta HTTP e ricevere i primi byte di risposta
-</li><li>tempo di trasmissione dell’oggetto
+<ul><li>un RTT per <b>iniziare</b> la connessione TCP
+</li><li>un RTT per <b>inviare i primi byte</b> della richiesta HTTP e ricevere i primi byte di risposta
+</li><li>tempo di <b>trasmissione dell’oggetto</b>
 </li></ul>
-<p>Il tempo è soltanto una stima, non è un calcolo preciso.</p>
+<p>Il tempo è <b>soltanto una stima</b>, non è un calcolo preciso.</p>
 <p>Supponendo che la pagina web contenga 10 oggetti oltre al file HTML base, il tempo di download dell’intera pagina è:</p>
-<ul><li>Non persistente: <code class='code-inline'>Σ(2RTT + Ti)</code>
-</li><li>Persistente: <code class='code-inline'>RTT + Σ(RTT + Ti)</code>
+<ul><li>Non persistente:
 </li></ul>
+<p><img src='index/A1727B66-A141-4CB6-B772-F0CB8EE59F72.png'></p>
+<ul><li>Persistente:
+</li></ul>
+<p><img src='index/FE606C37-51C3-4A97-A9EC-0858B109BB97.png'></p>
 <br>
-<h3 id="HTTP 1.1 e 2">HTTP 1.1 e 2</h3>
-<p>L’HTTP 1.1 permette il pipelining, ma a condizione che gli oggetti richiesti vengano generati nello stesso ordine delle richieste. Questo impone Head Of Line (<b>HOL</b>) blocking se c’è un oggetto particolarmente grande.</p>
-<p>HTTP 2 permette invece che un oggetto grande venga trasmesso <i>inframezzandolo</i> con oggetti brevi, grazie alla gestione a stream: si può formare rapidamente un’anteprima della pagina anche se con qualche dettaglio in meno.</p>
+<h4 id="Tempistiche di comunicazione persistente e non persistente">Tempistiche di comunicazione persistente e non persistente</h4>
+<p><b>HTTP 1.0 non persistente</b>:</p>
+<p><img src='index/8FB87ADB-BEEE-48DF-9573-2DF7CB4DD499.png'></p>
+<br>
+<p><b>HTTP 1.1 persistente, senza pipelining</b></p>
+<p><img src='index/65C46238-78DA-4C0F-88EA-EDD684165C2A.png'></p>
+<br>
+<p><b>HTTP 1.1 persistente, con pipelining</b></p>
+<p><img src='index/B6F9BDE2-0DCB-410E-8C2D-724AB2E53B00.png'></p>
+<br>
+<h4 id="HTTP 1.1 e 2">HTTP 1.1 e 2</h4>
+<p>L’<b>HTTP 1.1</b> permette il pipelining, ma <b>a condizione che gli oggetti richiesti vengano generati nello stesso ordine delle richieste</b>. Questo impone <b>Head Of Line</b> (<b>HOL</b>) <b>blocking</b> se c’è un oggetto particolarmente grande.</p>
+<p><b>HTTP 2</b> permette invece che un oggetto grande venga trasmesso <b>inframezzandolo con oggetti brevi</b>, grazie alla <b>gestione a stream</b>: si può formare rapidamente un’anteprima della pagina, anche se con qualche dettaglio in meno.</p>
+<p><img src='index/111B8B3B-EE3F-4906-A762-DE700DB4C7BD.png'></p>
         </div>
         <script type="text/javascript">
             (function() {

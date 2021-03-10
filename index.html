@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="bear-note-unique-identifier" content="B089F06B-A475-488E-8B70-1BB489DBF389-3048-000000619FDCA0CB">
         <meta name="created" content="2021-02-23T13:19:12+0100"/>
-        <meta name="modified" content="2021-03-07T16:48:05+0100"/>
-        <meta name="tags" content="università/internet, università"/>
+        <meta name="modified" content="2021-03-10T14:11:53+0100"/>
+        <meta name="tags" content="università, università/internet"/>
         <meta name="last device" content="MacBook Pro di Mario"/>
     </head>
     <body>
@@ -102,6 +102,19 @@
 </li></ul></li><li>	<a href="#Round Trip Time (RTT)"">/Round Trip Time (RTT)</a>
 <ul><li>		<a href="#Tempistiche di comunicazione persistente e non persistente"">/Tempistiche di comunicazione persistente e non persistente</a>
 </li><li>		<a href="#HTTP 1.1 e 2"">/HTTP 1.1 e 2</a>
+</li></ul></li><li>	<a href="#Messaggi HTTP"">/Messaggi HTTP</a>
+<ul><li>		<a href="#Richieste"">/Richieste</a> 
+</li><li>		<a href="#Esempi di metodi"">/Esempi di metodi</a>
+</li><li>		<a href="#Esempi di header HTTP"">/Esempi di header HTTP</a>
+</li><li>		<a href="#Esempio di richiesta HTTP"">/Esempio di richiesta HTTP</a>
+</li><li>		<a href="#Risposte"">/Risposte</a>
+</li><li>		<a href="#Tabella di status code comuni"">/Tabella di status code comuni</a>
+</li><li>		<a href="#Esempio di risposta"">/Esempio di risposta</a>
+</li><li>		<a href="#Conditional GET"">/Conditional GET</a>
+</li><li>		<a href="#Mantenere uno “stato” in HTTP"">/Mantenere uno “stato” in HTTP</a>
+</li><li>		<a href="#Elementi dei cookie"">/Elementi dei cookie</a>
+</li><li>		<a href="#Esempio di set-cookie"">/Esempio di set-cookie</a>
+</li><li>		<a href="#Proxy HTTP"">/Proxy HTTP</a>
 </li></ul>
 </li></ul>
 </li></ul>
@@ -202,7 +215,7 @@
 <br>
 <p>Anni ’80:</p>
 <ul><li><b>1982</b>: definizione protocollo <b>SMTP</b>
-</li><li><b>1983</b>: rilascio dello stack di protocolli <b>TCP/IP</b> (sostituisce NCP). Viene anche definito il DNS.
+</li><li><b>1983</b>: rilascio dello stack di protocolli <b>TCP/IP</b> (sostituisce NCP). Viene anche definito il <b>DNS</b>.
 </li><li><b>1985</b>: definizione protocollo <b>FTP</b>
 </li><li><b>1988</b>: controllo della congestione TCP
 </li></ul>
@@ -213,7 +226,7 @@
 <ul><li><b>1990</b>: ARPAnet viene dismessa
 </li><li><b>1991</b>: NSF lascia decadere le restrizioni sull’uso commerciale di NSFnet
 </li><li><b>Primi anni ’90</b>: Tim Berners-Lee inventa il <b>World Wide Web</b> al CERN di Ginevra
-</li><li><b>1994</b>: Browser internet: Mosaic e Netscape
+</li><li><b>1994</b>: Browser internet: Mosaic e <b>Netscape</b>
 </li><li><b>Fine anni ’90</b>: commercializzazione del web
 </li></ul>
 <br>
@@ -266,7 +279,7 @@
 </li></ul>
 <ol start="4"><li><b>Reti cellulari</b>
 </li></ol>
-<ul><li>			<b>GRPS/EDGE</b>, circa 200kbps
+<ul><li>			<b>GPRS/EDGE</b>, circa 200kbps
 </li><li>			<b>HSPA</b>, circa 14,5Mbps down, 5,7Mbps up
 </li><li>			<b>LTE</b>, 300Mbps down, 85Mbps up
 </li></ul>
@@ -317,7 +330,7 @@
 </li></ul>
 <p><img src='index/ABC67590-6C5F-4E63-9C5A-635F3786BDD1.png'></p>
 <ul><li>	Tramite i protocolli, la rete può fornire un servizio di comunicazione alle applicazioni, ovvero il servizio di trasferimento delle informazioni tra i processi remoti
-</li><li>	L’architettura dei protocolli in Internet è organizzata in una struttura a <b>livelli</b>, ognuno dei quali può assumere un valore al servizio (<b>Guardare</b>: <a href="https://youtu.be/Pyb5Oe28dIs">video sui modelli funzionali</a>)
+</li><li>	L’architettura dei protocolli in Internet è organizzata in una struttura a <b>livelli</b>, ognuno dei quali può assumere un valore al servizio
 </li><li>	Protocolli di comunicazione: due modelli
 </li></ul>
 <ol start="1"><li>Modello <b>client/server</b>
@@ -327,6 +340,8 @@
 </li></ul>
 <hr>
 <h2 id="Modelli funzionali e architetture a livelli">Modelli funzionali e architetture a livelli</h2>
+<p><a href="https://youtu.be/Pyb5Oe28dIs">Source here</a>)</p>
+<br>
 <h3 id="Servizio di comunicazione">Servizio di comunicazione</h3>
 <p>Si considerano due nodi (A e B), in due zone geografiche differenti, che vogliono <i>comunicare</i>. Il <b>servizio di comunicazione</b> è ciò che i due nodi utilizzano per trasportare l’informazione da A a B, ossia è il <i>fornitore del servizio di trasporto dell’informazione</i>.</p>
 <p>Esempi:</p>
@@ -342,7 +357,7 @@
 </li></ul>
 <h4 id="Caratteristiche del servizio di comunicazione">Caratteristiche del servizio di comunicazione</h4>
 <p><b>Modalità a connessione</b>:</p>
-<ol start="1"><li>Ins𝛕razione della connessione
+<ol start="1"><li>Instaurazione della connessione
 </li><li>Trasferimento dell’informazione
 </li><li>Rilascio della connessione
 </li></ol>
@@ -413,8 +428,8 @@
 </li><li>divisione di tempo
 </li><li>divisione di lunghezza d’onda
 </li></ul>
-<p>All’interno dei nodi, nella commutazione di circuito, viene conservata la <b>matrice input-output</b>, ossia come vengono collegati i circuiti in entrata con quelli in uscita. All’inizio della comunicazione viene fatta quest’associazione e <b>non è necessario memorizzare l’informazione lungo il circuito una volta ins𝛕rato</b>.</p>
-<p>Il <b>tempo di ins𝛕razione</b> della connessione si aggiunge al <b>ritardo totale</b> di trasferimento, dove il ritardo di trasferimento è l’intervallo di tempo tra l’apertura della connessione e l’arrivo dell’ultimo bit a destinazione. L’elaborazione, la propagazione e la trasmissione del messaggio in uscita avvengono solo <b>dopo l’ins𝛕razione del collegamento</b>.</p>
+<p>All’interno dei nodi, nella commutazione di circuito, viene conservata la <b>matrice input-output</b>, ossia come vengono collegati i circuiti in entrata con quelli in uscita. All’inizio della comunicazione viene fatta quest’associazione e <b>non è necessario memorizzare l’informazione lungo il circuito una volta instaurato</b>.</p>
+<p>Il <b>tempo di instaurazione</b> della connessione si aggiunge al <b>ritardo totale</b> di trasferimento, dove il ritardo di trasferimento è l’intervallo di tempo tra l’apertura della connessione e l’arrivo dell’ultimo bit a destinazione. L’elaborazione, la propagazione e la trasmissione del messaggio in uscita avvengono solo <b>dopo l’instaurazione del collegamento</b>.</p>
 <p>La <b>commutazione di pacchetto</b> invece <i>spezza l’informazione stessa in fette</i>, non i canali di trasmissione. Per fare ciò, è necessario aggiungere un <i>header</i> o <i>overhead</i> contenenti informazioni di servizio al <i>payload</i>, il contenuto stesso dell’oggetto.</p>
 <p>I vantaggi che si hanno suddividendo il contenuto in pacchetti sono:</p>
 <ul><li>Tutti i pacchetti <b>condividono le risorse di rete</b>
@@ -446,7 +461,7 @@
 </li><li><b>Ritardo non determinabile a priori</b>: si può stimare tramite modelli probabilistici e statistici ma non deterministici.
 </li></ul>
 <h4 id="Esempio di trasmissione">Esempio di trasmissione</h4>
-<p>Non c’è tempo di ins𝛕razione della connessione nella commutazione di pacchetto. Il ritardo è dovuto ad ogni <i>hop</i> a:</p>
+<p>Non c’è tempo di instaurazione della connessione nella commutazione di pacchetto. Il ritardo è dovuto ad ogni <i>hop</i> a:</p>
 <ul><li>Propagazione
 </li><li>Trasmissione o ritrasmissione (comportamento <i>Store & Forward</i>)
 </li><li>Elaborazione
@@ -459,7 +474,7 @@
 <p>Il numero di frammenti in cui va spezzato un pacchetto va <b>scelto con ragionevolezza</b>, poiché <b>frammentare troppo può portare a ritardi maggiori</b>.</p>
 <h4 id="Datagram e circuito virtuale">Datagram e circuito virtuale</h4>
 <p>Nella commutazione <b>datagram</b>, la scelta della porta d’uscita viene fatta sulla base del solo indirizzo IP di destinazione. I pacchetti dello stesso flusso sono inoltrati indipendentemente. Si usa per questo metodo la <b>tabella di instradamento</b> dei router.</p>
-<p>Nel caso del <b>circuito virtuale</b>, i nodi identificano i pacchetti di un flusso informativo sulla base di un <b>identificativo di circuito virtuale</b> (<i>VCI</i> o <i>Label</i>). Il circuito virtuale viene ins𝛕rato in una fase di setup prima della fase di dati, che rende questo metodo <i>connection-oriented</i>. Dopo la fase di setup, i pacchetti <b>seguono tutti lo stesso percorso di rete</b> e sono instradati sulla base dell’identificativo di circuito virtuale.</p>
+<p>Nel caso del <b>circuito virtuale</b>, i nodi identificano i pacchetti di un flusso informativo sulla base di un <b>identificativo di circuito virtuale</b> (<i>VCI</i> o <i>Label</i>). Il circuito virtuale viene instaurato in una fase di setup prima della fase di dati, che rende questo metodo <i>connection-oriented</i>. Dopo la fase di setup, i pacchetti <b>seguono tutti lo stesso percorso di rete</b> e sono instradati sulla base dell’identificativo di circuito virtuale.</p>
 <br>
 <h3 id="Parametri di prestazione">Parametri di prestazione</h3>
 <p>Sono tre:</p>
@@ -475,12 +490,11 @@
 </li><li>Propagazione
 </li><li>Ricezione
 </li></ul>
-<p>Nella realtà questi tre momenti avvengono con continuità.</p>
 <br>
 <h4 id="Velocità e tempo di trasmissione">Velocità e tempo di trasmissione</h4>
-<p>La <b>velocità di trasmissione</b> è la velocità (<i>rate</i>) <i>C</i> con la quale l’informazione digitale viene trasmessa su una linea (<i>canale</i>). È misurata in <b>bit/s</b> (o <b>bps</b>) o suoi multipli.</p>
-<p>Il <b>tempo</b> <i>T</i> necessario per trasmettere <i>L</i> bit dipende dalla velocità di trasmissione. Si ha <code class='code-inline'>T = L / C</code>.</p>
-<p>Il <b>ritardo di propagazione</b> è il tempo 𝛕 affinché un <b>impulso generato dal trasmettitore</b> TX <b>raggiunga il ricevitore RX</b>. Dipende dalla distanza <i>d</i> in metri e dalla velocità di propagazione della luce nel mezzo fisico <i>v</i> in metri al secondo. Si ha <code class='code-inline'>𝛕 = d / v</code>.</p>
+<p>La <b>velocità di trasmissione</b> è la velocità (<i>rate</i>) <i>c</i> con la quale l’informazione digitale viene trasmessa su una linea (<i>canale</i>). È misurata in <b>bit/s</b> (o <b>bps</b>) o suoi multipli.</p>
+<p>Il <b>tempo</b> <i>T</i> necessario per trasmettere <i>L</i> bit dipende dalla velocità di trasmissione. Si ha <code class='code-inline'>T = L / c</code>.</p>
+<p>Il <b>ritardo di propagazione</b> è il tempo 𝛕 affinché un <b>impulso generato dal trasmettitore</b> TX <b>raggiunga il ricevitore</b> RX. Dipende dalla distanza <i>d</i> e dalla velocità di propagazione della luce nel mezzo fisico <i>v</i> in metri al secondo. Si ha <code class='code-inline'>𝛕 = d / v</code>.</p>
 <p>Per le onde radio, la velocità <i>v</i> è pari a 300000 km<i>s, mentre per la propagazione guidata /v</i> è pari a 200000 km/s.</p>
 <p>Il <b>tempo di attraversamento del canale</b> è quindi <code class='code-inline'>T(tot) = T + 𝛕𝛕</code>.</p>
 <br>
@@ -868,7 +882,7 @@
 <br>
 <p><img src='index/0DD0DFD3-59A2-41E8-8677-52D05F60B1BC.png'></p>
 <h4 id="Caso UDP">Caso UDP</h4>
-<p>Non ci sono primitive per l’instaurazione di una connessione e generalmente le operazioni sono simili. Le differenze principali sono in <b>Send()</b> e <b>Receive()</b>, poiché non essendo ins𝛕rata una connessione preliminare è necessario specificare a chi mandare e da chi ricevere informazioni.</p>
+<p>Non ci sono primitive per l’instaurazione di una connessione e generalmente le operazioni sono simili. Le differenze principali sono in <b>Send()</b> e <b>Receive()</b>, poiché non essendo instaurata una connessione preliminare è necessario specificare a chi mandare e da chi ricevere informazioni.</p>
 <p><img src='index/B9D2B34D-FDA9-4D96-8DFB-9BC77DD1291A.png'></p>
 <br>
 <p><img src='index/B982F94F-1EDF-463F-8FEC-16E31EBC4082.png'></p>
@@ -930,6 +944,100 @@
 <p>L’<b>HTTP 1.1</b> permette il pipelining, ma <b>a condizione che gli oggetti richiesti vengano generati nello stesso ordine delle richieste</b>. Questo impone <b>Head Of Line</b> (<b>HOL</b>) <b>blocking</b> se c’è un oggetto particolarmente grande.</p>
 <p><b>HTTP 2</b> permette invece che un oggetto grande venga trasmesso <b>inframezzandolo con oggetti brevi</b>, grazie alla <b>gestione a stream</b>: si può formare rapidamente un’anteprima della pagina, anche se con qualche dettaglio in meno.</p>
 <p><img src='index/111B8B3B-EE3F-4906-A762-DE700DB4C7BD.png'></p>
+<br>
+<h3 id="Messaggi HTTP">Messaggi HTTP</h3>
+<h4 id="Richieste">Richieste</h4>
+<p>I messaggi sono codificati in <b>ASCII</b> (<i>human-readable</i>)</p>
+<p><img src='index/Schermata%202021-03-10%20alle%2013.56.40.png'></p>
+<ul><li><b>Request line</b>: <i>Method</i>, <i>URL</i>, <i>Version</i>
+<ul><li>	<b>Method</b>: tipo di operazione che il client richiede al server
+</li><li>	<b>URL</b>: identifica la risorsa locale rispetto al server
+</li><li>	<b>Version</b>: indica la versione del protocollo HTTP
+</li></ul></li><li><b>Header lines</b>
+</li><li><b>Entity body</b> (generalmente vuoto, pieno nel caso di alcuni metodi come <code class='code-inline'>POST</code>)
+</li></ul>
+<h4 id="Esempi di metodi">Esempi di metodi</h4>
+<ul><li><code class='code-inline'>GET</code>: È usato quando il client vuole scaricare un documento dal server (specificato nell’URL). Il server normalmente risponde con il documento richiesto nel corpo del messaggio di risposta
+</li><li><code class='code-inline'>HEAD</code>: È usato quando il client non vuole scaricare il documento ma solo alcune informazioni sul documento (come ad esempio la data di ultima modifica). Nella risposta il server non inserisce l’intero documento ma solo degli header informativi
+</li><li><code class='code-inline'>POST</code>: È usato per fornire al server degli input da utilizzare per un particolare oggetto identificato nell’URL
+</li><li><code class='code-inline'>PUT</code>: È utilizzato per memorizzare un documento nel server. Il documento viene fornito nel corpo del messaggio e la posizione di memorizzazione nell’URL.
+</li></ul>
+<p>Altri metodi: <code class='code-inline'>PATCH</code>, <code class='code-inline'>COPY</code>, <code class='code-inline'>MOVE</code>, <code class='code-inline'>DELETE</code>, <code class='code-inline'>LINK</code>, <code class='code-inline'>UNLINK</code>, <code class='code-inline'>OPTIONS</code></p>
+<h4 id="Esempi di header HTTP">Esempi di header HTTP</h4>
+<p>Servono per scambiare informazione di servizio aggiuntiva. È possibile inserire più linee di header per messaggio.</p>
+<ul><li><code class='code-inline'>Cache-control</code>: informazioni sulla cache
+</li><li><code class='code-inline'>Accept</code>: formati accettati
+</li><li><code class='code-inline'>Accept-language</code>: linguaggio accettato
+</li><li><code class='code-inline'>Authorization</code>: mostra i permessi del client
+</li><li><code class='code-inline'>If-modified-since</code>: invia il documento richiesto solo se modificato
+</li><li><code class='code-inline'>User-agent</code>: tipo di <i>user agent</i>
+</li></ul>
+<h4 id="Esempio di richiesta HTTP">Esempio di richiesta HTTP</h4>
+<pre><code class='code-multiline' lang='http'><span class="sf_code_property">GET</span><span class="sf_code_request-line"> /index.html HTTP/1.1</span>\r\n
+<span class="sf_code_header-name">Host:</span> www-net.cs.umass.edu\r\n
+<span class="sf_code_header-name">User-Agent:</span> Firefox/3.6.10\r\n
+<span class="sf_code_header-name">Accept:</span> text/html,application/xhtml+xml\r\n
+<span class="sf_code_header-name">Accept-Language:</span> en-us,en;q=0.5\r\n
+<span class="sf_code_header-name">Accept-Encoding:</span> gzip,deflate\r\n
+<span class="sf_code_header-name">If-modified-since:</span> &lt;date&gt;
+<span class="sf_code_header-name">Accept-Charset:</span> ISO-8859-1,utf-8;q=0.7\r\n
+<span class="sf_code_header-name">Keep-Alive:</span> 115\r\n
+<span class="sf_code_header-name">Connection:</span> keep-alive\r\n
+\r\n</code></pre>
+<p><br></p>
+<h4 id="Risposte">Risposte</h4>
+<p><img src='index/F063D581-4D9A-4F2F-AEA3-99B256719EBB.png'></p>
+<ul><li><b>Status line</b>: <i>Version</i>, <i>Status code</i>, <i>Phrase</i>
+<ul><li>	<b>Status code</b>: codice che informa il client di alcuni eventi
+</li></ul>
+</li></ul>
+<ol start="1"><li>(1xx): <b>Informational</b>
+</li><li>(2xx): <b>Success</b>
+</li><li>(3xx): <b>Redirection</b>
+</li><li>(4xx): <b>Client error</b>
+</li><li>(5xx): <b>Server error</b>
+</li></ol>
+<ul><li>	<b>Phrase</b>: messaggio di stato, correlato al codice di stato (<i>OK</i>, <i>Bad Request</i>…)
+</li><li><b>Header lines</b>
+</li><li><b>Entity body</b> (generalmente pieno, contiene l’elemento richiesto dal client)
+</li></ul>
+<h4 id="Tabella di status code comuni">Tabella di status code comuni</h4>
+<p><img src='index/333F0C61-AECB-4FF1-A946-B3EA00B9EFC7.png'></p>
+<h4 id="Esempio di risposta">Esempio di risposta</h4>
+<pre><code class='code-multiline' lang='http'><span class="sf_code_response-status">HTTP/1.1 </span><span class="sf_code_property">200 OK\r\n</span>
+<span class="sf_code_header-name">Date:</span> Sun, 26 Sep 2010 20:09:20 GMT\r\n
+<span class="sf_code_header-name">Server:</span> Apache/2.0.52 (CentOS)\r\n
+<span class="sf_code_header-name">Last-Modified:</span> Tue, 30 Oct 2007 17:00:02 GMT\r\n
+<span class="sf_code_header-name">ETag:</span> "17dc6-a5c-bf716880"\r\n
+<span class="sf_code_header-name">Accept-Ranges:</span> bytes\r\n
+<span class="sf_code_header-name">Content-Length:</span> 2652\r\n
+<span class="sf_code_header-name">Keep-Alive:</span> timeout=10, max=100\r\n
+<span class="sf_code_header-name">Connection:</span> Keep-Alive\r\n
+<span class="sf_code_header-name">Content-Type:</span> text/html; charset=ISO-8859-1\r\n
+\r\n
+&lt;dati dell'Entity Body&gt;</code></pre>
+<p><br></p>
+<h4 id="Conditional GET">Conditional GET</h4>
+<p>Ha l’obiettivo di <b>non inviare un oggetto</b> richiesto <b>se è già presente presso il client</b>. Si inserisce nella richiesta HTTP <b>la data dell’oggetto</b> presente in <i>cache</i> locale <b>tramite l’header</b>: <code class='code-inline'>If-modified-since: &lt;date&gt;</code>. La risposta HTTP <b>non contiene l’oggetto</b> richiesto <b>se la copia</b> presente al client <b>è aggiornata</b>.</p>
+<p><b>Risposta</b>: <code class='code-inline'>HTTP/1.0 304 Not Modified</code></p>
+<br>
+<h4 id="Mantenere uno “stato” in HTTP">Mantenere uno “stato” in HTTP</h4>
+<p>Poiché l’HTTP è <i>stateless</i>, i fornitori di contenuti possono usare i <b>cookies</b> per tracciare le attività dell’utente.</p>
+<h4 id="Elementi dei cookie">Elementi dei cookie</h4>
+<ol start="1"><li>Un header <code class='code-inline'>set-cookie</code> nelle risposte HTTP
+</li><li>Un header <code class='code-inline'>cookie</code> nella prossima richiesta HTTP
+</li><li>Una lista di cookie mantenuta sull’host (nella cache del browser)
+</li><li>Un database di cookie mantenuto dal sito web
+</li></ol>
+<h4 id="Esempio di set-cookie">Esempio di set-cookie</h4>
+<p><img src='index/A7AA8597-28FA-477A-AB64-FC6862E55B89.png'></p>
+<br>
+<h4 id="Proxy HTTP">Proxy HTTP</h4>
+<p>Hanno l’obiettivo di fare un <i>caching</i> di più alto livello. Devono rispondere alle richieste HTTP <b>senza coinvolgere il server</b> HTTP, in modo da memorizzare quella pagina web e far sì che altri utenti connessi al Proxy ricevano la stessa pagina richiesta <b>più velocemente</b>.</p>
+<p><img src='index/01EA1BEF-4D21-45CE-B549-2A0F6875599F.png'></p>
+<p>Il client invia tutte le richieste HTTP al Proxy. Se il Proxy ha già la risorsa richiesta, sarà lui a rispondere. Altrimenti sarà il Proxy a interrogare il server d’origine per ricevere la risorsa.</p>
+<p>I Proxy sono definiti <i>application gateway</i>, ovvero instradatori di messaggi di livello applicativo (sono host <i>fittizzi</i>). Devono essere sia client, nei confronti del server d’origine, sia server, nei confronti degli utenti ad esso connessi, contemporaneamente.</p>
+<p>L’utilizzo di un Proxy fa sì che un server veda tutte le connessioni ad esso fatte arrivare dal Proxy, come se le avesse fatte <b>un singolo utente</b>.</p>
         </div>
         <script type="text/javascript">
             (function() {

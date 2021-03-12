@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="bear-note-unique-identifier" content="B089F06B-A475-488E-8B70-1BB489DBF389-3048-000000619FDCA0CB">
         <meta name="created" content="2021-02-23T13:19:12+0100"/>
-        <meta name="modified" content="2021-03-10T14:11:53+0100"/>
+        <meta name="modified" content="2021-03-12T08:54:01+0100"/>
         <meta name="tags" content="università, università/internet"/>
         <meta name="last device" content="MacBook Pro di Mario"/>
     </head>
@@ -115,6 +115,8 @@
 </li><li>		<a href="#Elementi dei cookie"">/Elementi dei cookie</a>
 </li><li>		<a href="#Esempio di set-cookie"">/Esempio di set-cookie</a>
 </li><li>		<a href="#Proxy HTTP"">/Proxy HTTP</a>
+</li></ul></li><li>	<a href="#Condivisione equa di risorse"">/Condivisione equa di risorse</a>
+<ul><li>		<a href="#Esempi"">/Esempi</a>
 </li></ul>
 </li></ul>
 </li></ul>
@@ -1038,6 +1040,27 @@
 <p>Il client invia tutte le richieste HTTP al Proxy. Se il Proxy ha già la risorsa richiesta, sarà lui a rispondere. Altrimenti sarà il Proxy a interrogare il server d’origine per ricevere la risorsa.</p>
 <p>I Proxy sono definiti <i>application gateway</i>, ovvero instradatori di messaggi di livello applicativo (sono host <i>fittizzi</i>). Devono essere sia client, nei confronti del server d’origine, sia server, nei confronti degli utenti ad esso connessi, contemporaneamente.</p>
 <p>L’utilizzo di un Proxy fa sì che un server veda tutte le connessioni ad esso fatte arrivare dal Proxy, come se le avesse fatte <b>un singolo utente</b>.</p>
+<br>
+<h3 id="Condivisione equa di risorse">Condivisione equa di risorse</h3>
+<p>La velocità di trasferimento di una rete dipende da molti fattori:</p>
+<ul><li>Trasmissione
+</li><li>Propagazione
+</li><li>Accomodamento nei nodi
+</li><li>Connectionless e Connection-oriented
+</li></ul>
+<p>Si può mostrare che in condizioni ideali il meccanismo di controllo del <b>TCP</b> (Connection-oriented) è in grado di:</p>
+<ul><li>Consentire una <b>suddivisione equa della capacità di ciascun link</b> tra i diversi flussi che lo attraversano
+</li><li>Limitare la <b>congestione di rete</b>
+</li></ul>
+<p>Nella realtà, i valori dei rate indicati sono solo valori medi e valgono solo in condizioni ideali e a regime (flussi di lunga durata). Il ritmo di trasmissione cambia sempre e in condizioni reali la condivisione può non essere equa.</p>
+<h4 id="Esempi">Esempi</h4>
+<p><img src='index/7129C5EF-85F0-4B32-83BD-71FC5C75A148.png'></p>
+<p> </p>
+<p><img src='index/07293D0E-7356-435D-9498-61F500822687.png'></p>
+<br>
+<p><img src='index/Schermata%202021-03-12%20alle%2008.48.06.png'></p>
+<br>
+
         </div>
         <script type="text/javascript">
             (function() {

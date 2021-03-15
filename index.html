@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="bear-note-unique-identifier" content="B089F06B-A475-488E-8B70-1BB489DBF389-3048-000000619FDCA0CB">
         <meta name="created" content="2021-02-23T13:19:12+0100"/>
-        <meta name="modified" content="2021-03-15T13:07:49+0100"/>
+        <meta name="modified" content="2021-03-15T19:02:05+0100"/>
         <meta name="tags" content="università, università/internet"/>
         <meta name="last device" content="MacBook Pro di Mario"/>
     </head>
@@ -259,6 +259,21 @@
 </li><li><b>Fine anni ’90</b>: commercializzazione del web
 </li></ul>
 <br>
+<p>Anni 2000-2009:</p>
+<ul><li>Arrivano le <i>killer app</i>: instant messaging, file sharing P2P, IP telephony, social network
+</li><li><b>La sicurezza di rete diventa un problema</b>
+</li><li>Centinaia di milioni di host, <b>un miliardo di utenti</b>
+</li><li>Velocità nelle dorsali dell’ordine dei <b>Gbps</b>
+</li></ul>
+<br>
+<p>Anni 2010 - giorno d’oggi:</p>
+<ul><li>Esplosione della <i>Mobile Internet</i>
+</li><li>Arrivano gli <b>smartphone</b>
+</li><li>La <b>telefonia</b> si trasferisce <b>definitivamente su Internet</b>
+</li><li>I <b>contenuti video</b> diventano il traffico predominante sulla rete
+</li><li>Esplosione delle <b>app</b>
+</li></ul>
+<br>
 <h3 id="Cosa significa oggi sviluppare un'applicazione">Cosa significa oggi sviluppare un'applicazione</h3>
 <p>Oggi, scrivere un’applicazione di rete comporta una serie di passi complessi:</p>
 <ul><li>Scrivere le componenti server
@@ -379,7 +394,7 @@
 </li></ul>
 <p>Il servizio di trasferimento può trasportare diversi tipi di informazioni (flussi audio, video, messaggi applicativi, pacchetti, bit).</p>
 <h4 id="Primitive di servizio">Primitive di servizio</h4>
-<p>Il servizio di comunicazione può essere descritto mediante delle <b>chiamate di servizio</b>, chiamate <i>primitive di servizio</i>. In generale, servono a descrivere il servizio, a richiederlo ed a ricevere le informazioni sul servizio dal fornitore. Sono caratterizzate da <i>parametri</i> quali:</p>
+<p>Il servizio di comunicazione può essere descritto mediante delle <b>chiamate di servizio</b>, dette <i>primitive di servizio</i>. In generale, servono a descrivere il servizio, a richiederlo ed a ricevere le informazioni sul servizio dal fornitore. Sono caratterizzate da <i>parametri</i> quali:</p>
 <ul><li>Informazione da trasferire
 </li><li>Indicazione del destinatario
 </li><li>Caratteristiche del servizio richiesto
@@ -424,7 +439,7 @@
 </li><li><b>Livello di trasporto</b> (<i>Transport</i>): trasporta i <b>segmenti</b> (<i>Segments</i>). Ha il compito di consegnare le informazioni tra nodi
 </li><li><b>Livello rete</b> (<i>Network</i>): trasporta i <b>pacchetti</b> (<i>Packets</i>). Questo livello è importante per la gestione della consegna delle informazioni attraverso le vie della rete
 </li><li><b>Livello di linea</b> (<i>Data Link</i>): trasporta le <b>trame</b> (<i>Frames</i>)
-</li><li>Livello più basso: <b>Livello fisico</b> (<i>Physical</i>): trasporta i Bit a livello fisico nella rete.
+</li><li>Livello più basso: <b>Livello fisico</b> (<i>Physical</i>): trasporta i <b>Bit</b> a livello fisico nella rete.
 </li></ul>
 <p><b>TCP/IP</b>: indica due protocolli:</p>
 <ul><li><i>Transport Control Protocol</i> (Livello 4)
@@ -552,7 +567,7 @@
 <h3 id="Segnali">Segnali</h3>
 <p>I segnali possono essere divisi in due categorie:</p>
 <ol start="1"><li>Segnali <b>fisici</b> (<b>Sorgenti analogiche</b> o continue): associati a grandezze fisiche e tipicamente continue.
-</li><li>Segnali <b>logici</b> (<b>Sorgenti digitali<i>numeriche</i></b><i> o discrete): sequenze /nativamente</i> numeriche oppure segnali fisici digitalizzati.
+</li><li>Segnali <b>logici</b> (<b>Sorgenti digitali-numeriche</b> o discrete): sequenze <i>nativamente</i> numeriche oppure segnali fisici digitalizzati.
 </li></ol>
 <p>L’informazione trasportata da Internet è <b>sempre in forma numerica</b>, anche se l’informazione originale è prodotta da una sorgente analogica.</p>
 <p><img src='index/Schermata%202021-02-26%20alle%2008.51.59.png'></p>
@@ -613,7 +628,7 @@
 <p>La <b>trasformata di Fourier</b> generalizza la serie di Fourier al caso di segnali <b>non periodici</b>. La trasformata scompone i segnali non periodici in un <b>insieme continuo di armoniche</b>. Ogni componente è in generale moltiplicata per un <b>coefficiente complesso</b>, che determina <b>un’ampiezza ed una fase</b> della sinusoide.</p>
 <p>La funzione <i>X(f)</i> che descrive le ampiezze e le fasi delle sinusoidi componenti è lo <b>spettro</b> del segnale <i>x(t)</i>.</p>
 <h4 id="Banda di un segnale">Banda di un segnale</h4>
-<p>La <b>banda di un segnale</b> (<i>B</i>) è l’<b>insieme delle armoniche che costituiscono un segnale</b>.</p>
+<p>La <b>banda di un segnale</b> (<i>B</i>) è l’<b>intervallo di frequenze in cui il segnale non è nullo</b>.</p>
 <br>
 <p>Esistono due tipi di segnali:</p>
 <ul><li>A <b>banda stretta</b>: variano lentamente nel tempo
@@ -1093,7 +1108,7 @@
 </li><li><b>Mail Server</b>: ogni client è associato ad un Mail Server. Include il <b>Mail Transfer Agent</b>, processo applicativo necessario per il trasferimento dei messaggi sia da client a server, sia tra server.
 </li><li><b>Protocolli</b>
 <ul><li>	<b>SMTP</b>: <i>Simple Mail Transfer Protocol</i>, si occupa della trasmissione della mail in uscita
-</li><li>	<b>POP3/IMAP</b>: <i>Post Office Protocol</i> e <i>Internet Message Access Protocol</i>, si occupano del ricevimento delle email in entrata
+</li><li>	<b>POP3/IMAP</b>: <i>Post Office Protocol V.3</i> e <i>Internet Message Access Protocol</i>, si occupano del ricevimento delle email in entrata
 </li></ul>
 </li></ul>
 <p>Per ogni client, i mail server contengono:</p>

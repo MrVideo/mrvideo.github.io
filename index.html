@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Fondamenti di Comunicazione e Internet (pubblico)</title>
+        <title>Fondamenti di Comunicazione e Internet</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="bear-note-unique-identifier" content="D9F067F1-A399-41A0-A479-DA42B62B1B92-685-00000000DCA43344">
-        <meta name="created" content="2021-03-14T11:56:08+0100"/>
-        <meta name="modified" content="2021-03-14T12:05:16+0100"/>
-        <meta name="tags" content=""/>
+        <meta name="bear-note-unique-identifier" content="B089F06B-A475-488E-8B70-1BB489DBF389-3048-000000619FDCA0CB">
+        <meta name="created" content="2021-02-23T13:19:12+0100"/>
+        <meta name="modified" content="2021-03-15T13:07:49+0100"/>
+        <meta name="tags" content="università, università/internet"/>
         <meta name="last device" content="MacBook Pro di Mario"/>
     </head>
     <body>
@@ -121,6 +121,29 @@
 </li><li>		<a href="#Proxy HTTP"">/Proxy HTTP</a>
 </li></ul></li><li>	<a href="#Condivisione equa di risorse"">/Condivisione equa di risorse</a>
 <ul><li>		<a href="#Esempi"">/Esempi</a>
+</li></ul></li><li>	<a href="#Posta elettronica"">/Posta elettronica</a>
+<ul><li>		<a href="#Elementi"">/Elementi</a>
+</li><li>		<a href="#Esempio di trasferimento email"">/Esempio di trasferimento email</a>
+</li><li>		<a href="#SMTP"">/SMTP</a>
+</li><li>		<a href="#Formato delle email"">/Formato delle email</a>
+</li><li>		<a href="#Fasi del colloquio"">/Fasi del colloquio</a>
+</li><li>		<a href="#Comandi del client"">/Comandi del client</a>
+</li><li>		<a href="#Risposte del server"">/Risposte del server</a>
+</li><li>		<a href="#Esempio di colloquio tra server SMTP"">/Esempio di colloquio tra server SMTP</a>
+</li><li>		<a href="#Protocolli di accesso alla mailbox"">/Protocolli di accesso alla mailbox</a>
+</li><li>		<a href="#POP3"">/POP3</a>
+</li><li>		<a href="#Comandi client"">/Comandi client</a>
+</li><li>		<a href="#Risposte server"">/Risposte server</a>
+</li><li>		<a href="#Esempio di colloquio client-server con POP3"">/Esempio di colloquio client-server con POP3</a>
+</li></ul></li><li>	<a href="#Risoluzione di nomi simbolici"">/Risoluzione di nomi simbolici</a>
+<ul><li>		<a href="#Domain Name System (DNS)"">/Domain Name System (DNS)</a>
+</li><li>		<a href="#Struttura gerarchica"">/Struttura gerarchica</a>
+</li><li>		<a href="#Esempio di ottenimento associazione nome simbolico-indirizzo IP"">/Esempio di ottenimento associazione nome simbolico-indirizzo IP</a>
+</li><li>		<a href="#Esempio di risoluzione iterativa"">/Esempio di risoluzione iterativa</a>
+</li><li>		<a href="#Esempio di risoluzione ricorsiva"">/Esempio di risoluzione ricorsiva</a>
+</li><li>		<a href="#DNS Caching"">/DNS Caching</a>
+</li><li>		<a href="#Informazioni memorizzate"">/Informazioni memorizzate</a>
+</li><li>		<a href="#Formato dei messaggi DNS"">/Formato dei messaggi DNS</a>
 </li></ul>
 </li></ul>
 </li></ul>
@@ -963,10 +986,10 @@
 </li><li><b>Entity body</b> (generalmente vuoto, pieno nel caso di alcuni metodi come <code class='code-inline'>POST</code>)
 </li></ul>
 <h4 id="Esempi di metodi">Esempi di metodi</h4>
-<ul><li><code class='code-inline'>GET</code>: È usato quando il client vuole scaricare un documento dal server (specificato nell’URL). Il server normalmente risponde con il documento richiesto nel corpo del messaggio di risposta
-</li><li><code class='code-inline'>HEAD</code>: È usato quando il client non vuole scaricare il documento ma solo alcune informazioni sul documento (come ad esempio la data di ultima modifica). Nella risposta il server non inserisce l’intero documento ma solo degli header informativi
-</li><li><code class='code-inline'>POST</code>: È usato per fornire al server degli input da utilizzare per un particolare oggetto identificato nell’URL
-</li><li><code class='code-inline'>PUT</code>: È utilizzato per memorizzare un documento nel server. Il documento viene fornito nel corpo del messaggio e la posizione di memorizzazione nell’URL.
+<ul><li><code class='code-inline'>GET</code>: È usato quando il client vuole <b>scaricare un documento dal server</b> (specificato nell’URL). Il server normalmente risponde con il documento richiesto nel corpo del messaggio di risposta.
+</li><li><code class='code-inline'>HEAD</code>: È usato quando il client non vuole <b>scaricare</b> il documento ma <b>solo alcune informazioni sul documento</b> (come ad esempio la data di ultima modifica). Nella risposta il server non inserisce l’intero documento ma solo degli header informativi.
+</li><li><code class='code-inline'>POST</code>: È usato per fornire al server degli <b>input da utilizzare per un particolare oggetto</b> identificato nell’URL.
+</li><li><code class='code-inline'>PUT</code>: È utilizzato per <b>memorizzare un documento nel server</b>. Il documento viene fornito nel corpo del messaggio e la posizione di memorizzazione nell’URL.
 </li></ul>
 <p>Altri metodi: <code class='code-inline'>PATCH</code>, <code class='code-inline'>COPY</code>, <code class='code-inline'>MOVE</code>, <code class='code-inline'>DELETE</code>, <code class='code-inline'>LINK</code>, <code class='code-inline'>UNLINK</code>, <code class='code-inline'>OPTIONS</code></p>
 <h4 id="Esempi di header HTTP">Esempi di header HTTP</h4>
@@ -1063,6 +1086,141 @@
 <p><img src='index/07293D0E-7356-435D-9498-61F500822687.png'></p>
 <br>
 <p><img src='index/Schermata%202021-03-12%20alle%2008.48.06.png'></p>
+<br>
+<h3 id="Posta elettronica">Posta elettronica</h3>
+<h4 id="Elementi">Elementi</h4>
+<ul><li><b>User Agent</b> (UA): client d’utente
+</li><li><b>Mail Server</b>: ogni client è associato ad un Mail Server. Include il <b>Mail Transfer Agent</b>, processo applicativo necessario per il trasferimento dei messaggi sia da client a server, sia tra server.
+</li><li><b>Protocolli</b>
+<ul><li>	<b>SMTP</b>: <i>Simple Mail Transfer Protocol</i>, si occupa della trasmissione della mail in uscita
+</li><li>	<b>POP3/IMAP</b>: <i>Post Office Protocol</i> e <i>Internet Message Access Protocol</i>, si occupano del ricevimento delle email in entrata
+</li></ul>
+</li></ul>
+<p>Per ogni client, i mail server contengono:</p>
+<ul><li>Una coda di email in ingresso (<i>Mailbox</i>)
+</li><li>Una coda di email in uscita (condivisa tra tutti gli utenti)
+</li></ul>
+<h4 id="Esempio di trasferimento email">Esempio di trasferimento email</h4>
+<ol start="1"><li>Il mittente <b>compone</b> una mail per un destinatario
+</li><li>Il client d’utente <b>invia la mail al proprio mail server</b>
+</li><li>Il mail server si comporta come <b>client SMTP</b> e apre una <b>connessione TCP</b> sulla porta <b>25 con il mail server del destinatario</b>
+</li><li><b>Il client</b> SMTP <b>invia la mail</b> sulla connessione TCP
+</li><li>Il mail server del destinatario <b>memorizza la mail</b> nella <i>mailbox</i> del destinatario
+</li><li>Il destinatario usa il proprio <b>client</b> per <b>leggere la mail</b> usando un <b>protocollo differente</b> (POP3, IMAP…)
+</li></ol>
+<br>
+<p>Si parla di protocollo di tipo <b>push</b> dalla parte dell’invio della mail (la mail viene <i>spinta</i> verso il destinatario), mentre si parla di tipo <b>pull</b> dalla parte del destinatario della mail (la mail viene <i>tirata</i> dal mail server al client).</p>
+<br>
+<h4 id="SMTP">SMTP</h4>
+<p>È un protocollo applicativo di tipo <i>push</i> ed utilizza la porta 25 del server.</p>
+<p>Quando un mail server riceve un messaggio da un utente:</p>
+<ul><li>Il server lo mette in coda
+</li><li>Apre una connessione TCP sulla porta 25 del mail server del destinatario
+</li><li>Trasferisce il messaggio
+</li><li>Chiude la connessione TCP
+</li></ul>
+<p>L’interazione tra client SMTP e server SMTP è di tipo <i>comando-risposta</i>, ossia il client fa richieste e il server dà risposte. Sia comandi che risposte sono testuali e ciò richiede che anche il corpo dei messaggi sia ASCII.</p>
+<h4 id="Formato delle email">Formato delle email</h4>
+<p>Abbiamo un header contenente mittente, destinatario ed oggetto. Alcuni altri header sono:</p>
+<p><img src='index/0C668D8E-1089-45E7-8FD8-A3E27A01F843.png'></p>
+<h4 id="Fasi del colloquio">Fasi del colloquio </h4>
+<ol start="1"><li><b>Apertura connessione</b> TCP tra client (sia User Agent che  Mail Transfer Agent) e server (sempre Mail Transfer Agent)
+</li><li>Il client avvia una <i>fase di presentazione</i> verso il server
+</li><li>Si <b>trasferisce il messaggio</b> (prima header, poi messaggio)
+</li><li><b>Richiesta chiusura</b> connessione TCP
+</li><li><b>Chiusura connessione TCP</b>
+</li></ol>
+<h4 id="Comandi del client">Comandi del client</h4>
+<p><img src='index/8BFC91E4-F7CE-41B2-90F4-DB1A442FAB31.png'></p>
+<h4 id="Risposte del server">Risposte del server</h4>
+<p><img src='index/143442C2-65EB-41AF-847E-3D84B4844C16.png'></p>
+<h4 id="Esempio di colloquio tra server SMTP">Esempio di colloquio tra server SMTP</h4>
+<p><img src='index/0DA0012B-7EEB-43CE-97B6-F142E513CB61.png'></p>
+<br>
+<h4 id="Protocolli di accesso alla mailbox">Protocolli di accesso alla mailbox</h4>
+<p>I tre protocolli usati solitamente sono:</p>
+<ul><li><b>POP3</b>, <i>Post Office Protocol V.3</i>: download “semplice” dei messaggi
+</li><li><b>IMAP</b>, <i>Internet Mail Access Protocol</i>: download dei messaggi e gestione della mailbox sul server
+</li><li><b>HTTP</b>
+</li></ul>
+<p>Sono tutti protocolli di tipo <i>pull</i>, che servono a scaricare <i>on-demand</i> la posta dalla propria mailbox. L’interazione tra client e server è sempre comando-risposta.</p>
+<h4 id="POP3">POP3</h4>
+<p>Utilizza la <b>porta 110</b> del server. Le fasi della comunicazione sono:</p>
+<ul><li>	Instaurazione connessione TCP
+</li><li>	Autenticazione da parte del client
+</li><li>	Richiesta lista messaggi (vengono chieste solo le informazioni di base)
+</li><li>	Eventuale richiesta di download e/o cancellazione dei messaggi
+</li><li>	Chiusura comunicazione con il server
+</li><li>	Chiusura connessione TCP
+</li></ul>
+<h4 id="Comandi client">Comandi client</h4>
+<p><img src='index/D7AB5CE2-C63E-4E41-A91C-F99EFF954153.png'></p>
+<h4 id="Risposte server">Risposte server</h4>
+<p>Le risposte del server sono solitamente di tre tipi:</p>
+<ol start="1"><li><code class='code-inline'>+OK</code>
+</li><li><code class='code-inline'>-ERR</code>
+</li><li>Consegna dei messaggi
+</li></ol>
+<h4 id="Esempio di colloquio client-server con POP3">Esempio di colloquio client-server con POP3</h4>
+<p><img src='index/0D326B53-7375-4E6D-8F63-179BD0FBE491.png'></p>
+<br>
+<h3 id="Risoluzione di nomi simbolici">Risoluzione di nomi simbolici</h3>
+<p>Gli indirizzi IP (32 bit) si adattano bene ad essere letti e processati da macchine ma sono poco adatti ad essere usati dai software applicativi e dagli utenti. È molto più conveniente utilizzare indirizzi simbolici. Occorre quindi fare una <b>mappatura</b> fra indirizzi IP e nomi simbolici. Si definisce <b>risoluzione di un nome</b> la mappatura tra un nome simbolico ed un indirizzo IP.</p>
+<h4 id="Domain Name System (DNS)">Domain Name System (DNS)</h4>
+<p>È un’applicazione client-server che utilizza il protocollo di trasporto <b>UDP</b> su porta <b>53</b>. Viene usato l’UDP perché la risoluzione dei nomi dev’essere veloce.</p>
+<p>Ha una struttura basata su un database <b>distribuito</b>: esistono tanti <b>name server</b> (<i>NS</i>) con un’organizzazione <i>gerarchica</i>.</p>
+<p>Esistono alcuni servizi aggiuntivi quali:</p>
+<ul><li><i>Host aliasing</i>: associazione tra vero nome host e suoi alias
+</li><li><i>Load distribution</i>: consente di distribuire il carico delle richieste di mapping tra molti NS distribuiti geograficamente ma che hanno le stesse informazioni di mapping
+</li></ul>
+<p>L’alta disponibilità del servizio è garantita dalla replicazione delle mappature tra nomi simbolici e indirizzi IP.</p>
+<h4 id="Struttura gerarchica">Struttura gerarchica</h4>
+<p>Ha dei nodi <i>etichettati</i>, in cui il noto root non ha etichetta, seguiti da <b>domini di primo livello</b>, di secondo, di terzo…</p>
+<p><img src='index/00F4A0D3-69D9-4827-A17A-BDAB95869937.png'></p>
+<p>Il nome di dominio è la <i>sequenza di etichette</i> fino alla radice. La struttura del nome dipende dal suo albero.</p>
+<p><img src='index/9E548256-DFC0-4A66-B7A4-D73DD29D4240.png'></p>
+<p>Ad ogni dominio corrispondono uno o più server (<i>Name Server</i>). Ogni livello nella gerarchia ha diversa <i>profondità</i> di informazione: per esempio, se voglio raggiungere<code class='code-inline'> www.google.com</code>, i Root NS sanno come trovare i name server che gestiscono i domini <code class='code-inline'>.com</code>, I TLD NS possono trovare chi gestisce <code class='code-inline'>google.com</code> e i NS di livello inferiore possono risolvere l’ultima parte <code class='code-inline'>www.</code>.</p>
+<p>Altri tipi di NS comprendono:</p>
+<ul><li><b>Local Name Server</b>: Ogni ISP ha un NS locale, direttamente collegato all’host. Tutte le volte che un host deve risolvere ubi indirizzo simbolico, esso contatta il Local NS ed esso, eventualmente, contatta gli altri Name Server.
+</li><li><b>Authoritative Name Server</b>: NS <i>responsabile</i> di un particolare nome simbolico.
+</li></ul>
+<h4 id="Esempio di ottenimento associazione nome simbolico-indirizzo IP">Esempio di ottenimento associazione nome simbolico-indirizzo IP</h4>
+<p>Ogni host ha configurato l’indirizzo del Local Name Server. Le applicazioni che richiedono l’associazione usano le funzioni del DNS. Il Local NS reperisce l’informazione e restituisce la risposta:</p>
+<ul><li>immediatamente, se l’informazione è disponibile nel suo database
+</li><li>cercando con due modalità in altri NS
+</li></ul>
+<ol start="1"><li>Iterativa
+</li><li>Ricorsiva
+</li></ol>
+<h4 id="Esempio di risoluzione iterativa">Esempio di risoluzione iterativa</h4>
+<p>Un host presso <code class='code-inline'>cis.poly.edu</code> vuole risolvere l’indirizzo simbolico <code class='code-inline'>gaia.cs.umass.edu</code>.</p>
+<ol start="1"><li>Il client DNS dell’host contatta il Local Name Server
+</li><li>Il LSN contatta il Root Name Server e il server segnala il responsabile del dominio <code class='code-inline'>.edu</code>
+</li><li>Il LSN contatta il Top Level Domain Server responsabile di <code class='code-inline'>.edu</code> e riceve l’indirizzo del server autorevole per il nome simbolico <code class='code-inline'>gaia.cs.umass.edu</code>
+</li><li>Il LSN contatta il server autorevole ed esso risponde con l’IP del dominio <code class='code-inline'>gaia.cs.umass.edu</code>
+</li></ol>
+<p>Ora il client ha l’IP cercato e può connettersi alla pagina richiesta.</p>
+<h4 id="Esempio di risoluzione ricorsiva">Esempio di risoluzione ricorsiva</h4>
+<p>Riprendendo le premesse dell’esempio precedente, invece di rispondere con l’indirizzo di un altro NS tutte le volte, l’informazione viene passata da server a server, percorrendo prima la catena di server verso l’autorevole corretto e poi al contrario, per tornare al client e restituire l’indirizzo IP richiesto.</p>
+<h4 id="DNS Caching">DNS Caching</h4>
+<p>Un server, dopo aver reperito un’informazione su cui non è autorevole, può memorizzarla temporaneamente nella cache. All’arrivo di una nuova richiesta può fornire l’informazione senza risalire di nuovo fino al server autorevole. Il <b>Time-To-Live</b>, ossia letteralmente <i>tempo di vita</i>, è una quantità di tempo decisa dal server autorevole per decidere quanto tempo può sopravvivere l’informazione richiesta dall’host nella sua stessa cache.</p>
+<h4 id="Informazioni memorizzate">Informazioni memorizzate</h4>
+<p>Un record della cache DNS è costituito da <i>Name</i>, <i>Value</i>, <i>Type</i> e <i>TLL</i>. A seconda di <i>Type</i>, gli altri campi hanno significato diverso:</p>
+<ul><li><code class='code-inline'>Type = A</code>: <i>Name</i> è il nome di un host autorevole e <i>Value</i> è il suo indirizzo IP
+</li><li><code class='code-inline'>Type = NS</code>: <i>Name</i> è un dominio e <i>Value</i> è il nome di un server che può ottenere le informazioni relative
+</li><li><code class='code-inline'>Type = CNAME</code>: <i>Name</i> è un nome alternativo per un host, il cui nome canonico è in <i>Value</i>
+</li><li><code class='code-inline'>Type = MX</code>: <i>Name</i> è un dominio di mail e <i>Value</i> è il nome del mail server
+</li></ul>
+<h4 id="Formato dei messaggi DNS">Formato dei messaggi DNS</h4>
+<p><img src='index/B633AB5F-39D2-40DD-AB84-0891AD10F284.png'></p>
+<ul><li><code class='code-inline'>Identification</code>: identificativo coppia richiesta-risposta
+</li><li><code class='code-inline'>Flag</code>: richiesta-risposta, authoritative-non authoritative, iterative-recursive
+</li><li><code class='code-inline'>Number of</code>: relativo al numero di campi nelle sezioni successive
+</li><li><code class='code-inline'>Questions</code>: nome richiesto e tipo (solitamente A o MX)
+</li><li><code class='code-inline'>Answers</code>: resource records completi forniti in risposta
+</li><li><code class='code-inline'>Authority</code>: contiene altri record forniti da altri server autorevoli
+</li><li><code class='code-inline'>Additional info</code>: informazione aggiuntiva come per esempio il record con l’indirizzo IP per il MX fornito in <code class='code-inline'>Answers</code></li></ul>
+
         </div>
         <script type="text/javascript">
             (function() {

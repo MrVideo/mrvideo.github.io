@@ -1,0 +1,40 @@
+body {
+    font-family: 'JetBrains Mono', sans-serif, monospace;
+    color: white;
+    background-color: black;
+    font-size: 13pt;
+    text-align: center;
+}
+
+h1 {
+    font-weight: bold;
+    text-align: center;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+    text-decoration: line-through;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.column {
+    width: 33%;
+}
+
+tr:not(:first-child):hover {
+    background-color: cornflowerblue;
+}

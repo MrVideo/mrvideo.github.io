@@ -1,5 +1,5 @@
 body {
-    font-family: 'JetBrains Mono', sans-serif, monospace;
+    font-family: 'JetBrains Mono', monospace;
     color: white;
     background-color: black;
     font-size: 13pt;
@@ -9,16 +9,12 @@ body {
 h1 {
     font-weight: bold;
     text-align: center;
+    color: #3200e8;
 }
 
-a {
+a, a:visited {
     color: white;
     text-decoration: none;
-}
-
-a:visited {
-    color: white;
-    text-decoration: line-through;
 }
 
 a:hover {
@@ -35,6 +31,22 @@ table {
     width: 33%;
 }
 
+tr:first-child {
+    background-color: #3200e8;
+}
+
 tr:not(:first-child):hover {
-    background-color: cornflowerblue;
+    background-color: #3200e8;
+}
+
+td, th {
+    padding: 0.5em;
+}
+
+#amazonlink:hover span {
+    display: none;
+}
+
+#amazonlink:hover:before {
+    content: "-> Compra su Amazon <-";
 }

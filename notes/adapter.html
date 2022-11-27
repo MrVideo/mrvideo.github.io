@@ -1,0 +1,95 @@
+<html>
+
+<head>
+    <title>Adapter</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="notes.css">
+</head>
+
+<body>
+    <h1 id="adapter">Adapter</h1>
+    <hr />
+    <p>L’adapter è un class design pattern strutturale.</p>
+    <h2 id="motivazioni">Motivazioni</h2>
+    <p>Consideriamo di progettare un editor grafico.</p>
+    <p>La principale astrazione definita è un’interfaccia <code>Shape</code>
+        che rappresenta una generica forma disegnabile.</p>
+    <p>Classi concrete come <code>LineShape</code> e
+        <code>SquareShape</code> implementano la logica per disegnare specifiche
+        forme come linee e quadrati.
+    </p>
+    <p>Un’ulteriore possibile concretizzazione di <code>Shape</code> è
+        <code>TextShape</code>, per disegnare caselle di testo. La logica di
+        <code>TextShape</code> è significativamente più complessa di quelle per
+        semplici forme geometriche. Si decide quindi di appoggiarsi ad una
+        libreria grafica esterna che definisce una classe <code>TextView</code>
+        ed implementa la logica desiderata.
+    </p>
+    <p>Problema: <code>TextView</code> non implementa l’interfaccia
+        <code>Shape</code> ed è difficilmente integrabile all’interno del
+        sistema esistente.
+    </p>
+    <h2 id="possibile-soluzione-errata">Possibile soluzione errata</h2>
+    <p>Una soluzione potrebbe essere quella di modificare il codice di
+        <code>TextView</code> affinché questa implementi <code>Shape</code>, ma
+        non ha senso aggiungere codice specifico di un particolare dominio
+        applicativo ad una classe già esistente. Inoltre, il codice di
+        <code>TextView</code> potrebbe non essere accessibile.
+    </p>
+    <h2 id="obiettivi">Obiettivi</h2>
+    <p>L’obiettivo dell’adapter è quello di definire una strategia di
+        <em>adattamento</em> per la classe non compatibile.
+    </p>
+    <p>Esistono due modi per farlo:</p>
+    <ol type="1">
+        <li>Attraverso l’ereditarietà</li>
+        <li>Attraverso la composizione</li>
+    </ol>
+    <h3 id="struttura-con-ereditarietà">Struttura con ereditarietà</h3>
+    <img src="../src/img/adapter-1.png" alt="Struttura Ereditarietà">
+    <h3 id="struttura-con-composizione">Struttura con composizione</h3>
+    <img src="../src/img/adapter-2.png" alt="Struttura Composizione">
+    <h2 id="esempio">Esempio</h2>
+    <img src="../src/img/adapter-3.png" alt="Esempio">
+    <pre>
+        <code>
+            interface Shape {
+                public Size boundingBox();
+            }
+            
+            class SquareShape implements Shape {
+                public Size boundingBox() {
+                    return new Size(edge * edge);
+                }
+            }
+            
+            class TextView extends ExternalLibraryView {
+                public Size getExtent() {
+                    return new Size();
+                }
+            }
+            
+            // Esempio con ereditarietà
+            class TextShape extends TextView implements Shape {
+                public Size boundingBox() {
+                    return this.getExtent();
+                }
+            }
+            
+            // Esempio con composizione
+            class TextShape implements Shape {
+                private TextView adaptee = new TextView();
+            
+                public Size boundingBox() {
+                    return adaptee.getExtent();
+                }
+            }
+        </code>
+    </pre>
+
+    <p id="hometext"><a href="../index.html" id="homebutton"><span>Ritorna alla Home</span></a></p>
+
+</body>
+
+</html>

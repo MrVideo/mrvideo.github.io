@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <title>Evoluzioni dell'MVC</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="notes.css">
+</head>
+
+<body>
+    <h1 id="evoluzioni-dellmvc">Evoluzioni dell’MVC</h1>
+    <hr />
+    <h2 id="motivazioni">Motivazioni</h2>
+    <p>Il paradigma Model-View-Controller tradizionale può presentare alcuni
+        problemi. Ad esempio, la View può essere dipendente dal Modello o il
+        Controller dalla View. In questi casi, il testing diventa assai
+        complesso e il Controller spesso finisce per contenere troppa
+        logica.</p>
+    <p>Vengono così introdotte delle alternative al classico MVC che
+        elencheremo di seguito.</p>
+    <h3 id="model-view-presenter-mvp">Model-View-Presenter (MVP)</h3>
+    <p>Il pattern MVP è simile a quello MVC, ma la View non ha dipendenze
+        dal Modello. La comunicazione Controller-View avviene attraverso delle
+        interfacce.</p>
+    <p>In questo caso, i componenti si dividono così:</p>
+    <ul>
+        <li><strong>Model</strong>: contiene lo stato e la logica applicativa e
+            non ha dipendenze con altri componenti</li>
+        <li><strong>View</strong>: contiene la logica di visualizzazione e
+            propaga eventi al Presenter</li>
+        <li><strong>Presenter</strong>: riceve gli input degli utenti inoltrati
+            dalla View e modifica Modello e View</li>
+    </ul>
+    <img src="../src/img/beyondmvc-1.png" alt="MVP">
+    <h3 id="model-view-viewmodel-mvvm">Model-View-ViewModel (MVVM)</h3>
+    <p>Questo paradigma riduce ulteriormente le dipendenze tra livelli ed è
+        strutturato come segue:</p>
+    <ul>
+        <li><strong>Model</strong>: contiene lo stato e la logica applicativa,
+            non ha dipendenze da altri componenti</li>
+        <li><strong>View</strong>: non contiene logica e di solito è creata con
+            linguaggi dichiarativi</li>
+        <li><strong>ViewModel</strong>:
+            <ul>
+                <li>Non ha riferimenti né alla View né ad interfacce relative</li>
+                <li>Prepara un insieme di dati (solitamente primitivi) pensati per la
+                    visualizzazione (<code>Observable</code>)</li>
+                <li>Espone metodi per reagire agli input degli utenti</li>
+            </ul>
+        </li>
+    </ul>
+    <p>Un insieme di componenti dedicati hanno la funzione di collegare View
+        e ViewModel nel processo di <em>Data Binding</em>. Solitamente, questo
+        livello è fornito da un framework, come ad esempio Android. L’utente,
+        nella definizione della View, può iscriversi ad uno specifico ViewModel
+        ed ai relativi dati.</p>
+    <img src="../src/img/beyondmvc-2.png" alt="MVVM">
+
+    <p id="hometext"><a href="../index.html" id="homebutton"><span>Ritorna alla Home</span></a></p>
+</body>
+
+</html>

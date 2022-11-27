@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <title>Factory Method</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="notes.css">
+</head>
+
+<body>
+    <h1 id="factory-method">Factory Method</h1>
+    <hr />
+    <p>Il <em>Factory Method</em> è un class design pattern creazionale.</p>
+    <h2 id="motivazioni">Motivazioni</h2>
+    <p>Si ipotizzi che un sistema software gestisca la creazione e l’editing
+        di diversi documenti.</p>
+    <p>Nel sistema sono definite due principali classi astratte:
+        <code>Application</code> e <code>Document</code>. Per ciascuna tipologia
+        di applicazione vengono definite relative sottoclassi, come
+        <code>TextApplication</code> e <code>TextDocument</code>. La classe
+        astratta <code>Application</code> ha il compito di gestire documenti,
+        creandoli o aprendoli quando necessario.
+    </p>
+    <p>Il problema sorge sapendo che <code>Application</code> non può
+        prevedere quale tipo di documento l’utente vuole creare. Solamente le
+        sottoclassi di <code>Application</code> conoscono il tipo da
+        istanziare.</p>
+    <h2 id="anti-pattern">Anti-pattern</h2>
+    <pre>
+        <code>
+            abstract class Application {
+                public Document newDocument() {
+                    Document d;
+                    
+                    if(this.instanceOf(TextApplication))
+                        d = new TextDocument();
+                    else if(this.instanceOf(CalcApplication))
+                        d = new CalcDocument();
+                    
+                    return d;
+                }
+            }
+        </code>
+    </pre>
+    <h2 id="obiettivi">Obiettivi</h2>
+    <p>Gli obiettivi di questo design pattern sono</p>
+    <ul>
+        <li>Definire nella classe astratta un metodo astratto
+            <code>factory</code> per la creazione di oggetti
+        </li>
+        <li>Le sottoclassi conoscono il tipo da istanziare</li>
+        <li>Il pattern delega la creazione di oggetti alle sottoclassi</li>
+        <li>La superclasse non contiene dipendenze da tipi specifici</li>
+    </ul>
+    <h2 id="struttura">Struttura</h2>
+    <img src="../src/img/factorymethod-1.png" alt="Struttura">
+    <h2 id="esempio">Esempio</h2>
+    <img src="../src/img/factorymethod-2.png" alt="Esempio">
+    <pre>
+        <code>
+            abstract class Application {
+                public Document newDocument() {
+                    Document d = createDocument();
+                    return d;
+                }
+            
+                public abstract Document createDocument();
+            }
+            
+            class TextApplication extends Application {
+                @Override
+                public Document createDocument() {
+                    return new TextDocument();
+                }
+            }
+        </code>
+    </pre>
+
+    <p id="hometext"><a href="../index.html" id="homebutton"><span>Ritorna alla Home</span></a></p>
+</body>
+
+</html>

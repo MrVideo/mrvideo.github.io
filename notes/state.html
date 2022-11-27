@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <title>State</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="notes.css">
+</head>
+
+<body>
+    <h1 id="state">State</h1>
+    <hr />
+    <p>State è un object design pattern comportamentale.</p>
+    <h2 id="motivazioni">Motivazioni</h2>
+    <p>Si supponga di voler implementare il protocollo TCP.</p>
+    <p>La sequenza di azioni da compiere per instaurare una connessione TCP
+        è rappresentabile come un automa a stati finiti.</p>
+    <p>La classe <code>TCPConnection</code> deve gestire l’apertura della
+        connessione, la chiusura e le varie fasi intermedie.</p>
+    <p>Problema: la gestione di tutte le operazioni da compiere è complessa
+        e fortemente dipendente da uno stato. La classe
+        <code>TCPConnection</code> può diventare troppo grande e ci sono molti
+        statement condizionali da gestire.
+    </p>
+    <h2 id="una-soluzione-non-ideale">Una soluzione non ideale</h2>
+    <pre>
+        <code>
+            class TCPConnection {
+                int state = 0;
+                public void open() {
+                    if(state == 0) {
+                        // Initialize connection
+                        if(success) state = 1;
+                        else state = -1;
+                    }
+                    else if(state == 2) // Code
+                    else if(state == 3) // Code
+                }
+                public void close() {
+                    // Code
+                }
+            }
+        </code>
+    </pre>
+    <h2 id="obiettivi">Obiettivi</h2>
+    <p>Per risolvere questo problema possiamo definire una classe astratta
+        <code>State</code> che ha diverse sottoclassi. Ognuna di queste
+        sottoclassi gestisce le operazioni relative allo stato ed effettua la
+        transizione al prossimo stato. <code>TCPConnection</code> manterrà un
+        riferimento allo stato corrente.
+    </p>
+    <p>La logica applicativa viene così suddivisa in più classi, il che
+        rende il codice più facile da mantenere.</p>
+    <h2 id="struttura">Struttura</h2>
+    <img src="../src/img/state-1.png" alt="Struttura">
+    <h2 id="esempio">Esempio</h2>
+    <img src="../src/img/state-2.png" alt="Esempio">
+    <pre>
+        <code>
+            abstract class TCPState {
+                protected TCPConnection connection;
+                public TCPState(TCPConnection connection) {
+                    this.connection = connection;
+                }
+                abstract public void open();
+                abstract public void close();
+                abstract public void acknowledge();
+                public void transition(TCPState state) {
+                    connection.setState(state);
+                }
+            }
+            
+            public class TCPListen extends TCPState {
+                public TCPListen(TCPConnection connection) {
+                    super(connection);
+                }
+                public void open() {
+                    // Open connection code
+                    this.transition(new TCPEstablished(connection));
+                }
+                public void close { /*Code*/ };
+                public void acknowledge { /*Code*/ };
+            }
+            
+            class TCPConnection {
+                private TCPState state;
+                public TCPConnection() {
+                    state = new TCPListen(this);
+                }
+                public void setState(TCPState newState) {
+                    state = newState;
+                }
+                public void open() {
+                    state.open();
+                }
+                public void close() {
+                    state.close();
+                }
+                public void acknowledge() {
+                    state.acknowledge();
+                }
+            }
+        </code>
+    </pre>
+
+    <p id="hometext"><a href="../index.html" id="homebutton"><span>Ritorna alla Home</span></a></p>
+</body>
+
+</html>

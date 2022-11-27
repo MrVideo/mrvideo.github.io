@@ -1,0 +1,116 @@
+<html>
+
+<head>
+    <title>Observer</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="notes.css">
+</head>
+
+<body>
+    <h1 id="observer">Observer</h1>
+    <hr />
+    <p>Observer è un object design pattern comportamentale.</p>
+    <h2 id="motivazioni">Motivazioni</h2>
+    <p>Si assuma di voler creare un’applicazione per manipolare fogli di
+        calcolo.</p>
+    <p>Una classe <code>Spreadsheet</code> contiene i dati e le formule
+        inserite dall’utente.</p>
+    <p>Una classe <code>BarChart</code> permette di visualizzare i dati in
+        un diagramma a istogrammi, mentre un’altra classe <code>LineChart</code>
+        mostra i dati con una curva su un piano cartesiano.</p>
+    <p>Problema: gestire le interazioni tra una sorgente di dati e classi
+        diverse che utilizzano questi dati. I diagrammi non devono avere una
+        dipendenza forte dalla sorgente di dati (<em>observable</em>) e la
+        sorgente di dati non deve avere dipendenze forti dagli utilizzatori
+        (<em>observers</em>). Bisogna utilizzare il modello
+        <em>publish-subscribe</em>.
+    </p>
+    <h2 id="una-soluzione-non-ideale">Una soluzione non ideale</h2>
+    <pre>
+        <code>
+            class Spreadsheet {
+                private BarChart barChart;
+                private LineChart lineChart;
+                private float data[][];
+                private void updateData(int x, int y, float value) {
+                    data[x][y] = value;
+                    barChart.updateBar();
+                    lineChart.updateLine();
+                }
+            
+                public float[][] getData() {
+                    return data;
+                }
+            }
+            
+            class BarChart {
+                private Spreadsheet sheet;
+                public void updateBar() {
+                    float data[][] = sheet.getData();
+                    draw();
+                }
+            
+                private void draw() {
+                    // Code
+                }
+            }
+        </code>
+    </pre>
+    <h2 id="obiettivi">Obiettivi</h2>
+    <p>Per risolvere questo problema, è necessario definire un sistema
+        astratto per la comunicazione one-to-many. Per farlo, creiamo una classe
+        astratta <code>Observable</code> per rappresentare la sorgente di dati,
+        che contiene una lista di <code>Observer</code>. Creiamo poi
+        un’interfaccia <code>Observer</code> per rappresentare un utilizzatore
+        dei dati. Gli oggetti <code>Observer</code> possono iscriversi o
+        disiscriversi agli aggiornamenti di <code>Observable</code> attraverso
+        appositi metodi.</p>
+    <h2 id="struttura">Struttura</h2>
+    <img src="../src/img/observer-1.png" alt="Struttura">
+    <h2 id="esempio">Esempio</h2>
+    <img src="../src/img/observer-2.png" alt="Esempio">
+    <pre>
+        <code>
+            abstract class DataSource {
+                List&lt;DataListener&gt; listeners = new ArrayList&lt;&gt;();
+                public addListener(DataListener ld) {
+                    listeners.add(ld);
+                }
+                public removeListener(DataListener ld) {
+                    listeners.remove(ld);
+                }
+                protected updateAll(float data[][]) {
+                    for(dataListener ld : listeners)
+                        ld.update(data);
+                }
+            }
+            
+            class Spreadsheet extends DataSource {
+                private float data[][];
+                private void updateData(int x, int y, float value) {
+                    data[x][y] = value;
+                    this.updateAll(data);
+                }
+            }
+            
+            interface DataListener {
+                update(float data[][]);
+            }
+            
+            class BarChart implements DataListener {
+                public void update(float data[][]) {
+                    draw();
+                }
+                private void draw() {
+                    // Code
+                }
+            }
+        </code>
+    </pre>
+
+    <p id="hometext"><a href="../index.html" id="homebutton"><span>Ritorna alla Home</span></a></p>
+
+</body>
+
+</html>

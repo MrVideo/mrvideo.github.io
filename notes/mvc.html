@@ -1,0 +1,125 @@
+<html>
+
+<head>
+    <title>Model-View-Controller</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="notes.css">
+</head>
+
+<body>
+    <h1 id="model-view-controller">Model-View-Controller</h1>
+    <hr />
+    <p>Il Model-View-Controller è un class design pattern
+        architetturale.</p>
+    <h2 id="motivazioni">Motivazioni</h2>
+    <p>Implementare un sistema software comporta lavorare su più livelli,
+        tra cui il modello, la logica applicativa, la linea di comando, la GUI e
+        molto altro.</p>
+    <p>Per il principio della singola responsabilità, ogni componente deve
+        svolgere <em>una ed una sola funzione</em>.</p>
+    <p>Problema: ogni componente deve avere un compito preciso all’interno
+        del sistema. La gestione delle relazioni tra i vari componenti è
+        complessa. Bisogna minimizzare le interdipendenze e ciascun livello
+        potrebbe essere sviluppato da diversi gruppi di lavoro.</p>
+    <h2 id="una-soluzione-non-ideale">Una soluzione non ideale</h2>
+    <pre>
+        <code>
+            class Calculator {
+                float result = 0;
+                String expression = "";
+                TextField text;
+                Button calculateButton;
+                private void parseExpression() {
+                    // Code
+                }
+                private void compute() {
+                    // Code
+                }
+                private float power() {
+                    // Code
+                }
+                private float factorial() {
+                    // Code
+                }
+                public void onClick(Button b) {
+                    if(b == calculateButton) {
+                        compute();
+                        text.setText(String.valueOf(result));
+                    }
+                }
+            }
+        </code>
+    </pre>
+    <h2 id="obiettivi">Obiettivi</h2>
+    <p>Attraverso il pattern Model-View-Controller (o <em>MVC</em>) si vuole
+        suddividere lo sviluppo in tre componenti:</p>
+    <ol type="1">
+        <li><strong>Model</strong>: contiene lo stato e la logica applicativa,
+            non ha dipendenze da altri componenti</li>
+        <li><strong>View</strong>: contiene la logica di visualizzazione del
+            modello e può avere un riferimento ad esso</li>
+        <li><strong>Controller</strong>: riceve gli input degli utenti inoltrati
+            dalla view e modifica modello e view</li>
+    </ol>
+    <h2 id="considerazioni">Considerazioni</h2>
+    <p>Esistono diverse declinazioni di MVC, tutte con gli stessi obiettivi
+        dell’originali e tutte con diverse <em>intersezioni</em> tra componenti.
+        Alcune di esse sono:</p>
+    <ul>
+        <li>Model-View-Presenter</li>
+        <li>Model-ViewModel-View</li>
+    </ul>
+    <h2 id="struttura">Struttura</h2>
+    <img src="../src/img/mvc-1.png" alt="Struttura">
+    <h2 id="esempio">Esempio</h2>
+    <img src="../src/img/mvc-2.png" alt="Esempio">
+    <pre>
+        <code>
+            class Calculator extends CalculatorObservable {
+                float result = 0;
+                String expression = "";
+                private void parseExpression() { /*Code*/ };
+                private void compute() {
+                    // Code
+                    notifyAll();
+                }
+                private float power() { /*Code*/ }
+                private float factorial() { /*Code*/ }
+                public float getResult() { return result; }
+            }
+            
+            class CalculatorController implements OnClickListener {
+                ComputeButton button;
+                Calculator calculator = new Calculator();
+                public void setComputeButton(ComputeButton button) {
+                    this.button = button;
+                    this.button.addOnClickListener(this);
+                }
+                public void onClick() {
+                    calculator.compute();
+                }
+            }
+            
+            class ComputeButton extends Button {
+                // Receives user inputs
+            }
+            
+            class ResultTextField extends TextField
+                                  implements CalculatorListener {
+                Calculator calc;
+                public ResultTextField(Calculator c) {
+                    calc = c;
+                    c.addObserver(this);
+                }
+                public void updateResult() {
+                    setText(String.valueOf(calc.getResult()));
+                }
+            }
+        </code>
+    </pre>
+
+    <p id="hometext"><a href="../index.html" id="homebutton"><span>Ritorna alla Home</span></a></p>
+</body>
+
+</html>

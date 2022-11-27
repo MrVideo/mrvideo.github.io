@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <title>Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="notes.css">
+</head>
+
+<body>
+    <h1 id="strategy">Strategy</h1>
+    <hr />
+    <p>Strategy è un object design pattern comportamentale.</p>
+    <h2 id="motivazioni">Motivazioni</h2>
+    <p>Si assuma di voler creare una classe <code>Composition</code> che
+        gestisca elementi organizzati in righe. A seconda del contesto, si
+        possono usare diversi algoritmi per organizzare gli elementi, che hanno
+        efficienza diversa a seconda del caso d’uso.</p>
+    <p>Problema: gestire un insieme di strategie o algoritmi per compiere
+        una determinata azione. La strategia può essere cambiata a runtime.</p>
+    <h2 id="una-soluzione-non-ideale">Una soluzione non ideale</h2>
+    <pre>
+        <code>
+            class Composition {
+                private Data data;
+                public void traverse() {
+                    // Code
+                }
+                public void repair() {
+                    if(case1) simpleCompose();
+                    else if(case2) texCompose();
+                    else arrayCompose();
+                }
+                public void simpleCompose() {
+                    // Code
+                }
+                public void texCompose() {
+                    // Code
+                }
+                public void arrayCompose() {
+                    // Code
+                }
+            }
+        </code>
+    </pre>
+    <h2 id="obiettivi">Obiettivi</h2>
+    <p>Per risolvere questo problema si può definire un’interfaccia
+        <code>Strategy</code>: ciascuna sua implementazione usa un algoritmo
+        differente.
+    </p>
+    <p>La classe <code>Composition</code> avrà un riferimento a
+        <code>Strategy</code> e la strategia potrà essere modificata a
+        runtime.
+    </p>
+    <h2 id="struttura">Struttura</h2>
+    <img src="../src/img/strategy-1.png" alt="Struttura">
+    <h2 id="esempio">Esempio</h2>
+    <img src="../src/img/strategy-2.png" alt="Esempio">
+    <pre>
+        <code>
+            interface Compositor {
+                void compose(Data data);
+            }
+            
+            class SimpleCompositor implements Compositor {
+                public void compose(Data data) {
+                    // Code
+                }
+            }
+            
+            class Composition {
+                private Data data;
+                private Compositor compositor;
+                public void setCompositor(Compositor cmp) {
+                    compositor = cmp;
+                }
+                public void traverse() {
+                    // Code
+                }
+                public void repair() {
+                    compositor.compose(data);
+                }
+            }
+        </code>
+    </pre>
+
+    <p id="hometext"><a href="../index.html" id="homebutton"><span>Ritorna alla Home</span></a></p>
+
+</body>
+
+</html>

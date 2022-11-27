@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <title>Decorator</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="notes.css">
+</head>
+
+<body>
+    <h1 id="decorator">Decorator</h1>
+    <hr />
+    <p>Il Decorator è un object design pattern strutturale.</p>
+    <h2 id="motivazioni">Motivazioni</h2>
+    <p>Consideriamo un sistema per creare interfacce grafiche.</p>
+    <p>Consideriamo una classe <code>TextView</code> rappresentante una
+        finestra contenente del testo. <code>TextView</code> può essere
+        arricchita con delle barre di scorrimento se il testo contenuto supera
+        una certa lunghezza. Inoltre, può essere anche arricchita con dei bordi
+        per migliorare la leggibilità del testo.</p>
+    <p>Problema: arricchire entità con <em>decorazioni</em> diverse.</p>
+    <p>Non tutte le <code>TextView</code> necessitano di barre di
+        scorrimento e bordi: alcune possono necessitare solo di una delle due
+        cose, altre di nessuna. Inoltre, le decorazioni possono essere
+        molteplici e potenzialmente estendibili.</p>
+    <h2 id="una-soluzione-non-ideale">Una soluzione non ideale</h2>
+    <p>Una possibile soluzione può essere generare una sottoclasse per ogni
+        decorazione da aggiungere.</p>
+    <p>Se implementata in questo modo, sarebbe anche necessario creare una
+        sottoclasse per <em>ogni combinazione</em> possibile di decorazioni, il
+        che creerebbe diversi problemi dal punto di vista dell’estensibilità e
+        della manutenibilità.</p>
+    <h2 id="obiettivi">Obiettivi</h2>
+    <p>Il decorator deve:</p>
+    <ul>
+        <li>Definire una classe astratta <em>decorator</em> che implementa la
+            stessa astrazione della classe</li>
+        <li>La classe decoratrice mantiene un riferimento all’oggetto da
+            decorare</li>
+        <li>Implementazioni della classe astratta implementano decorazioni
+            diverse</li>
+        <li>È possibile decorare un oggetto già decorato</li>
+    </ul>
+    <h2 id="struttura">Struttura</h2>
+    <img src="../src/img/decorator-1.png" alt="Struttura">
+    <h2 id="esempio">Esempio</h2>
+    <img src="../src/img/decorator-2.png" alt="Esempio 1">
+    <br>
+    <img src="../src/img/decorator-3.png" alt="Esempio 2">
+    <pre>
+        <code>
+            interface VisualComponent {
+                void draw();
+            }
+            
+            class TextView implements VisualComponent {
+                public void draw() {
+                    // Some code
+                }
+            }
+            
+            abstract class Decorator implements VisualComponent {
+                private VisualComponent component;
+            
+                public Decorator(VisualComponent c) {
+                    component = c;
+                }
+            
+                public void draw() {
+                    component.draw();
+                }
+            }
+            
+            class BorderDecorator extends Decorator {
+                public BorderDecorator(VisualComponent c) {
+                    super(c);
+                }
+            
+                public void draw() {
+                    super.draw();
+                    drawBorder();
+                }
+            
+                private void drawBorder() {
+                    // Some code
+                }
+            }
+            
+            class Client {
+                public void setup() {
+                    TextView t = new TextView();
+                    VisualComponent v = new BorderDecorator(t);
+                    VisualComponent s = new ScrollDecorator(v);
+                    s.draw();
+                }
+            }
+        </code>
+    </pre>
+
+    <p id="hometext"><a href="../index.html" id="homebutton"><span>Ritorna alla Home</span></a></p>
+
+</body>
+
+</html>

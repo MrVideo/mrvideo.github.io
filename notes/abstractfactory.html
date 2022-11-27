@@ -1,0 +1,120 @@
+<html>
+
+<head>
+    <title>Abstract Factory</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="notes.css">
+</head>
+
+<body>
+    <h1 id="abstract-factory">Abstract Factory</h1>
+    <hr />
+    <p>Abstract Factory è un object design pattern creazionale.</p>
+    <h2 id="motivazioni">Motivazioni</h2>
+    <p>Consideriamo di voler implementare un insieme di classi dedicate alla
+        creazione di interfacce grafiche. Gli elementi grafici possono essere
+        creati secondo diversi stili. Per ogni elemento grafico viene definita
+        una classe astratta, mentre per ogni stile ed elemento grafico viene
+        costituita una classe concreta.</p>
+    <p>I client che creano un’interfaccia grafica devono poter modificare lo
+        stile a seconda delle esigenze, potenzialmente in modo dinamico.</p>
+    <p>Problema: istanziando esplicitamente i tipi concreti di ciascuno
+        stile, si rende complessa e dispendiosa la modifica dello stile.</p>
+    <h2 id="anti-pattern">Anti-pattern</h2>
+    <pre>
+        <code>
+            class ClientGUI {
+                public void setupWindow(){
+                    Window w = new PMWindow();
+                    w.setSize(500, 400);
+                    w.addScrollbar(new PMScrollbar());
+                    w.addPanel(setupPanel());
+                }
+            
+                public Panel setupPanel() {
+                    Panel p = new PMPanel();
+                    return p;
+                }
+            }
+        </code>
+    </pre>
+    <h2 id="obiettivi">Obiettivi</h2>
+    <p>Gli obiettivi del pattern Abstract Factory sono i seguenti:</p>
+    <ul>
+        <li>Creare delle classi <em>factory</em> dedicate a generare elementi
+            appartenenti ad una gerarchia</li>
+        <li>Un’interfaccia od una classe astratta definiscono quali sono le
+            funzionalità della factory</li>
+        <li>I client non creano direttamente gli oggetti ma utilizzano una
+            factory</li>
+        <li>Modificare la tipologia degli elementi da creare equivale a cambiare
+            istanza di factory</li>
+    </ul>
+    <h2 id="struttura">Struttura</h2>
+    <img src="../src/img/abstractfactory-1.png" alt="Struttura">
+    <h2 id="esempio">Esempio</h2>
+    <img src="../src/img/abstractfactory-2.png" alt="Esempio">
+    <pre>
+        <code>
+            abstract class WidgetFactory {
+                public abstract Window createWindow();
+                public abstract Panel createPanel();
+                public abstract Button createButton();
+                public abstract Scrollbar createScrollbar();
+            }
+            
+            abstract class PMWidgetFactory {
+                public Window createWindow() {
+                    return new PMWindow();
+                }
+                public Panel createPanel {
+                    return new PMPanel();
+                }
+                public Button createButton {
+                    return new PMButton();
+                }
+                public Scrollbar createScrollbar {
+                    return new PMScrollbar();
+                }
+            }
+            
+            abstract class MotifWidgetFactory {
+                public Window createWindow() {
+                    return new MotifWindow();
+                }
+                public Panel createPanel {
+                    return new MotifPanel();
+                }
+                public Button createButton {
+                    return new MotifButton();
+                }
+                public Scrollbar createScrollbar {
+                    return new MotifScrollbar();
+                }
+            }
+            
+            class ClientGUI {
+                WidgetFactory factory = new PMWidgetFactory();
+            
+                public void setupWindow() {
+                    Window w = factory.createWindow();
+                    w.setSize(500, 400);
+                    w.addScrollbar(factory.createScrollbar());
+                    w.addPanel(setupPanel());
+                }
+            
+                public Panel setupPanel() {
+                    Panel p = factory.createPanel();
+                    Button b = factory.createButton();
+                    p.add(b);
+                    return p;
+                }
+            }
+        </code>
+    </pre>
+
+    <p id="hometext"><a href="../index.html" id="homebutton"><span>Ritorna alla Home</span></a></p>
+</body>
+
+</html>

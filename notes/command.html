@@ -1,0 +1,126 @@
+<html>
+
+<head>
+    <title>Command</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="notes.css">
+</head>
+
+<body>
+    <h1 id="command">Command</h1>
+    <hr />
+    <p>Command è un object design pattern comportamentale.</p>
+    <h2 id="motivazioni">Motivazioni</h2>
+    <p>Consideriamo di voler creare una classe <code>Menu</code> per
+        eseguire operazioni all’interno di un’applicazione.</p>
+    <p>Un’istanza di <code>Menu</code> contiene un insieme di
+        <code>MenuItem</code>, uno per ciascuna azione da eseguire. Un’istanza
+        di <code>Menu</code> non deve conoscere i dettagli dell’applicazione
+        associata, né delle azioni associate ai <code>MenuItem</code>.
+    </p>
+    <p>Problema: gestire un insieme di comandi non conosciuti a priori. Le
+        istanze di <code>Menu</code>, infatti, non devono avere dipendenze con i
+        comandi. Ipotizziamo inoltre che l’azione associata ad un
+        <code>MenuItem</code> possa cambiare a runtime.
+    </p>
+    <h2 id="alcune-soluzioni-non-ideali">Alcune soluzioni non ideali</h2>
+    <h3 id="soluzione-1">Soluzione 1</h3>
+    <pre>
+        <code>
+            class Menu {
+                MyApplicationDocument document;
+            
+                public Menu(MyApplicationDocument document) {
+                    this.document = document;
+                }
+            
+                public void copy() {
+                    // Code
+                }
+            
+                public void paste() {
+                    // Code
+                }
+            
+                public void new() {
+                    // Code
+                }
+            }
+        </code>
+    </pre>
+    <h3 id="soluzione-2">Soluzione 2</h3>
+    <pre>
+        <code>
+            class Menu {
+                List&lt;MenuItem&gt; items = new ArrayList<>();
+                public void addMenuItem(MenuItem a) {
+                    // Code
+                }
+            }
+            
+            class MenuItem {
+                MyApplicationDocument document;
+            
+                public void clicked() {
+                    // Code
+                }
+            }
+        </code>
+    </pre>
+    <h2 id="obiettivi">Obiettivi</h2>
+    <p>Lo scopo da raggiungere è quello di definire un’interfaccia
+        <code>Command</code> che contenga, nel modo più semplice possibile, un
+        solo metodo <code>execute</code>.
+    </p>
+    <p><code>MenuItem</code> ha un riferimento ad un oggetto di tipo
+        <code>Command</code>.
+    </p>
+    <p>L’azione da compiere diventa in questo modo completamente slegata
+        dagli oggetti che la usano.</p>
+    <h2 id="struttura">Struttura</h2>
+    <img src="../src/img/command-1.png" alt="Struttura">
+    <h2 id="esempio">Esempio</h2>
+    <img src="../src/img/command-2.png" alt="Esempio 1">
+    <br>
+    <img src="../src/img/command-3.png" alt="Esempio 2">
+    <br>
+    <img src="../src/img/command-4.png" alt="Esempio 3">
+    <pre>
+        <code>
+            interface Command {
+                void execute();
+            }
+            
+            class PasteCommand implements Command {
+                private Document doc;
+                public PasteCommand(Document doc) { this.doc = doc; }
+                public void execute() {
+                    // Code
+                }
+            }
+            
+            class Menu {
+                List&lt;MenuItem&gt; items = new ArrayList&lt;&gt;();
+                public void addMenuItem(MenuItem a) {
+                    // Code
+                }
+            }
+            
+            class MenuItem {
+                Command command;
+                
+                public void setCommand(Command cmd) {
+                    this.command = cmd;
+                }
+            
+                public void clicked() { command.execute(); }
+            }
+        </code>
+    </pre>
+
+    <p id="hometext"><a href="../index.html" id="homebutton"><span>Ritorna alla Home</span></a></p>
+
+</body>
+
+</html>
